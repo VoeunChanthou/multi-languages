@@ -1,0 +1,1698 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Korean Everyday Phrasebook</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+KR:wght@400;700&display=swap">
+<style>
+/* Layout: tiled header band, then a two-column study desk (category rail + phrase list) that stacks on phones. Azulejo cobalt on cool paper, marigold for progress. */
+:root{
+  --paper:#f4f6fb; --card:#ffffff; --ink:#141a2e; --muted:#5a6383; --line:#dde2ef;
+  --cobalt:#1d3fa3; --cobalt-soft:#e6ecfb; --marigold:#e9a514; --marigold-ink:#3b2a00;
+  --ok:#1f7a4d; --ok-soft:#e2f4ea;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --native:"Noto Sans KR",var(--body);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0d1222; --card:#151c31; --ink:#e7ebf7; --muted:#9aa4c4; --line:#263051;
+  --cobalt:#93acff; --cobalt-soft:#1d2849; --marigold:#f2b940; --marigold-ink:#2b1f00;
+  --ok:#6fd39e; --ok-soft:#163626; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --paper:#0d1222; --card:#151c31; --ink:#e7ebf7; --muted:#9aa4c4; --line:#263051;
+  --cobalt:#93acff; --cobalt-soft:#1d2849; --marigold:#f2b940; --marigold-ink:#2b1f00;
+  --ok:#6fd39e; --ok-soft:#163626; color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--marigold);outline-offset:2px;border-radius:6px}
+
+/* Header band with a tile motif */
+.band{background:var(--cobalt-soft);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.band::after{content:"";position:absolute;right:-40px;top:-40px;width:340px;height:340px;opacity:.55;pointer-events:none;
+  background:
+   radial-gradient(circle at 50% 50%, transparent 17px, var(--cobalt) 18px, var(--cobalt) 20px, transparent 21px) 0 0/56px 56px,
+   linear-gradient(45deg, transparent 46%, var(--cobalt) 47%, var(--cobalt) 53%, transparent 54%) 0 0/56px 56px;
+  -webkit-mask:radial-gradient(circle at 70% 30%, #000 30%, transparent 72%);mask:radial-gradient(circle at 70% 30%, #000 30%, transparent 72%)}
+.band .wrap{padding-block:36px 28px;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cobalt);margin:0 0 6px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1;margin:0 0 12px;letter-spacing:-.02em;text-wrap:balance}
+h1 .inv{color:var(--cobalt)}
+.lede{max-width:62ch;margin:0;color:var(--muted);font-size:1.05rem}
+.stats{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px;align-items:center}
+.stat{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.stat b{font-family:var(--display);font-size:1.5rem;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:6px}
+.meter{flex:1 1 220px;max-width:340px;height:10px;border-radius:99px;background:var(--card);border:1px solid var(--line);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--marigold);width:0;transition:width .4s}
+
+/* Pronunciation key */
+.key{margin:22px 0 0;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.key summary{cursor:pointer;padding:14px 18px;font-family:var(--display);font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.key summary::-webkit-details-marker{display:none}
+.key summary span{font-family:var(--body);font-weight:400;color:var(--muted);font-size:.9rem}
+.keybody{padding:0 18px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px 22px}
+.k{display:grid;grid-template-columns:74px 1fr;gap:8px;align-items:baseline;font-size:.93rem;min-width:0}
+.k code{font-family:var(--mono);font-weight:600;color:var(--cobalt);font-size:.95rem}
+.keynote{grid-column:1/-1;font-size:.92rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin:4px 0 0}
+.keynote b{color:var(--ink)}
+
+/* Toolbar */
+.toolbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.toolbar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-block:12px}
+.search{flex:1 1 240px;min-width:0;position:relative}
+.search input{width:100%;padding:11px 14px 11px 40px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.seg button{border:0;background:transparent;padding:9px 14px;font-weight:700;font-size:.92rem;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--cobalt);color:var(--card)}
+.voicenote{font-size:.82rem;color:var(--muted);width:100%;margin:0}
+
+/* Main grid */
+.desk{display:grid;grid-template-columns:250px minmax(0,1fr);gap:28px;padding-block:24px 60px}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);align-self:start;max-height:calc(100vh - 100px);overflow:auto;display:flex;flex-direction:column;gap:2px;padding-right:4px}
+.rail button{display:flex;justify-content:space-between;gap:8px;align-items:center;text-align:left;border:0;background:transparent;padding:8px 10px;border-radius:8px;font-size:.93rem;color:var(--ink)}
+.rail button:hover{background:var(--cobalt-soft)}
+.rail button[aria-current="true"]{background:var(--cobalt);color:var(--card)}
+.rail button[aria-current="true"] .ct{color:var(--card);opacity:.85}
+.ct{font-family:var(--mono);font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.railhead{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:4px 10px 8px}
+
+main{min-width:0}
+.sect{margin:0 0 30px}
+.secthead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:4px}
+.secthead h2{font-family:var(--display);font-weight:800;font-size:1.5rem;margin:0;letter-spacing:-.01em}
+.secthead .es{font-family:var(--display);font-weight:500;color:var(--cobalt);font-size:1.05rem}
+.secthead .ct{font-size:.8rem}
+
+.row{display:grid;grid-template-columns:40px minmax(0,1.25fr) minmax(0,1fr) 36px;gap:12px;align-items:center;padding:11px 4px;border-bottom:1px solid var(--line)}
+.row.done .sp{color:var(--muted)}
+.say,.chk{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;color:var(--cobalt);padding:0}
+.say:hover{background:var(--cobalt);color:var(--card);border-color:var(--cobalt)}
+.say.playing{background:var(--marigold);color:var(--marigold-ink);border-color:var(--marigold)}
+.chk{color:var(--muted)}
+.chk[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:var(--card)}
+.sp{font-family:var(--native);font-weight:700;font-size:1.08rem;line-height:1.35;overflow-wrap:anywhere}
+.rom{font-size:.92rem;color:var(--cobalt);margin-top:1px;overflow-wrap:anywhere}
+.card .q[lang]{font-family:var(--native)}
+.card .a .rom{font-size:1.05rem}
+.pr{font-family:var(--mono);font-size:.86rem;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
+.pr b{color:var(--cobalt);font-weight:600}
+.en{color:var(--ink);font-size:.97rem;overflow-wrap:anywhere}
+.en .tag{display:inline-block;font-family:var(--mono);font-size:.7rem;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 5px;margin-left:6px;vertical-align:1px}
+.empty{padding:40px 0;color:var(--muted);text-align:center}
+mark{background:var(--marigold);color:var(--marigold-ink);border-radius:3px;padding:0 1px}
+
+/* Practice */
+.practice{max-width:640px;margin:0 auto}
+.pinfo{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px;color:var(--muted);font-size:.92rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 26px;min-height:270px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;box-shadow:0 10px 30px -18px rgba(20,26,46,.35)}
+.card .lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.card .q{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.15;text-wrap:balance;overflow-wrap:anywhere}
+.card .a{display:flex;flex-direction:column;gap:6px;align-items:center;border-top:1px dashed var(--line);padding-top:14px;margin-top:6px;width:100%}
+.card .a .sp{font-size:1.35rem}
+.card .a .pr{font-size:1rem}
+.pbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:11px 18px;font-weight:700}
+.btn.pri{background:var(--cobalt);border-color:var(--cobalt);color:var(--card)}
+.btn.good{background:var(--ok);border-color:var(--ok);color:var(--card)}
+.tip{margin-top:22px;font-size:.92rem;color:var(--muted);text-align:center}
+
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer .wrap{padding-block:22px 40px}
+
+@media (max-width:820px){
+  .desk{grid-template-columns:minmax(0,1fr);gap:14px;padding-top:14px}
+  .rail{position:static;max-height:none;flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:6px;margin:0 -4px}
+  .railhead{display:none}
+  .rail button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);white-space:nowrap}
+  .row{grid-template-columns:40px minmax(0,1fr) 36px;row-gap:4px}
+  .row .en{grid-column:2/3;grid-row:2}
+  .row .chk{grid-row:1/3;grid-column:3}
+  .row .say{grid-row:1/3}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* Shared site navigation and footer */
+.site-nav{position:relative;z-index:6;background:var(--card);border-bottom:1px solid var(--line)}.site-nav-inner{max-width:1180px;margin:auto;padding:10px 16px;min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:18px}.site-brand{display:flex;align-items:center;gap:9px;color:var(--ink);font-family:var(--display);font-weight:800;text-decoration:none;white-space:nowrap}.site-mark{width:34px;height:34px;border-radius:10px;background:var(--cobalt);color:white;display:grid;place-items:center;font-family:var(--mono)}.site-links{display:flex;gap:6px;flex-wrap:wrap}.site-links a{padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:.9rem}.site-links a:hover,.site-links a:focus-visible{background:var(--cobalt-soft);color:var(--cobalt)}.site-nav a:focus-visible{outline:3px solid var(--marigold);outline-offset:2px}.site-copyright{display:block;margin-top:8px;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+@media(max-width:620px){.site-nav-inner{align-items:flex-start;flex-direction:column;gap:8px}.site-links{width:100%;overflow-x:auto;flex-wrap:nowrap}.site-links a{white-space:nowrap} .band .wrap{padding-top:28px}}</style>
+
+<nav class="site-nav" aria-label="Main navigation"><div class="site-nav-inner"><a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true">言</span>Multi-Language</a><div class="site-links"><a href="index.html">Home</a><a href="Hablemos Phrasebook.html" lang="es">Español</a><a href="Parlons Phrasebook.html" lang="fr">Français</a><a href="Korean Everyday Phrasebook.html" lang="ko">한국어</a></div></div></nav><header class="band">
+  <div class="wrap">
+    <p class="eyebrow">Korean for beginners · 초보자를 위한 한국어</p>
+    <h1><span lang="ko">이야기해요.</span> <span class="inv">Let's talk.</span></h1>
+    <p class="lede">Over a thousand everyday words, phrases and sentences, each with a simple sound-it-out guide, in Hangul and romanization. Tap the speaker to hear it, say it out loud, then tick it off when it sticks.</p>
+    <div class="stats">
+      <span class="stat"><b id="total">0</b>entries</span>
+      <span class="stat"><b id="learnedN">0</b>learned</span>
+      <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+    </div>
+    <details class="key" open>
+      <summary>How to read the pronunciation <span>Hangul, then romanization in blue, then how it sounds</span></summary>
+      <div class="keybody">
+        <div class="k"><code>ah</code><span>ㅏ: as in “father”</span></div>
+        <div class="k"><code>uh</code><span>ㅓ: as in “up”, mouth open</span></div>
+        <div class="k"><code>oh</code><span>ㅗ: as in “go”, lips round</span></div>
+        <div class="k"><code>oo</code><span>ㅜ: as in “food”</span></div>
+        <div class="k"><code>eu</code><span>ㅡ: say “oo” without rounding your lips</span></div>
+        <div class="k"><code>ee</code><span>ㅣ: as in “see”</span></div>
+        <div class="k"><code>eh</code><span>ㅐ, ㅔ: as in “bed” (they sound the same today)</span></div>
+        <div class="k"><code>yah yo</code><span>ㅑ ㅛ ㅠ ㅕ: add a y in front</span></div>
+        <div class="k"><code>k t p ch</code><span>ㄱ ㄷ ㅂ ㅈ at the start: soft, almost g d b j</span></div>
+        <div class="k"><code>g d b j</code><span>the same letters between vowels</span></div>
+        <div class="k"><code>kk tt pp</code><span>ㄲ ㄸ ㅃ ㅆ ㅉ: tense, short, no puff of air</span></div>
+        <div class="k"><code>r / l</code><span>ㄹ: a light r between vowels, l at the end</span></div>
+        <div class="k"><code>ng</code><span>ㅇ at the end of a syllable: as in “sing”</span></div>
+        <div class="k"><code>—</code><span>ㅇ at the start of a syllable is silent</span></div>
+        <p class="keynote"><b>Tip:</b> Korean has no strong stress, so say every syllable evenly. The sound guide shows how words really sound when they join together, which can differ from the spelling (감사합니다 is said kahm-sah-hahm-nee-dah). Sentences ending in <b>-요</b> are polite and safe to use with anyone. Items marked <b>(casual)</b> are only for close friends and younger people.</p>
+      </div>
+    </details>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <label class="search" for="q">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search Korean, romanization or English, e.g. “water” or “gamsa”" autocomplete="off">
+    </label>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mBrowse" aria-pressed="true">Browse</button>
+      <button id="mPractice" aria-pressed="false">Practice</button>
+    </div>
+    <div class="seg" role="group" aria-label="Speaking speed">
+      <button id="sNormal" aria-pressed="true">Normal</button>
+      <button id="sSlow" aria-pressed="false">Slow</button>
+    </div>
+    <p class="voicenote" id="voicenote" hidden></p>
+  </div>
+</div>
+
+<div class="wrap desk">
+  <nav class="rail" id="rail" aria-label="Topics"></nav>
+  <main id="main"></main>
+</div>
+
+<footer><div class="wrap">Study plan: learn one topic a day, starting with Greetings. Say every phrase out loud three times.  Your ticks are saved in this browser only.<span class="site-copyright">© 2026 · by chanthou</span></div></footer>
+<script>
+const L={lang:"ko",name:"Korean",speech:"ko-KR",pref:/^ko/i,any:/^ko/i,store:"phrasebook-ko",welldone:"잘했어요! Well done."};
+const CATS=[];function C(id,name,es,txt){CATS.push({id,name,es,items:txt.trim().split("\n").filter(Boolean).map(l=>{const f=l.split("|").map(x=>x.trim());return f.length>=4?{s:f[0],r:f[1],p:f[2],e:f[3]}:{s:f[0],p:f[1]||"",e:f[2]||""};})});}
+C("greet","Greetings & Courtesy","인사",`
+안녕하세요|annyeonghaseyo|ahn-nyuhng-hah-seh-yo|Hello (polite, any time of day)
+안녕하십니까|annyeonghasimnikka|ahn-nyuhng-hah-sheem-nee-kkah|Hello (very formal)
+안녕|annyeong|ahn-nyuhng|Hi / Bye (casual)
+안녕히 가세요|annyeonghi gaseyo|ahn-nyuhng-hee kah-seh-yo|Goodbye (to someone who is leaving)
+안녕히 계세요|annyeonghi gyeseyo|ahn-nyuhng-hee kyeh-seh-yo|Goodbye (when you leave and the other person stays)
+안녕히 주무세요|annyeonghi jumuseyo|ahn-nyuhng-hee choo-moo-seh-yo|Good night (polite, to elders)
+잘 자요|jal jayo|chahl chah-yo|Good night / Sleep well
+좋은 아침이에요|joeun achimieyo|choh-eun ah-chee-mee-eh-yo|Good morning
+반가워요|bangawoyo|pahn-gah-wuh-yo|Nice to see you
+만나서 반가워요|mannaseo bangawoyo|mahn-nah-suh pahn-gah-wuh-yo|Nice to meet you
+만나서 반갑습니다|mannaseo bangapseumnida|mahn-nah-suh pahn-gahp-sseum-nee-dah|Nice to meet you. (formal)
+처음 뵙겠습니다|cheoeum boepgetseumnida|chuh-eum pwehp-kket-sseum-nee-dah|How do you do? (formal, first meeting)
+잘 지냈어요?|jal jinaesseoyo|chahl chee-neh-ssuh-yo|How have you been?
+잘 지내요?|jal jinaeyo|chahl chee-neh-yo|How are you doing?
+네, 잘 지내요.|ne jal jinaeyo|neh chahl chee-neh-yo|Yes, I'm doing well.
+어떻게 지내세요?|eotteoke jinaeseyo|uh-ttuh-keh chee-neh-seh-yo|How are you doing? (polite)
+오랜만이에요|oraenmanieyo|oh-rehn-mah-nee-eh-yo|Long time no see
+감사합니다|gamsahamnida|kahm-sah-hahm-nee-dah|Thank you. (formal)
+고맙습니다|gomapseumnida|koh-mahp-sseum-nee-dah|Thank you. (formal)
+고마워요|gomawoyo|koh-mah-wuh-yo|Thanks. (polite, friendly)
+고마워|gomawo|koh-mah-wuh|Thanks. (casual)
+정말 감사합니다|jeongmal gamsahamnida|chuhng-mahl kahm-sah-hahm-nee-dah|Thank you very much.
+천만에요|cheonmaneyo|chuhn-mah-neh-yo|You're welcome.
+아니에요|anieyo|ah-nee-eh-yo|Not at all / It's nothing (reply to thanks)
+죄송합니다|joesonghamnida|chweh-sohng-hahm-nee-dah|I'm sorry. (formal)
+미안해요|mianhaeyo|mee-ahn-heh-yo|I'm sorry. (polite)
+미안해|mianhae|mee-ahn-heh|Sorry. (casual)
+괜찮아요|gwaenchanayo|kwehn-chah-nah-yo|It's okay / I'm fine / No, thanks
+저기요|jeogiyo|chuh-gee-yo|Excuse me (to get attention)
+실례합니다|sillyehamnida|sheel-lyeh-hahm-nee-dah|Excuse me (polite, to interrupt)
+잠깐만요|jamkkanmanyo|chahm-kkahn-mahn-nyo|Just a moment / Excuse me (to get past)
+어서 오세요|eoseo oseyo|uh-suh oh-seh-yo|Welcome (you hear this in shops)
+환영합니다|hwanyeonghamnida|hwah-nyuhng-hahm-nee-dah|Welcome. (formal)
+잘 부탁드립니다|jal butakdeurimnida|chahl poo-tahk-tteu-reem-nee-dah|I look forward to working with you. (formal, when meeting)
+잘 부탁해요|jal butakaeyo|chahl poo-tah-keh-yo|Please take good care of me / I'm counting on you
+또 만나요|tto mannayo|ttoh mahn-nah-yo|See you again
+다음에 봐요|daeume bwayo|tah-eu-meh pwah-yo|See you next time
+내일 봐요|naeil bwayo|neh-eel pwah-yo|See you tomorrow
+나중에 봐요|najunge bwayo|nah-joong-eh pwah-yo|See you later
+좋은 하루 보내세요|joeun haru bonaeseyo|choh-eun hah-roo poh-neh-seh-yo|Have a nice day
+좋은 주말 보내세요|joeun jumal bonaeseyo|choh-eun choo-mahl poh-neh-seh-yo|Have a nice weekend
+수고하셨습니다|sugohasyeotseumnida|soo-goh-hah-shuht-sseum-nee-dah|Thank you for your hard work (said at the end of work)
+수고하세요|sugohaseyo|soo-goh-hah-seh-yo|Keep up the good work (said when leaving a shop or office)
+잘 먹겠습니다|jal meokgetseumnida|chahl muhk-kket-sseum-nee-dah|Thank you for the food (said before eating)
+잘 먹었습니다|jal meogeotseumnida|chahl muh-guht-sseum-nee-dah|Thank you for the meal (said after eating)
+축하해요|chukahaeyo|choo-kah-heh-yo|Congratulations
+생일 축하해요|saengil chukahaeyo|sehng-eel choo-kah-heh-yo|Happy birthday
+새해 복 많이 받으세요|saehae bok mani badeuseyo|seh-heh pohng mah-nee pah-deu-seh-yo|Happy New Year
+메리 크리스마스|meri keuriseumaseu|meh-ree keu-ree-seu-mah-seu|Merry Christmas
+조심히 가세요|josimhi gaseyo|choh-sheem-hee kah-seh-yo|Get home safely
+들어가세요|deureogaseyo|teu-ruh-gah-seh-yo|Take care (polite goodbye, lit. go on in)
+건강하세요|geonganghaseyo|kuhn-gahng-hah-seh-yo|Stay healthy
+힘내세요|himnaeseyo|heem-neh-seh-yo|Cheer up / Hang in there
+식사하셨어요?|siksahasyeosseoyo|sheek-ssah-hah-shuh-ssuh-yo|Have you eaten? (a common friendly greeting)
+`);
+
+C("intro","Introductions","자기소개",`
+저는 …이에요|jeoneun …ieyo|chuh-neun …ee-eh-yo|I am … (after a name ending in a consonant)
+저는 …예요|jeoneun …yeyo|chuh-neun …yeh-yo|I am … (after a name ending in a vowel)
+제 이름은 …이에요|je ireumeun …ieyo|cheh ee-reu-meun …ee-eh-yo|My name is …
+이름이 뭐예요?|ireumi mwoyeyo|ee-reu-mee mwuh-yeh-yo|What's your name?
+성함이 어떻게 되세요?|seonghami eotteoke doeseyo|suhng-hah-mee uh-ttuh-keh tweh-seh-yo|May I ask your name? (very polite)
+저는 캄보디아에서 왔어요|jeoneun kambodiaeseo wasseoyo|chuh-neun kahm-boh-dee-ah-eh-suh wah-ssuh-yo|I'm from Cambodia
+저는 캄보디아 사람이에요|jeoneun kambodia saramieyo|chuh-neun kahm-boh-dee-ah sah-rah-mee-eh-yo|I'm Cambodian
+어디에서 왔어요?|eodieseo wasseoyo|uh-dee-eh-suh wah-ssuh-yo|Where are you from?
+어느 나라 사람이에요?|eoneu nara saramieyo|uh-neu nah-rah sah-rah-mee-eh-yo|What country are you from?
+캄보디아|kambodia|kahm-boh-dee-ah|Cambodia
+한국|hanguk|hahn-gook|Korea
+한국 사람|hanguk saram|hahn-gook ssah-rahm|Korean (person)
+외국인|oegugin|weh-goo-geen|foreigner
+프놈펜|peunompen|peu-nohm-pehn|Phnom Penh
+고향이 어디예요?|gohyangi eodiyeyo|koh-hyahng-ee uh-dee-yeh-yo|Where is your hometown?
+제 고향은 시엠립이에요|je gohyangeun siemribieyo|cheh koh-hyahng-eun shee-ehm-nee-bee-eh-yo|My hometown is Siem Reap
+저는 서울에 살아요|jeoneun seoure sarayo|chuh-neun suh-oo-reh sah-rah-yo|I live in Seoul
+어디에 살아요?|eodie sarayo|uh-dee-eh sah-rah-yo|Where do you live?
+영어하고 크메르어를 해요|yeongeohago keumereueoreul haeyo|yuhng-uh-hah-goh keu-meh-reu-uh-reul heh-yo|I speak English and Khmer
+크메르어|keumereueo|keu-meh-reu-uh|Khmer (language)
+캄보디아어|kambodiaeo|kahm-boh-dee-ah-uh|Cambodian (another name for Khmer)
+영어|yeongeo|yuhng-uh|English (language)
+한국어|hangugeo|hahn-goo-guh|Korean (language)
+한국말|hangungmal|hahn-goong-mahl|Korean (language, everyday word)
+한국어를 배우고 있어요|hangugeoreul baeugo isseoyo|hahn-goo-guh-reul peh-oo-goh ee-ssuh-yo|I'm learning Korean
+한국어가 어려워요|hangugeoga eoryeowoyo|hahn-goo-guh-gah uh-ryuh-wuh-yo|Korean is difficult
+한국어 잘하시네요|hangugeo jalhasineyo|hahn-goo-guh chah-rah-shee-neh-yo|You speak Korean well! (a compliment you will hear)
+아직 잘 못해요|ajik jal motaeyo|ah-jeek chahl moh-teh-yo|I'm not good at it yet
+몇 살이에요?|myeot sarieyo|myuht ssah-ree-eh-yo|How old are you?
+나이가 어떻게 되세요?|naiga eotteoke doeseyo|nah-ee-gah uh-ttuh-keh tweh-seh-yo|May I ask your age? (polite)
+저는 서른 살이에요|jeoneun seoreun sarieyo|chuh-neun suh-reun sah-ree-eh-yo|I'm 30 years old
+생일이 언제예요?|saengiri eonjeyeyo|sehng-ee-ree uhn-jeh-yeh-yo|When is your birthday?
+무슨 일 하세요?|museun il haseyo|moo-seun eel hah-seh-yo|What do you do (for work)?
+직업이 뭐예요?|jigeobi mwoyeyo|chee-guh-bee mwuh-yeh-yo|What's your job?
+저는 학생이에요|jeoneun haksaengieyo|chuh-neun hahk-ssehng-ee-eh-yo|I'm a student
+저는 회사원이에요|jeoneun hoesawonieyo|chuh-neun hweh-sah-wuh-nee-eh-yo|I'm an office worker
+저는 공장에서 일해요|jeoneun gongjangeseo ilhaeyo|chuh-neun kohng-jahng-eh-suh ee-reh-yo|I work in a factory
+저는 …에서 일해요|jeoneun …eseo ilhaeyo|chuh-neun …eh-suh ee-reh-yo|I work at …
+일하러 왔어요|ilhareo wasseoyo|ee-rah-ruh wah-ssuh-yo|I came (to Korea) to work
+공부하러 왔어요|gongbuhareo wasseoyo|kohng-boo-hah-ruh wah-ssuh-yo|I came to study
+여행하러 왔어요|yeohaenghareo wasseoyo|yuh-hehng-hah-ruh wah-ssuh-yo|I came to travel
+한국에 온 지 일 년 됐어요|hanguge on ji il nyeon dwaesseoyo|hahn-goo-geh ohn jee eel lyuhn tweh-ssuh-yo|I've been in Korea for one year
+한국에 얼마나 있었어요?|hanguge eolmana isseosseoyo|hahn-goo-geh uhl-mah-nah ee-ssuh-ssuh-yo|How long have you been in Korea?
+저는 결혼했어요|jeoneun gyeolhonhaesseoyo|chuh-neun kyuh-roh-neh-ssuh-yo|I'm married
+저는 미혼이에요|jeoneun mihonieyo|chuh-neun mee-hoh-nee-eh-yo|I'm single
+결혼하셨어요?|gyeolhonhasyeosseoyo|kyuh-roh-nah-shuh-ssuh-yo|Are you married? (polite)
+아이가 있어요?|aiga isseoyo|ah-ee-gah ee-ssuh-yo|Do you have children?
+아이가 두 명 있어요|aiga du myeong isseoyo|ah-ee-gah too myuhng ee-ssuh-yo|I have two children
+취미가 뭐예요?|chwimiga mwoyeyo|chwee-mee-gah mwuh-yeh-yo|What's your hobby?
+제 취미는 요리예요|je chwimineun yoriyeyo|cheh chwee-mee-neun yo-ree-yeh-yo|My hobby is cooking
+저는 한국 음식을 좋아해요|jeoneun hanguk eumsigeul joahaeyo|chuh-neun hahn-gook eum-shee-geul choh-ah-heh-yo|I like Korean food
+저는 불교 신자예요|jeoneun bulgyo sinjayeyo|chuh-neun pool-gyo sheen-jah-yeh-yo|I'm a Buddhist
+전화번호가 뭐예요?|jeonhwabeonhoga mwoyeyo|chuh-nwah-buhn-hoh-gah mwuh-yeh-yo|What's your phone number?
+카카오톡 해요?|kakaotok haeyo|kah-kah-oh-tohk heh-yo|Do you use KakaoTalk? (Korea's main chat app)
+제 친구예요|je chinguyeyo|cheh cheen-goo-yeh-yo|This is my friend
+이분은 …씨예요|ibuneun …ssiyeyo|ee-boo-neun …ssee-yeh-yo|This is Mr./Ms. … (polite)
+…씨|…ssi|…ssee|Mr./Ms. … (added after a person's name)
+`);
+
+C("understand","Understanding","이해하기",`
+이해해요|ihaehaeyo|ee-heh-heh-yo|I understand
+이해 못 했어요|ihae mot haesseoyo|ee-heh moh-teh-ssuh-yo|I didn't understand
+알겠어요|algesseoyo|ahl-geh-ssuh-yo|I see / Got it
+알겠습니다|algetseumnida|ahl-geht-sseum-nee-dah|Understood. (formal, e.g. to a boss)
+알아요|arayo|ah-rah-yo|I know
+몰라요|mollayo|mohl-lah-yo|I don't know
+잘 모르겠어요|jal moreugesseoyo|chahl moh-reu-geh-ssuh-yo|I'm not sure / I don't really know
+알아들었어요|aradeureosseoyo|ah-rah-deu-ruh-ssuh-yo|I understood (what you said)
+못 알아들었어요|mot aradeureosseoyo|moh-dah-rah-deu-ruh-ssuh-yo|I didn't catch that
+무슨 말인지 모르겠어요|museun marinji moreugesseoyo|moo-seun mah-reen-jee moh-reu-geh-ssuh-yo|I don't understand what you mean
+뭐라고요?|mworagoyo|mwuh-rah-goh-yo|Sorry, what did you say?
+다시 한번 말해 주세요|dasi hanbeon malhae juseyo|tah-shee hahn-buhn mah-reh choo-seh-yo|Please say it again
+한 번 더요|han beon deoyo|hahn buhn tuh-yo|One more time, please
+천천히 말해 주세요|cheoncheonhi malhae juseyo|chuhn-chuh-nee mah-reh choo-seh-yo|Please speak slowly
+조금 더 천천히요|jogeum deo cheoncheonhiyo|choh-geum tuh chuhn-chuh-nee-yo|A little slower, please
+크게 말해 주세요|keuge malhae juseyo|keu-geh mah-reh choo-seh-yo|Please speak louder
+쉬운 말로 해 주세요|swiun mallo hae juseyo|shwee-oon mahl-loh heh choo-seh-yo|Please use easy words
+영어 할 수 있어요?|yeongeo hal su isseoyo|yuhng-uh hahl ssoo ee-ssuh-yo|Can you speak English?
+영어 하는 사람 있어요?|yeongeo haneun saram isseoyo|yuhng-uh hah-neun sah-rahm ee-ssuh-yo|Is there anyone who speaks English?
+한국어를 잘 못해요|hangugeoreul jal motaeyo|hahn-goo-guh-reul chahl moh-teh-yo|I don't speak Korean well
+한국어를 조금 해요|hangugeoreul jogeum haeyo|hahn-goo-guh-reul choh-geum heh-yo|I speak a little Korean
+…이 한국어로 뭐예요?|…i hangugeoro mwoyeyo|…ee hahn-goo-guh-roh mwuh-yeh-yo|What is … in Korean?
+이건 한국어로 뭐라고 해요?|igeon hangugeoro mworago haeyo|ee-guhn hahn-goo-guh-roh mwuh-rah-goh heh-yo|What do you call this in Korean?
+무슨 뜻이에요?|museun tteusieyo|moo-seun tteu-shee-eh-yo|What does it mean?
+이 단어는 무슨 뜻이에요?|i daneoneun museun tteusieyo|ee tah-nuh-neun moo-seun tteu-shee-eh-yo|What does this word mean?
+그게 무슨 말이에요?|geuge museun marieyo|keu-geh moo-seun mah-ree-eh-yo|What do you mean by that?
+어떻게 읽어요?|eotteoke ilgeoyo|uh-ttuh-keh eel-guh-yo|How do you read this?
+어떻게 발음해요?|eotteoke bareumhaeyo|uh-ttuh-keh pah-reum-heh-yo|How do you pronounce it?
+써 주세요|sseo juseyo|ssuh choo-seh-yo|Please write it down
+여기에 써 주세요|yeogie sseo juseyo|yuh-gee-eh ssuh choo-seh-yo|Please write it here
+문자로 보내 주세요|munjaro bonae juseyo|moon-jjah-roh poh-neh choo-seh-yo|Please send it by text message
+그림으로 보여 주세요|geurimeuro boyeo juseyo|keu-ree-meu-roh poh-yuh choo-seh-yo|Please show me with a picture
+번역기 써도 돼요?|beonyeokgi sseodo dwaeyo|puh-nyuhk-kkee ssuh-doh tweh-yo|Can I use a translation app?
+맞아요|majayo|mah-jah-yo|That's right
+틀렸어요|teullyeosseoyo|teul-lyuh-ssuh-yo|That's wrong
+아, 그렇구나|a geureokuna|ah keu-ruh-koo-nah|Oh, I see. (casual, to yourself)
+그래요?|geuraeyo|keu-reh-yo|Really? / Is that so?
+정말요?|jeongmallyo|chuhng-mahl-lyo|Really?
+생각이 안 나요|saenggagi an nayo|sehng-gah-gee ahn nah-yo|I can't remember
+`);
+
+C("questions","Questions","질문",`
+뭐예요?|mwoyeyo|mwuh-yeh-yo|What is it?
+이게 뭐예요?|ige mwoyeyo|ee-geh mwuh-yeh-yo|What is this?
+저게 뭐예요?|jeoge mwoyeyo|chuh-geh mwuh-yeh-yo|What is that (over there)?
+누구예요?|nuguyeyo|noo-goo-yeh-yo|Who is it?
+누구세요?|nuguseyo|noo-goo-seh-yo|Who is it? (polite, e.g. at the door)
+누구 거예요?|nugu geoyeyo|noo-goo kkuh-yeh-yo|Whose is it?
+어디예요?|eodiyeyo|uh-dee-yeh-yo|Where is it?
+화장실이 어디예요?|hwajangsiri eodiyeyo|hwah-jahng-shee-ree uh-dee-yeh-yo|Where is the bathroom?
+어디 가요?|eodi gayo|uh-dee kah-yo|Where are you going?
+언제예요?|eonjeyeyo|uhn-jeh-yeh-yo|When is it?
+언제 와요?|eonje wayo|uhn-jeh wah-yo|When are you coming?
+언제 시작해요?|eonje sijakaeyo|uhn-jeh shee-jah-keh-yo|When does it start?
+언제 끝나요?|eonje kkeunnayo|uhn-jeh kkeun-nah-yo|When does it end?
+왜요?|waeyo|weh-yo|Why?
+왜 그래요?|wae geuraeyo|weh keu-reh-yo|What's wrong? / Why are you like that?
+무슨 일이에요?|museun irieyo|moo-seun ee-ree-eh-yo|What's going on? / What's the matter?
+어떻게 해요?|eotteoke haeyo|uh-ttuh-keh heh-yo|How do I do it? / What should I do?
+어때요?|eottaeyo|uh-tteh-yo|How is it? / How about it?
+이거 어때요?|igeo eottaeyo|ee-guh uh-tteh-yo|How about this one?
+어땠어요?|eottaesseoyo|uh-tteh-ssuh-yo|How was it?
+얼마나 걸려요?|eolmana geollyeoyo|uhl-mah-nah kuhl-lyuh-yo|How long does it take?
+몇 개예요?|myeot gaeyeyo|myuht kkeh-yeh-yo|How many (things)?
+몇 명이에요?|myeot myeongieyo|myuhn myuhng-ee-eh-yo|How many people?
+어느 거예요?|eoneu geoyeyo|uh-neu kuh-yeh-yo|Which one is it?
+어떤 거요?|eotteon geoyo|uh-ttuhn guh-yo|Which kind? / What kind?
+어느 쪽이에요?|eoneu jjogieyo|uh-neu jjoh-gee-eh-yo|Which way is it?
+뭐 해요?|mwo haeyo|mwuh heh-yo|What are you doing?
+뭐 먹을래요?|mwo meogeullaeyo|mwuh muh-geul-leh-yo|What do you want to eat?
+뭐가 좋아요?|mwoga joayo|mwuh-gah choh-ah-yo|Which is good? / What do you recommend?
+뭐 필요해요?|mwo piryohaeyo|mwuh pee-ryo-heh-yo|What do you need?
+뭐라고 했어요?|mworago haesseoyo|mwuh-rah-goh heh-ssuh-yo|What did you say?
+이거 맞아요?|igeo majayo|ee-guh mah-jah-yo|Is this right?
+괜찮으세요?|gwaenchaneuseyo|kwehn-chah-neu-seh-yo|Are you okay? (polite)
+물 있어요?|mul isseoyo|mool ee-ssuh-yo|Do you have water? / Is there water?
+시간 있어요?|sigan isseoyo|shee-gahn ee-ssuh-yo|Do you have time?
+같이 갈래요?|gachi gallaeyo|kah-chee kahl-leh-yo|Do you want to go together?
+도와줄 수 있어요?|dowajul su isseoyo|toh-wah-jool ssoo ee-ssuh-yo|Can you help me?
+해도 돼요?|haedo dwaeyo|heh-doh tweh-yo|Is it okay if I do it?
+여기 앉아도 돼요?|yeogi anjado dwaeyo|yuh-gee ahn-jah-doh tweh-yo|May I sit here?
+사진 찍어도 돼요?|sajin jjigeodo dwaeyo|sah-jeen jjee-guh-doh tweh-yo|May I take a photo?
+`);
+
+C("little","Little Words","기본 단어",`
+네|ne|neh|Yes
+예|ye|yeh|Yes (a little more formal)
+아니요|aniyo|ah-nee-yo|No
+응|eung|eung|Yeah (casual)
+아니|ani|ah-nee|No (casual)
+좋아요|joayo|choh-ah-yo|Okay / Sounds good / I like it
+물론이죠|mullonijyo|mool-loh-nee-jyo|Of course
+그리고|geurigo|keu-ree-goh|and (between sentences)
+…하고|…hago|…hah-goh|and / with (between nouns)
+…랑|…rang|…rahng|and / with (casual speech)
+그런데|geureonde|keu-ruhn-deh|but / by the way
+하지만|hajiman|hah-jee-mahn|but / however
+그래서|geuraeseo|keu-reh-suh|so / that's why
+그러면|geureomyeon|keu-ruh-myuhn|then / in that case
+그럼|geureom|keu-ruhm|well then / then
+또는|ttoneun|ttoh-neun|or
+아니면|animyeon|ah-nee-myuhn|or / otherwise
+왜냐하면|waenyahamyeon|weh-nyah-hah-myuhn|because
+이거|igeo|ee-guh|this (thing)
+그거|geugeo|keu-guh|that (thing near you)
+저거|jeogeo|chuh-guh|that (thing over there)
+여기|yeogi|yuh-gee|here
+거기|geogi|kuh-gee|there (near you)
+저기|jeogi|chuh-gee|over there
+저|jeo|chuh|I (polite)
+나|na|nah|I (casual)
+제|je|cheh|my (polite)
+우리|uri|oo-ree|we / our
+저희|jeohui|chuh-hee|we / our (humble, polite)
+당신|dangsin|tahng-sheen|you (careful: can sound rude; use the person's name or title instead)
+너|neo|nuh|you (casual, only for close friends or children)
+그 사람|geu saram|keu sah-rahm|he / she / that person
+그분|geubun|keu-boon|he / she (polite)
+다|da|tah|all / everything
+모두|modu|moh-doo|everyone / all
+아주|aju|ah-joo|very
+정말|jeongmal|chuhng-mahl|really / truly
+진짜|jinjja|cheen-jjah|really (casual)
+너무|neomu|nuh-moo|too / very
+조금|jogeum|choh-geum|a little
+좀|jom|chohm|a little / please (makes requests softer)
+많이|mani|mah-nee|a lot
+더|deo|tuh|more
+덜|deol|tuhl|less
+같이|gachi|kah-chee|together
+혼자|honja|hohn-jah|alone
+또|tto|ttoh|again / also
+다시|dasi|tah-shee|again
+…도|…do|…doh|also / too (after a noun)
+…만|…man|…mahn|only (after a noun)
+안|an|ahn|not (before a verb)
+못|mot|moht|cannot (before a verb)
+있어요|isseoyo|ee-ssuh-yo|There is / I have
+없어요|eopseoyo|uhp-ssuh-yo|There isn't / I don't have
+아마|ama|ah-mah|maybe / probably
+벌써|beolsseo|puhl-ssuh|already
+아직|ajik|ah-jeek|still / not yet
+빨리|ppalli|ppahl-lee|quickly
+천천히|cheoncheonhi|chuhn-chuh-nee|slowly
+아무것도|amugeotdo|ah-moo-guht-ttoh|nothing (with a negative verb)
+`);
+
+C("numbers","Numbers","숫자",`
+영|yeong|yuhng|zero
+공|gong|kohng|zero (in phone numbers)
+일|il|eel|one (Sino-Korean: used for dates, money, minutes, phone numbers)
+이|i|ee|two (Sino-Korean)
+삼|sam|sahm|three (Sino-Korean)
+사|sa|sah|four (Sino-Korean)
+오|o|oh|five (Sino-Korean)
+육|yuk|yook|six (Sino-Korean)
+칠|chil|cheel|seven (Sino-Korean)
+팔|pal|pahl|eight (Sino-Korean)
+구|gu|koo|nine (Sino-Korean)
+십|sip|sheep|ten (Sino-Korean)
+십일|sibil|shee-beel|eleven (Sino-Korean)
+십이|sibi|shee-bee|twelve (Sino-Korean)
+십오|sibo|shee-boh|fifteen (Sino-Korean)
+이십|isip|ee-sheep|twenty (Sino-Korean)
+삼십|samsip|sahm-sheep|thirty (Sino-Korean)
+사십|sasip|sah-sheep|forty (Sino-Korean)
+오십|osip|oh-sheep|fifty (Sino-Korean)
+육십|yuksip|yook-sseep|sixty (Sino-Korean)
+칠십|chilsip|cheel-sseep|seventy (Sino-Korean)
+팔십|palsip|pahl-sseep|eighty (Sino-Korean)
+구십|gusip|koo-sheep|ninety (Sino-Korean)
+백|baek|pehk|one hundred
+이백|ibaek|ee-behk|two hundred
+천|cheon|chuhn|one thousand
+오천|ocheon|oh-chuhn|five thousand
+만|man|mahn|ten thousand (Korean counts big numbers in units of 10,000)
+오만|oman|oh-mahn|fifty thousand
+십만|simman|sheem-mahn|one hundred thousand
+백만|baengman|pehng-mahn|one million
+하나|hana|hah-nah|one (native Korean: used for counting things, people, age, hours)
+둘|dul|tool|two (native Korean)
+셋|set|seht|three (native Korean)
+넷|net|neht|four (native Korean)
+다섯|daseot|tah-suht|five (native Korean)
+여섯|yeoseot|yuh-suht|six (native Korean)
+일곱|ilgop|eel-gohp|seven (native Korean)
+여덟|yeodeol|yuh-duhl|eight (native Korean)
+아홉|ahop|ah-hohp|nine (native Korean)
+열|yeol|yuhl|ten (native Korean)
+열하나|yeolhana|yuh-rah-nah|eleven (native Korean)
+열둘|yeoldul|yuhl-dool|twelve (native Korean)
+스물|seumul|seu-mool|twenty (native Korean)
+서른|seoreun|suh-reun|thirty (native Korean)
+마흔|maheun|mah-heun|forty (native Korean)
+쉰|swin|shween|fifty (native Korean)
+몇|myeot|myuht|how many / what number
+…개|…gae|…geh|(counter for things) e.g. 사과 세 개 = three apples
+한 개|han gae|hahn geh|one thing (하나 becomes 한 before a counter)
+두 개|du gae|too geh|two things (둘 becomes 두)
+세 개|se gae|seh geh|three things (셋 becomes 세)
+네 개|ne gae|neh geh|four things (넷 becomes 네)
+…명|…myeong|…myuhng|(counter for people)
+한 명|han myeong|hahn myuhng|one person
+두 명|du myeong|too myuhng|two people
+…살|…sal|…sahl|… years old (with native numbers)
+스무 살|seumu sal|seu-moo sahl|20 years old (스물 becomes 스무)
+…시|…si|…shee|… o'clock (with native numbers)
+한 시|han si|hahn shee|one o'clock
+…분|…bun|…boon|… minutes (with Sino-Korean numbers)
+십 분|sip bun|sheep ppoon|ten minutes
+…원|…won|…wuhn|… won (Korean money, with Sino-Korean numbers)
+천 원|cheon won|chuh-nwuhn|1,000 won
+만 원|man won|mah-nwuhn|10,000 won
+오만 원|oman won|oh-mah-nwuhn|50,000 won
+…번|…beon|…buhn|… times (native: 한 번 = once) / number … (Sino: 일 번 = number 1)
+한 번|han beon|hahn buhn|once / one time
+두 번|du beon|too buhn|twice
+일 번|il beon|eel buhn|number one
+첫 번째|cheot beonjjae|chuht ppuhn-jjeh|first
+두 번째|du beonjjae|too buhn-jjeh|second
+세 번째|se beonjjae|seh buhn-jjeh|third
+반|ban|pahn|half
+공일공|gongilgong|kohng-eel-gohng|010 (the start of every Korean mobile number)
+`);
+
+C("time","Time & Calendar","시간과 날짜",`
+지금|jigeum|chee-geum|now
+오늘|oneul|oh-neul|today
+내일|naeil|neh-eel|tomorrow
+어제|eoje|uh-jeh|yesterday
+모레|more|moh-reh|the day after tomorrow
+그저께|geujeokke|keu-juh-kkeh|the day before yesterday
+아침|achim|ah-cheem|morning / breakfast
+점심|jeomsim|chuhm-sheem|lunchtime / lunch
+저녁|jeonyeok|chuh-nyuhk|evening / dinner
+밤|bam|pahm|night
+오전|ojeon|oh-juhn|a.m. / morning
+오후|ohu|oh-hoo|p.m. / afternoon
+새벽|saebyeok|seh-byuhk|dawn / very early morning
+낮|nat|naht|daytime
+시간|sigan|shee-gahn|time / hour(s)
+초|cho|choh|second(s)
+몇 시예요?|myeot siyeyo|myuht ssee-yeh-yo|What time is it?
+세 시예요|se siyeyo|seh shee-yeh-yo|It's three o'clock
+세 시 반이에요|se si banieyo|seh shee pah-nee-eh-yo|It's half past three
+두 시 십오 분이에요|du si sibo bunieyo|too shee shee-boh boo-nee-eh-yo|It's 2:15
+열두 시|yeoldu si|yuhl-ttoo shee|twelve o'clock
+오후 세 시|ohu se si|oh-hoo seh shee|3 p.m.
+아침 일곱 시|achim ilgop si|ah-cheem eel-gohp ssee|7 in the morning
+몇 시에 만나요?|myeot sie mannayo|myuht ssee-eh mahn-nah-yo|What time shall we meet?
+…시에|…sie|…shee-eh|at … o'clock
+…시부터 …시까지|…sibuteo …sikkaji|…shee-boo-tuh …shee-kkah-jee|from … to … o'clock
+잠깐|jamkkan|chahm-kkahn|a moment
+일찍|iljjik|eel-jjeek|early
+늦게|neutge|neut-kkeh|late
+늦었어요|neujeosseoyo|neu-juh-ssuh-yo|I'm late / It's late
+늦어서 죄송해요|neujeoseo joesonghaeyo|neu-juh-suh chweh-sohng-heh-yo|Sorry I'm late
+곧|got|koht|soon
+나중에|najunge|nah-joong-eh|later
+먼저|meonjeo|muhn-juh|first / before (someone else)
+다음에|daeume|tah-eu-meh|next time
+아까|akka|ah-kkah|a little while ago
+요즘|yojeum|yo-jeum|these days
+항상|hangsang|hahng-sahng|always
+자주|jaju|chah-joo|often
+가끔|gakkeum|kah-kkeum|sometimes
+전혀|jeonhyeo|chuhn-hyuh|never / not at all (with a negative verb)
+매일|maeil|meh-eel|every day
+하루|haru|hah-roo|a day / one day
+일주일|iljuil|eel-joo-eel|one week
+이번 주|ibeon ju|ee-buhn jjoo|this week
+다음 주|daeum ju|tah-eum jjoo|next week
+지난주|jinanju|chee-nahn-joo|last week
+주말|jumal|choo-mahl|weekend
+평일|pyeongil|pyuhng-eel|weekday
+월요일|woryoil|wuh-ryo-eel|Monday
+화요일|hwayoil|hwah-yo-eel|Tuesday
+수요일|suyoil|soo-yo-eel|Wednesday
+목요일|mogyoil|moh-gyo-eel|Thursday
+금요일|geumyoil|keu-myo-eel|Friday
+토요일|toyoil|toh-yo-eel|Saturday
+일요일|iryoil|ee-ryo-eel|Sunday
+오늘 무슨 요일이에요?|oneul museun yoirieyo|oh-neul moo-seun yo-ee-ree-eh-yo|What day is it today?
+오늘 며칠이에요?|oneul myeochirieyo|oh-neul myuh-chee-ree-eh-yo|What's the date today?
+몇 월 며칠이에요?|myeot wol myeochirieyo|myuh-dwuhl myuh-chee-ree-eh-yo|What month and day is it?
+일월|irwol|ee-rwuhl|January
+이월|iwol|ee-wuhl|February
+삼월|samwol|sah-mwuhl|March
+사월|sawol|sah-wuhl|April
+오월|owol|oh-wuhl|May
+유월|yuwol|yoo-wuhl|June (not 육월)
+칠월|chirwol|chee-rwuhl|July
+팔월|parwol|pah-rwuhl|August
+구월|guwol|koo-wuhl|September
+시월|siwol|shee-wuhl|October (not 십월)
+십일월|sibirwol|shee-bee-rwuhl|November
+십이월|sibiwol|shee-bee-wuhl|December
+달|dal|tahl|month (also: moon)
+이번 달|ibeon dal|ee-buhn ttahl|this month
+다음 달|daeum dal|tah-eum ttahl|next month
+올해|olhae|oh-reh|this year
+작년|jangnyeon|chahng-nyuhn|last year
+내년|naenyeon|neh-nyuhn|next year
+생일|saengil|sehng-eel|birthday
+설날|seollal|suhl-lahl|Lunar New Year
+추석|chuseok|choo-suhk|Chuseok (Korean harvest festival)
+휴일|hyuil|hyoo-eel|holiday / day off
+시간이 없어요|sigani eopseoyo|shee-gah-nee uhp-ssuh-yo|I don't have time
+`);
+
+C("daily","Daily Life","일상생활",`
+아침 일곱 시에 일어나요|achim ilgop sie ireonayo|ah-cheem eel-gohp ssee-eh ee-ruh-nah-yo|I get up at 7 a.m.
+세수해요|sesuhaeyo|seh-soo-heh-yo|I wash my face
+이를 닦아요|ireul dakkayo|ee-reul tah-kkah-yo|I brush my teeth
+샤워해요|syawohaeyo|shah-wuh-heh-yo|I take a shower
+옷을 입어요|oseul ibeoyo|oh-seul ee-buh-yo|I get dressed
+아침을 먹어요|achimeul meogeoyo|ah-chee-meul muh-guh-yo|I eat breakfast
+커피를 마셔요|keopireul masyeoyo|kuh-pee-reul mah-shuh-yo|I drink coffee
+회사에 가요|hoesae gayo|hweh-sah-eh kah-yo|I go to work (to the company)
+버스를 타요|beoseureul tayo|puh-seu-reul tah-yo|I take the bus
+일해요|ilhaeyo|ee-reh-yo|I work
+점심을 먹어요|jeomsimeul meogeoyo|chuhm-shee-meul muh-guh-yo|I eat lunch
+쉬어요|swieoyo|shwee-uh-yo|I rest
+집에 가요|jibe gayo|chee-beh kah-yo|I go home
+집에 와요|jibe wayo|chee-beh wah-yo|I come home
+장을 봐요|jangeul bwayo|chahng-eul pwah-yo|I go grocery shopping
+요리해요|yorihaeyo|yo-ree-heh-yo|I cook
+저녁을 먹어요|jeonyeogeul meogeoyo|chuh-nyuh-geul muh-guh-yo|I eat dinner
+설거지해요|seolgeojihaeyo|suhl-guh-jee-heh-yo|I wash the dishes
+청소해요|cheongsohaeyo|chuhng-soh-heh-yo|I clean
+빨래해요|ppallaehaeyo|ppahl-leh-heh-yo|I do the laundry
+빨래를 널어요|ppallaereul neoreoyo|ppahl-leh-reul nuh-ruh-yo|I hang up the laundry
+쓰레기를 버려요|sseuregireul beoryeoyo|sseu-reh-gee-reul puh-ryuh-yo|I take out the trash
+분리수거해요|bullisugeohaeyo|pool-lee-soo-guh-heh-yo|I sort the recycling
+텔레비전을 봐요|tellebijeoneul bwayo|tehl-leh-bee-juh-neul pwah-yo|I watch TV
+휴대폰을 봐요|hyudaeponeul bwayo|hyoo-deh-poh-neul pwah-yo|I look at my phone
+가족하고 통화해요|gajokago tonghwahaeyo|kah-joh-kah-goh tohng-hwah-heh-yo|I talk to my family on the phone
+돈을 보내요|doneul bonaeyo|toh-neul poh-neh-yo|I send money (home)
+은행에 가요|eunhaenge gayo|eun-hehng-eh kah-yo|I go to the bank
+한국어를 공부해요|hangugeoreul gongbuhaeyo|hahn-goo-guh-reul kohng-boo-heh-yo|I study Korean
+운동해요|undonghaeyo|oon-dohng-heh-yo|I exercise
+산책해요|sanchaekaeyo|sahn-cheh-keh-yo|I take a walk
+책을 읽어요|chaegeul ilgeoyo|cheh-geul eel-guh-yo|I read a book
+음악을 들어요|eumageul deureoyo|eu-mah-geul teu-ruh-yo|I listen to music
+친구를 만나요|chingureul mannayo|cheen-goo-reul mahn-nah-yo|I meet friends
+교회에 가요|gyohoee gayo|kyo-hweh-eh kah-yo|I go to church
+절에 가요|jeore gayo|chuh-reh kah-yo|I go to the (Buddhist) temple
+잠을 자요|jameul jayo|chah-meul chah-yo|I sleep
+밤 열한 시에 자요|bam yeolhan sie jayo|pahm yuh-rahn shee-eh chah-yo|I go to bed at 11 p.m.
+낮잠을 자요|natjameul jayo|naht-jjah-meul chah-yo|I take a nap
+늦잠을 잤어요|neutjameul jasseoyo|neut-jjah-meul chah-ssuh-yo|I overslept
+오늘 뭐 해요?|oneul mwo haeyo|oh-neul mwuh heh-yo|What are you doing today?
+주말에 뭐 해요?|jumare mwo haeyo|choo-mah-reh mwuh heh-yo|What do you do on weekends?
+보통 집에서 쉬어요|botong jibeseo swieoyo|poh-tohng chee-beh-suh shwee-uh-yo|I usually rest at home
+오늘은 바빠요|oneureun bappayo|oh-neu-reun pah-ppah-yo|I'm busy today
+`);
+
+C("feelings","Feelings","감정",`
+행복해요|haengbokaeyo|hehng-boh-keh-yo|I'm happy
+기뻐요|gippeoyo|kee-ppuh-yo|I'm glad
+슬퍼요|seulpeoyo|seul-puh-yo|I'm sad
+피곤해요|pigonhaeyo|pee-goh-neh-yo|I'm tired
+졸려요|jollyeoyo|chohl-lyuh-yo|I'm sleepy
+배고파요|baegopayo|peh-goh-pah-yo|I'm hungry
+배불러요|baebulleoyo|peh-bool-luh-yo|I'm full
+목말라요|mongmallayo|mohng-mahl-lah-yo|I'm thirsty
+화나요|hwanayo|hwah-nah-yo|I'm angry
+화났어요?|hwanasseoyo|hwah-nah-ssuh-yo|Are you angry?
+무서워요|museowoyo|moo-suh-wuh-yo|I'm scared
+걱정돼요|geokjeongdwaeyo|kuhk-jjuhng-dweh-yo|I'm worried
+걱정하지 마세요|geokjeonghaji maseyo|kuhk-jjuhng-hah-jee mah-seh-yo|Don't worry
+긴장돼요|ginjangdwaeyo|keen-jahng-dweh-yo|I'm nervous
+심심해요|simsimhaeyo|sheem-sheem-heh-yo|I'm bored
+재미있어요|jaemiisseoyo|cheh-mee-ee-ssuh-yo|It's fun / It's interesting
+재미없어요|jaemieopseoyo|cheh-mee-uhp-ssuh-yo|It's boring
+외로워요|oerowoyo|weh-roh-wuh-yo|I'm lonely
+보고 싶어요|bogo sipeoyo|poh-goh shee-puh-yo|I miss you / I want to see (you)
+가족이 보고 싶어요|gajogi bogo sipeoyo|kah-joh-gee poh-goh shee-puh-yo|I miss my family
+고향이 그리워요|gohyangi geuriwoyo|koh-hyahng-ee keu-ree-wuh-yo|I miss my hometown
+스트레스 받아요|seuteureseu badayo|seu-teu-reh-seu pah-dah-yo|I'm stressed
+힘들어요|himdeureoyo|heem-deu-ruh-yo|It's hard / I'm having a hard time
+기분이 좋아요|gibuni joayo|kee-boo-nee choh-ah-yo|I'm in a good mood
+기분이 안 좋아요|gibuni an joayo|kee-boo-nee ahn joh-ah-yo|I'm in a bad mood
+기분이 어때요?|gibuni eottaeyo|kee-boo-nee uh-tteh-yo|How do you feel?
+신나요|sinnayo|sheen-nah-yo|I'm excited
+놀랐어요|nollasseoyo|nohl-lah-ssuh-yo|I was surprised
+부끄러워요|bukkeureowoyo|poo-kkeu-ruh-wuh-yo|I'm shy / I'm embarrassed
+창피해요|changpihaeyo|chahng-pee-heh-yo|I'm embarrassed / It's embarrassing
+답답해요|dapdapaeyo|tahp-ttah-peh-yo|I feel frustrated / It's stuffy
+속상해요|soksanghaeyo|sohk-ssahng-heh-yo|I'm upset
+편해요|pyeonhaeyo|pyuh-neh-yo|I feel comfortable / It's convenient
+불편해요|bulpyeonhaeyo|pool-pyuh-neh-yo|It's uncomfortable / inconvenient
+사랑해요|saranghaeyo|sah-rahng-heh-yo|I love you
+좋아해요|joahaeyo|choh-ah-heh-yo|I like (it / you)
+싫어요|sireoyo|shee-ruh-yo|I don't like it / I don't want to
+마음이 아파요|maeumi apayo|mah-eu-mee ah-pah-yo|My heart aches (I feel sad for it)
+감동했어요|gamdonghaesseoyo|kahm-dohng-heh-ssuh-yo|I was moved (touched)
+실망했어요|silmanghaesseoyo|sheel-mahng-heh-ssuh-yo|I'm disappointed
+궁금해요|gunggeumhaeyo|koong-geum-heh-yo|I'm curious / I wonder
+다행이에요|dahaengieyo|tah-hehng-ee-eh-yo|What a relief / That's lucky
+괜찮아질 거예요|gwaenchanajil geoyeyo|kwehn-chah-nah-jeel kkuh-yeh-yo|It will be okay
+`);
+
+C("verbs","Common Verbs","동사",`
+가다|gada|kah-dah|to go · 가요 = I go
+오다|oda|oh-dah|to come · 와요 = I come
+먹다|meokda|muhk-ttah|to eat · 먹어요 = I eat
+마시다|masida|mah-shee-dah|to drink · 마셔요 = I drink
+자다|jada|chah-dah|to sleep · 자요 = I sleep
+일어나다|ireonada|ee-ruh-nah-dah|to get up · 일어나요 = I get up
+보다|boda|poh-dah|to see / to watch · 봐요 = I see
+듣다|deutda|teut-ttah|to listen / to hear · 들어요 = I listen
+말하다|malhada|mah-rah-dah|to speak / to say · 말해요 = I speak
+이야기하다|iyagihada|ee-yah-gee-hah-dah|to talk · 이야기해요 = I talk
+읽다|ikda|eek-ttah|to read · 읽어요 = I read
+쓰다|sseuda|sseu-dah|to write / to use · 써요 = I write
+하다|hada|hah-dah|to do · 해요 = I do
+있다|itda|eet-ttah|to be (somewhere) / to have · 있어요 = there is
+없다|eopda|uhp-ttah|to not be / to not have · 없어요 = there isn't
+알다|alda|ahl-dah|to know · 알아요 = I know
+모르다|moreuda|moh-reu-dah|to not know · 몰라요 = I don't know
+이해하다|ihaehada|ee-heh-hah-dah|to understand · 이해해요 = I understand
+배우다|baeuda|peh-oo-dah|to learn · 배워요 = I learn
+가르치다|gareuchida|kah-reu-chee-dah|to teach · 가르쳐요 = I teach
+공부하다|gongbuhada|kohng-boo-hah-dah|to study · 공부해요 = I study
+연습하다|yeonseupada|yuhn-seu-pah-dah|to practice · 연습해요 = I practice
+일하다|ilhada|ee-rah-dah|to work · 일해요 = I work
+사다|sada|sah-dah|to buy · 사요 = I buy
+팔다|palda|pahl-dah|to sell · 팔아요 = I sell
+주다|juda|choo-dah|to give · 줘요 = I give
+받다|batda|paht-ttah|to receive · 받아요 = I receive
+만나다|mannada|mahn-nah-dah|to meet · 만나요 = I meet
+기다리다|gidarida|kee-dah-ree-dah|to wait · 기다려요 = I wait
+타다|tada|tah-dah|to ride / to take (a vehicle) · 타요 = I ride
+내리다|naerida|neh-ree-dah|to get off · 내려요 = I get off
+걷다|geotda|kuht-ttah|to walk · 걸어요 = I walk
+뛰다|ttwida|ttwee-dah|to run · 뛰어요 = I run
+앉다|anda|ahn-ttah|to sit · 앉아요 = I sit
+서다|seoda|suh-dah|to stand · 서요 = I stand
+열다|yeolda|yuhl-dah|to open · 열어요 = I open
+닫다|datda|taht-ttah|to close · 닫아요 = I close
+켜다|kyeoda|kyuh-dah|to turn on · 켜요 = I turn it on
+끄다|kkeuda|kkeu-dah|to turn off · 꺼요 = I turn it off
+찾다|chatda|chaht-ttah|to look for / to find · 찾아요 = I look for
+잃어버리다|ireobeorida|ee-ruh-buh-ree-dah|to lose · 잃어버려요 = I lose
+만들다|mandeulda|mahn-deul-dah|to make · 만들어요 = I make
+요리하다|yorihada|yo-ree-hah-dah|to cook · 요리해요 = I cook
+씻다|ssitda|sseet-ttah|to wash · 씻어요 = I wash
+입다|ipda|eep-ttah|to wear (clothes) · 입어요 = I wear
+벗다|beotda|puht-ttah|to take off (clothes, shoes) · 벗어요 = I take off
+신다|sinda|sheen-ttah|to put on (shoes, socks) · 신어요 = I put on
+쉬다|swida|shwee-dah|to rest · 쉬어요 = I rest
+놀다|nolda|nohl-dah|to play / to hang out · 놀아요 = I play
+좋아하다|joahada|choh-ah-hah-dah|to like · 좋아해요 = I like
+싫어하다|sireohada|shee-ruh-hah-dah|to dislike · 싫어해요 = I dislike
+사랑하다|saranghada|sah-rahng-hah-dah|to love · 사랑해요 = I love
+원하다|wonhada|wuh-nah-dah|to want · 원해요 = I want
+돕다|dopda|tohp-ttah|to help · 도와요 = I help
+부르다|bureuda|poo-reu-dah|to call (someone) / to sing · 불러요 = I call
+전화하다|jeonhwahada|chuh-nwah-hah-dah|to phone · 전화해요 = I call (on the phone)
+보내다|bonaeda|poh-neh-dah|to send · 보내요 = I send
+살다|salda|sahl-dah|to live · 살아요 = I live
+죽다|jukda|chook-ttah|to die · 죽어요 = it dies
+생각하다|saenggakada|sehng-gah-kah-dah|to think · 생각해요 = I think
+믿다|mitda|meet-ttah|to believe · 믿어요 = I believe
+묻다|mutda|moot-ttah|to ask · 물어요 = I ask
+대답하다|daedapada|teh-dah-pah-dah|to answer · 대답해요 = I answer
+시작하다|sijakada|shee-jah-kah-dah|to start · 시작해요 = I start
+끝나다|kkeunnada|kkeun-nah-dah|to end / to finish · 끝나요 = it ends
+나가다|nagada|nah-gah-dah|to go out · 나가요 = I go out
+들어가다|deureogada|teu-ruh-gah-dah|to go in · 들어가요 = I go in
+나오다|naoda|nah-oh-dah|to come out · 나와요 = it comes out
+들어오다|deureooda|teu-ruh-oh-dah|to come in · 들어와요 = I come in
+돌아가다|doragada|toh-rah-gah-dah|to go back · 돌아가요 = I go back
+돌아오다|doraoda|toh-rah-oh-dah|to come back · 돌아와요 = I come back
+가져가다|gajyeogada|kah-juh-gah-dah|to take (with you) · 가져가요 = I take it
+가져오다|gajyeooda|kah-juh-oh-dah|to bring · 가져와요 = I bring it
+빌리다|billida|peel-lee-dah|to borrow / to rent · 빌려요 = I borrow
+갚다|gapda|kahp-ttah|to pay back · 갚아요 = I pay back
+내다|naeda|neh-dah|to pay (a bill) · 내요 = I pay
+바꾸다|bakkuda|pah-kkoo-dah|to change / to exchange · 바꿔요 = I change
+고르다|goreuda|koh-reu-dah|to choose · 골라요 = I choose
+잊어버리다|ijeobeorida|ee-juh-buh-ree-dah|to forget · 잊어버려요 = I forget
+기억하다|gieokada|kee-uh-kah-dah|to remember · 기억해요 = I remember
+웃다|utda|oot-ttah|to laugh / to smile · 웃어요 = I laugh
+울다|ulda|ool-dah|to cry · 울어요 = I cry
+노래하다|noraehada|noh-reh-hah-dah|to sing · 노래해요 = I sing
+춤추다|chumchuda|choom-choo-dah|to dance · 춤춰요 = I dance
+운전하다|unjeonhada|oon-juh-nah-dah|to drive · 운전해요 = I drive
+여행하다|yeohaenghada|yuh-hehng-hah-dah|to travel · 여행해요 = I travel
+청소하다|cheongsohada|chuhng-soh-hah-dah|to clean · 청소해요 = I clean
+빨래하다|ppallaehada|ppahl-leh-hah-dah|to do the laundry · 빨래해요 = I do the laundry
+결혼하다|gyeolhonhada|kyuh-roh-nah-dah|to get married · 결혼해요 = I get married
+이사하다|isahada|ee-sah-hah-dah|to move (house) · 이사해요 = I move
+사용하다|sayonghada|sah-yohng-hah-dah|to use · 사용해요 = I use
+보여 주다|boyeo juda|poh-yuh choo-dah|to show · 보여 줘요 = I show
+알려 주다|allyeo juda|ahl-lyuh choo-dah|to let (someone) know · 알려 줘요 = I tell you
+놓다|nota|noh-tah|to put / to place · 놓아요 = I put
+들다|deulda|teul-dah|to lift / to hold · 들어요 = I hold
+잡다|japda|chahp-ttah|to catch / to grab · 잡아요 = I catch
+자르다|jareuda|chah-reu-dah|to cut · 잘라요 = I cut
+걸리다|geollida|kuhl-lee-dah|to take (time) / to catch (a cold) · 걸려요 = it takes
+도착하다|dochakada|toh-chah-kah-dah|to arrive · 도착해요 = I arrive
+출발하다|chulbalhada|chool-bah-rah-dah|to depart · 출발해요 = it departs
+`);
+
+C("adjectives","Describing Words","형용사",`
+크다|keuda|keu-dah|big · 커요 = it's big
+작다|jakda|chahk-ttah|small · 작아요 = it's small
+많다|manta|mahn-tah|many / a lot · 많아요 = there are a lot
+적다|jeokda|chuhk-ttah|few / little · 적어요 = there are few
+좋다|jota|choh-tah|good · 좋아요 = it's good
+나쁘다|nappeuda|nah-ppeu-dah|bad · 나빠요 = it's bad
+싸다|ssada|ssah-dah|cheap · 싸요 = it's cheap
+비싸다|bissada|pee-ssah-dah|expensive · 비싸요 = it's expensive
+길다|gilda|keel-dah|long · 길어요 = it's long
+짧다|jjalda|jjahl-ttah|short (length) · 짧아요 = it's short
+높다|nopda|nohp-ttah|high · 높아요 = it's high
+낮다|natda|naht-ttah|low · 낮아요 = it's low
+키가 크다|kiga keuda|kee-gah keu-dah|tall (person) · 키가 커요 = he/she is tall
+키가 작다|kiga jakda|kee-gah chahk-ttah|short (person) · 키가 작아요 = he/she is short
+넓다|neolda|nuhl-ttah|wide / spacious · 넓어요 = it's spacious
+좁다|jopda|chohp-ttah|narrow / cramped · 좁아요 = it's cramped
+무겁다|mugeopda|moo-guhp-ttah|heavy · 무거워요 = it's heavy
+가볍다|gabyeopda|kah-byuhp-ttah|light (weight) · 가벼워요 = it's light
+뜨겁다|tteugeopda|tteu-guhp-ttah|hot (to touch) · 뜨거워요 = it's hot
+차갑다|chagapda|chah-gahp-ttah|cold (to touch) · 차가워요 = it's cold
+덥다|deopda|tuhp-ttah|hot (weather) · 더워요 = it's hot
+춥다|chupda|choop-ttah|cold (weather) · 추워요 = it's cold
+따뜻하다|ttatteutada|ttah-tteu-tah-dah|warm · 따뜻해요 = it's warm
+시원하다|siwonhada|shee-wuh-nah-dah|cool / refreshing · 시원해요 = it's cool
+빠르다|ppareuda|ppah-reu-dah|fast · 빨라요 = it's fast
+느리다|neurida|neu-ree-dah|slow · 느려요 = it's slow
+쉽다|swipda|shweep-ttah|easy · 쉬워요 = it's easy
+어렵다|eoryeopda|uh-ryuhp-ttah|difficult · 어려워요 = it's difficult
+예쁘다|yeppeuda|yeh-ppeu-dah|pretty · 예뻐요 = it's pretty
+멋있다|meositda|muh-sheet-ttah|cool / stylish · 멋있어요 = it's cool
+잘생기다|jalsaenggida|chahl-ssehng-gee-dah|handsome · 잘생겼어요 = he's handsome
+귀엽다|gwiyeopda|kwee-yuhp-ttah|cute · 귀여워요 = it's cute
+깨끗하다|kkaekkeutada|kkeh-kkeu-tah-dah|clean · 깨끗해요 = it's clean
+더럽다|deoreopda|tuh-ruhp-ttah|dirty · 더러워요 = it's dirty
+조용하다|joyonghada|choh-yohng-hah-dah|quiet · 조용해요 = it's quiet
+시끄럽다|sikkeureopda|shee-kkeu-ruhp-ttah|noisy · 시끄러워요 = it's noisy
+맛있다|masitda|mah-sheet-ttah|delicious · 맛있어요 = it's delicious
+맛없다|madeopda|mah-duhp-ttah|not tasty · 맛없어요 = it's not tasty
+맵다|maepda|mehp-ttah|spicy · 매워요 = it's spicy
+짜다|jjada|jjah-dah|salty · 짜요 = it's salty
+달다|dalda|tahl-dah|sweet · 달아요 = it's sweet
+시다|sida|shee-dah|sour · 셔요 = it's sour
+싱겁다|singgeopda|sheeng-guhp-ttah|bland (not salty enough) · 싱거워요 = it's bland
+바쁘다|bappeuda|pah-ppeu-dah|busy · 바빠요 = I'm busy
+한가하다|hangahada|hahn-gah-hah-dah|free / not busy · 한가해요 = I'm free
+아프다|apeuda|ah-peu-dah|sick / painful · 아파요 = it hurts
+건강하다|geonganghada|kuhn-gahng-hah-dah|healthy · 건강해요 = I'm healthy
+피곤하다|pigonhada|pee-goh-nah-dah|tired · 피곤해요 = I'm tired
+행복하다|haengbokada|hehng-boh-kah-dah|happy · 행복해요 = I'm happy
+친절하다|chinjeolhada|cheen-juh-rah-dah|kind · 친절해요 = he/she is kind
+착하다|chakada|chah-kah-dah|good-hearted · 착해요 = he/she is good-hearted
+똑똑하다|ttokttokada|ttohk-ttoh-kah-dah|smart · 똑똑해요 = he/she is smart
+부지런하다|bujireonhada|poo-jee-ruh-nah-dah|hardworking · 부지런해요 = he/she is hardworking
+게으르다|geeureuda|keh-eu-reu-dah|lazy · 게을러요 = he/she is lazy
+재미있다|jaemiitda|cheh-mee-eet-ttah|fun / interesting · 재미있어요 = it's fun
+중요하다|jungyohada|choong-yo-hah-dah|important · 중요해요 = it's important
+필요하다|piryohada|pee-ryo-hah-dah|needed · 필요해요 = I need it
+가깝다|gakkapda|kah-kkahp-ttah|close / near · 가까워요 = it's close
+멀다|meolda|muhl-dah|far · 멀어요 = it's far
+같다|gatda|kaht-ttah|same · 같아요 = it's the same
+다르다|dareuda|tah-reu-dah|different · 달라요 = it's different
+젊다|jeomda|chuhm-ttah|young · 젊어요 = he/she is young
+늙다|neukda|neuk-ttah|old (people, animals) · 늙었어요 = he/she is old
+오래되다|oraedoeda|oh-reh-dweh-dah|old (things) · 오래됐어요 = it's old
+밝다|bakda|pahk-ttah|bright · 밝아요 = it's bright
+어둡다|eodupda|uh-doop-ttah|dark · 어두워요 = it's dark
+편하다|pyeonhada|pyuh-nah-dah|comfortable / convenient · 편해요 = it's comfortable
+위험하다|wiheomhada|wee-huhm-hah-dah|dangerous · 위험해요 = it's dangerous
+안전하다|anjeonhada|ahn-juh-nah-dah|safe · 안전해요 = it's safe
+부드럽다|budeureopda|poo-deu-ruhp-ttah|soft · 부드러워요 = it's soft
+딱딱하다|ttakttakada|ttahk-ttah-kah-dah|hard · 딱딱해요 = it's hard
+두껍다|dukkeopda|too-kkuhp-ttah|thick · 두꺼워요 = it's thick
+얇다|yalda|yahl-ttah|thin · 얇아요 = it's thin
+뚱뚱하다|ttungttunghada|ttoong-ttoong-hah-dah|fat · 뚱뚱해요 = he/she is fat (careful: can be rude)
+날씬하다|nalssinhada|nahl-ssee-nah-dah|slim · 날씬해요 = he/she is slim
+유명하다|yumyeonghada|yoo-myuhng-hah-dah|famous · 유명해요 = it's famous
+`);
+
+C("family","Family & People","가족과 사람",`
+가족|gajok|kah-johk|family
+부모님|bumonim|poo-moh-neem|parents
+아버지|abeoji|ah-buh-jee|father
+아빠|appa|ah-ppah|dad
+어머니|eomeoni|uh-muh-nee|mother
+엄마|eomma|uhm-mah|mom
+남편|nampyeon|nahm-pyuhn|husband
+아내|anae|ah-neh|wife
+와이프|waipeu|wah-ee-peu|wife (common in speech)
+아들|adeul|ah-deul|son
+딸|ttal|ttahl|daughter
+아이|ai|ah-ee|child
+아기|agi|ah-gee|baby
+형|hyeong|hyuhng|older brother (said by a male)
+오빠|oppa|oh-ppah|older brother (said by a female)
+누나|nuna|noo-nah|older sister (said by a male)
+언니|eonni|uhn-nee|older sister (said by a female)
+남동생|namdongsaeng|nahm-dohng-sehng|younger brother
+여동생|yeodongsaeng|yuh-dohng-sehng|younger sister
+동생|dongsaeng|tohng-sehng|younger sibling
+형제|hyeongje|hyuhng-jeh|siblings / brothers
+할아버지|harabeoji|hah-rah-buh-jee|grandfather
+할머니|halmeoni|hahl-muh-nee|grandmother
+손자|sonja|sohn-jah|grandson
+손녀|sonnyeo|sohn-nyuh|granddaughter
+삼촌|samchon|sahm-chohn|uncle (father's brother)
+이모|imo|ee-moh|aunt (mother's sister); also a friendly word for older women in restaurants
+고모|gomo|koh-moh|aunt (father's sister)
+사촌|sachon|sah-chohn|cousin
+조카|joka|choh-kah|nephew / niece
+시어머니|sieomeoni|shee-uh-muh-nee|mother-in-law (husband's mother)
+장모님|jangmonim|chahng-moh-neem|mother-in-law (wife's mother)
+남자 친구|namja chingu|nahm-jah cheen-goo|boyfriend
+여자 친구|yeoja chingu|yuh-jah cheen-goo|girlfriend
+친구|chingu|cheen-goo|friend
+이웃|iut|ee-oot|neighbor
+아저씨|ajeossi|ah-juh-ssee|mister (for a middle-aged man)
+아주머니|ajumeoni|ah-joo-muh-nee|ma'am (for a middle-aged woman)
+남자|namja|nahm-jah|man / male
+여자|yeoja|yuh-jah|woman / female
+사람|saram|sah-rahm|person / people
+어른|eoreun|uh-reun|adult / elder
+가족이 몇 명이에요?|gajogi myeot myeongieyo|kah-joh-gee myuhn myuhng-ee-eh-yo|How many people are in your family?
+우리 가족은 다섯 명이에요|uri gajogeun daseot myeongieyo|oo-ree kah-joh-geun tah-suhn myuhng-ee-eh-yo|There are five people in my family
+형제가 있어요?|hyeongjega isseoyo|hyuhng-jeh-gah ee-ssuh-yo|Do you have brothers or sisters?
+언니가 한 명 있어요|eonniga han myeong isseoyo|uhn-nee-gah hahn myuhng ee-ssuh-yo|I have one older sister (said by a female)
+제 남편이에요|je nampyeonieyo|cheh nahm-pyuh-nee-eh-yo|This is my husband
+제 아내예요|je anaeyeyo|cheh ah-neh-yeh-yo|This is my wife
+부모님은 캄보디아에 계세요|bumonimeun kambodiae gyeseyo|poo-moh-nee-meun kahm-boh-dee-ah-eh kyeh-seh-yo|My parents are in Cambodia
+아이가 몇 살이에요?|aiga myeot sarieyo|ah-ee-gah myuht ssah-ree-eh-yo|How old is your child?
+`);
+
+C("health","Health & Body","건강과 몸",`
+아파요|apayo|ah-pah-yo|I'm sick / It hurts
+몸이 안 좋아요|momi an joayo|moh-mee ahn joh-ah-yo|I don't feel well
+머리가 아파요|meoriga apayo|muh-ree-gah ah-pah-yo|I have a headache
+배가 아파요|baega apayo|peh-gah ah-pah-yo|I have a stomachache
+이가 아파요|iga apayo|ee-gah ah-pah-yo|I have a toothache
+목이 아파요|mogi apayo|moh-gee ah-pah-yo|I have a sore throat
+허리가 아파요|heoriga apayo|huh-ree-gah ah-pah-yo|My back hurts
+여기가 아파요|yeogiga apayo|yuh-gee-gah ah-pah-yo|It hurts here
+열이 나요|yeori nayo|yuh-ree nah-yo|I have a fever
+기침을 해요|gichimeul haeyo|kee-chee-meul heh-yo|I have a cough
+콧물이 나요|konmuri nayo|kohn-moo-ree nah-yo|I have a runny nose
+감기에 걸렸어요|gamgie geollyeosseoyo|kahm-gee-eh kuhl-lyuh-ssuh-yo|I caught a cold
+어지러워요|eojireowoyo|uh-jee-ruh-wuh-yo|I feel dizzy
+토할 것 같아요|tohal geot gatayo|toh-hahl kkuht kah-tah-yo|I feel like throwing up
+설사를 해요|seolsareul haeyo|suhl-ssah-reul heh-yo|I have diarrhea
+다쳤어요|dachyeosseoyo|tah-chuh-ssuh-yo|I got hurt
+피가 나요|piga nayo|pee-gah nah-yo|I'm bleeding
+알레르기가 있어요|allereugiga isseoyo|ahl-leh-reu-gee-gah ee-ssuh-yo|I have an allergy
+임신했어요|imsinhaesseoyo|eem-shee-neh-ssuh-yo|I'm pregnant
+당뇨가 있어요|dangnyoga isseoyo|tahng-nyo-gah ee-ssuh-yo|I have diabetes
+혈압이 높아요|hyeorabi nopayo|hyuh-rah-bee noh-pah-yo|I have high blood pressure
+좀 나아졌어요|jom naajyeosseoyo|chohm nah-ah-juh-ssuh-yo|I feel a little better
+병원|byeongwon|pyuhng-wuhn|hospital / clinic
+약국|yakguk|yahk-kkook|pharmacy
+의사|uisa|ui-sah|doctor
+간호사|ganhosa|kah-noh-sah|nurse
+치과|chigwa|chee-kkwah|dentist
+응급실|eunggeupsil|eung-geup-sheel|emergency room
+보험|boheom|poh-huhm|insurance
+건강 보험|geongang boheom|kuhn-gahng poh-huhm|health insurance
+병원에 가야 돼요|byeongwone gaya dwaeyo|pyuhng-wuh-neh kah-yah tweh-yo|I need to go to the hospital
+예약하고 싶어요|yeyakago sipeoyo|yeh-yah-kah-goh shee-puh-yo|I'd like to make an appointment
+어디가 아프세요?|eodiga apeuseyo|uh-dee-gah ah-peu-seh-yo|Where does it hurt? (the doctor asks)
+언제부터 아팠어요?|eonjebuteo apasseoyo|uhn-jeh-boo-tuh ah-pah-ssuh-yo|Since when has it hurt?
+어제부터요|eojebuteoyo|uh-jeh-boo-tuh-yo|Since yesterday
+약|yak|yahk|medicine
+약을 먹어요|yageul meogeoyo|yah-geul muh-guh-yo|I take medicine
+하루에 세 번 드세요|harue se beon deuseyo|hah-roo-eh seh buhn teu-seh-yo|Take it three times a day
+식후에 드세요|sikue deuseyo|shee-koo-eh teu-seh-yo|Take it after meals
+처방전|cheobangjeon|chuh-bahng-juhn|prescription
+진통제|jintongje|cheen-tohng-jeh|painkiller
+감기약|gamgiyak|kahm-gee-yahk|cold medicine
+소화제|sohwaje|soh-hwah-jeh|digestive medicine
+반창고|banchanggo|pahn-chahng-goh|band-aid
+주사|jusa|choo-sah|injection
+쉬세요|swiseyo|shwee-seh-yo|Please rest
+빨리 나으세요|ppalli naeuseyo|ppahl-lee nah-eu-seh-yo|Get well soon
+몸|mom|mohm|body
+머리|meori|muh-ree|head
+얼굴|eolgul|uhl-gool|face
+눈|nun|noon|eye (also: snow)
+코|ko|koh|nose
+입|ip|eep|mouth
+귀|gwi|kwee|ear
+치아|chia|chee-ah|tooth
+목|mok|mohk|neck / throat
+어깨|eokkae|uh-kkeh|shoulder
+가슴|gaseum|kah-seum|chest
+배|bae|peh|stomach / belly (also: pear, boat)
+허리|heori|huh-ree|lower back / waist
+손|son|sohn|hand
+다리|dari|tah-ree|leg (also: bridge)
+발|bal|pahl|foot
+`);
+
+C("food","Food & Drink","음식과 음료",`
+음식|eumsik|eum-sheek|food
+밥|bap|pahp|cooked rice / a meal
+쌀|ssal|ssahl|uncooked rice
+빵|ppang|ppahng|bread
+국|guk|kook|soup
+찌개|jjigae|jjee-geh|stew
+반찬|banchan|pahn-chahn|side dishes
+김치|gimchi|keem-chee|kimchi
+김치찌개|gimchijjigae|keem-chee-jjee-geh|kimchi stew
+된장찌개|doenjangjjigae|twehn-jahng-jjee-geh|soybean paste stew
+불고기|bulgogi|pool-goh-gee|bulgogi (marinated grilled beef)
+비빔밥|bibimbap|pee-beem-bahp|bibimbap (mixed rice with vegetables)
+김밥|gimbap|keem-bahp|gimbap (seaweed rice rolls)
+라면|ramyeon|rah-myuhn|ramyeon (instant noodles)
+냉면|naengmyeon|nehng-myuhn|cold noodles
+국수|guksu|kook-ssoo|noodles
+쌀국수|ssalguksu|ssahl-gook-ssoo|rice noodles (like Khmer noodle soup)
+떡볶이|tteokbokki|ttuhk-ppoh-kkee|tteokbokki (spicy rice cakes)
+떡|tteok|ttuhk|rice cake
+만두|mandu|mahn-doo|dumplings
+죽|juk|chook|rice porridge
+삼겹살|samgyeopsal|sahm-gyuhp-ssahl|samgyeopsal (grilled pork belly)
+치킨|chikin|chee-keen|fried chicken
+고기|gogi|koh-gee|meat
+소고기|sogogi|soh-goh-gee|beef
+돼지고기|dwaejigogi|tweh-jee-goh-gee|pork
+닭고기|dakgogi|tahk-kkoh-gee|chicken (meat)
+생선|saengseon|sehng-suhn|fish (as food)
+해산물|haesanmul|heh-sahn-mool|seafood
+새우|saeu|seh-oo|shrimp
+오징어|ojingeo|oh-jeeng-uh|squid
+계란|gyeran|kyeh-rahn|egg
+두부|dubu|too-boo|tofu
+야채|yachae|yah-cheh|vegetables
+감자|gamja|kahm-jah|potato
+고구마|goguma|koh-goo-mah|sweet potato
+양파|yangpa|yahng-pah|onion
+마늘|maneul|mah-neul|garlic
+고추|gochu|koh-choo|chili pepper
+배추|baechu|peh-choo|napa cabbage
+당근|danggeun|tahng-geun|carrot
+오이|oi|oh-ee|cucumber
+버섯|beoseot|puh-suht|mushroom
+콩|kong|kohng|beans
+과일|gwail|kwah-eel|fruit
+사과|sagwa|sah-gwah|apple (also: apology)
+바나나|banana|pah-nah-nah|banana
+딸기|ttalgi|ttahl-gee|strawberry
+포도|podo|poh-doh|grapes
+수박|subak|soo-bahk|watermelon
+귤|gyul|kyool|tangerine
+망고|manggo|mahng-goh|mango
+물|mul|mool|water
+차|cha|chah|tea (also: car)
+커피|keopi|kuh-pee|coffee
+우유|uyu|oo-yoo|milk
+주스|juseu|choo-seu|juice
+음료수|eumnyosu|eum-nyo-soo|soft drink
+맥주|maekju|mehk-jjoo|beer
+소주|soju|soh-joo|soju (Korean liquor)
+술|sul|sool|alcohol
+설탕|seoltang|suhl-tahng|sugar
+소금|sogeum|soh-geum|salt
+간장|ganjang|kahn-jahng|soy sauce
+고추장|gochujang|koh-choo-jahng|red chili paste
+기름|gireum|kee-reum|oil
+간식|gansik|kahn-sheek|snack
+과자|gwaja|kwah-jah|chips / cookies
+아이스크림|aiseukeurim|ah-ee-seu-keu-reem|ice cream
+한국 음식|hanguk eumsik|hahn-gook eum-sheek|Korean food
+캄보디아 음식|kambodia eumsik|kahm-boh-dee-ah eum-sheek|Cambodian food
+정말 맛있어요|jeongmal masisseoyo|chuhng-mahl mah-shee-ssuh-yo|It's really delicious
+너무 매워요|neomu maewoyo|nuh-moo meh-wuh-yo|It's too spicy
+좀 짜요|jom jjayo|chohm jjah-yo|It's a bit salty
+매운 거 못 먹어요|maeun geo mot meogeoyo|meh-oon guh mohn muh-guh-yo|I can't eat spicy food
+돼지고기를 안 먹어요|dwaejigogireul an meogeoyo|tweh-jee-goh-gee-reul ahn muh-guh-yo|I don't eat pork
+`);
+
+C("restaurant","At the Restaurant","식당에서",`
+식당|sikdang|sheek-ttahng|restaurant
+몇 분이세요?|myeot buniseyo|myuht ppoo-nee-seh-yo|How many people? (staff asks)
+두 명이요|du myeongiyo|too myuhng-ee-yo|Two people
+자리 있어요?|jari isseoyo|chah-ree ee-ssuh-yo|Is there a table free?
+예약했어요|yeyakaesseoyo|yeh-yah-keh-ssuh-yo|I have a reservation
+여기요|yeogiyo|yuh-gee-yo|Excuse me! (to call the staff)
+메뉴판 주세요|menyupan juseyo|meh-nyoo-pahn choo-seh-yo|The menu, please
+주문할게요|jumunhalgeyo|choo-moo-nahl-kkeh-yo|I'd like to order
+아직이요|ajigiyo|ah-jee-gee-yo|Not yet (not ready to order)
+뭐가 맛있어요?|mwoga masisseoyo|mwuh-gah mah-shee-ssuh-yo|What's good here?
+추천해 주세요|chucheonhae juseyo|choo-chuh-neh choo-seh-yo|Please recommend something
+이거 주세요|igeo juseyo|ee-guh choo-seh-yo|This one, please
+이거 하나 주세요|igeo hana juseyo|ee-guh hah-nah choo-seh-yo|One of these, please
+김치찌개 두 개 주세요|gimchijjigae du gae juseyo|keem-chee-jjee-geh too geh choo-seh-yo|Two kimchi stews, please
+일인분|irinbun|ee-reen-boon|one portion (for one person)
+삼겹살 이인분 주세요|samgyeopsal iinbun juseyo|sahm-gyuhp-ssahl ee-een-boon choo-seh-yo|Two portions of pork belly, please
+안 맵게 해 주세요|an maepge hae juseyo|ahn mehp-kkeh heh choo-seh-yo|Not spicy, please
+덜 맵게 해 주세요|deol maepge hae juseyo|tuhl mehp-kkeh heh choo-seh-yo|Less spicy, please
+고수 빼 주세요|gosu ppae juseyo|koh-soo ppeh choo-seh-yo|No coriander, please
+고기 빼고 해 주세요|gogi ppaego hae juseyo|koh-gee ppeh-goh heh choo-seh-yo|Without meat, please
+채식주의자예요|chaesikjuuijayeyo|cheh-sheek-jjoo-ee-jah-yeh-yo|I'm vegetarian
+물 좀 주세요|mul jom juseyo|mool chohm choo-seh-yo|Some water, please
+반찬 더 주세요|banchan deo juseyo|pahn-chahn tuh choo-seh-yo|More side dishes, please
+리필 돼요?|ripil dwaeyo|ree-peel tweh-yo|Can I get a refill?
+셀프예요|selpeuyeyo|sehl-peu-yeh-yo|It's self-service
+앞접시 주세요|apjeopsi juseyo|ahp-jjuhp-ssee choo-seh-yo|A small plate, please (for sharing)
+숟가락|sutgarak|soot-kkah-rahk|spoon
+젓가락|jeotgarak|chuht-kkah-rahk|chopsticks
+포크|pokeu|poh-keu|fork
+칼|kal|kahl|knife
+컵|keop|kuhp|cup
+그릇|geureut|keu-reut|bowl
+접시|jeopsi|chuhp-ssee|plate
+휴지|hyuji|hyoo-jee|tissue / napkin / toilet paper
+물티슈|multisyu|mool-tee-shoo|wet wipe
+여기서 먹을게요|yeogiseo meogeulgeyo|yuh-gee-suh muh-geul-kkeh-yo|I'll eat here
+포장해 주세요|pojanghae juseyo|poh-jahng-heh choo-seh-yo|To go, please
+맛있게 드세요|masitge deuseyo|mah-sheet-kkeh teu-seh-yo|Enjoy your meal
+많이 드세요|mani deuseyo|mah-nee teu-seh-yo|Eat a lot (said by a host)
+건배|geonbae|kuhn-beh|Cheers!
+계산해 주세요|gyesanhae juseyo|kyeh-sah-neh choo-seh-yo|The bill, please
+계산은 어디서 해요?|gyesaneun eodiseo haeyo|kyeh-sah-neun uh-dee-suh heh-yo|Where do I pay?
+따로 계산해 주세요|ttaro gyesanhae juseyo|ttah-roh kyeh-sah-neh choo-seh-yo|Separate bills, please
+제가 낼게요|jega naelgeyo|cheh-gah nehl-kkeh-yo|I'll pay
+제가 살게요|jega salgeyo|cheh-gah sahl-kkeh-yo|It's my treat
+카드 돼요?|kadeu dwaeyo|kah-deu tweh-yo|Can I pay by card?
+영수증 주세요|yeongsujeung juseyo|yuhng-soo-jeung choo-seh-yo|A receipt, please
+`);
+
+C("shopping","Shopping","쇼핑",`
+얼마예요?|eolmayeyo|uhl-mah-yeh-yo|How much is it?
+이거 얼마예요?|igeo eolmayeyo|ee-guh uhl-mah-yeh-yo|How much is this?
+전부 얼마예요?|jeonbu eolmayeyo|chuhn-boo uhl-mah-yeh-yo|How much is it altogether?
+너무 비싸요|neomu bissayo|nuh-moo pee-ssah-yo|It's too expensive
+좀 깎아 주세요|jom kkakka juseyo|chohm kkah-kkah choo-seh-yo|Please give me a discount (at markets)
+싸게 해 주세요|ssage hae juseyo|ssah-geh heh choo-seh-yo|Please make it cheaper
+할인|harin|hah-reen|discount
+세일|seil|seh-eel|sale
+원 플러스 원|won peulleoseu won|wuhn peul-luh-seu wuhn|buy one, get one free (written 1+1)
+그냥 보는 거예요|geunyang boneun geoyeyo|keu-nyahng poh-neun guh-yeh-yo|I'm just looking
+다른 색 있어요?|dareun saek isseoyo|tah-reun sehk ee-ssuh-yo|Do you have another color?
+더 큰 거 있어요?|deo keun geo isseoyo|tuh keun guh ee-ssuh-yo|Do you have a bigger one?
+더 작은 거 있어요?|deo jageun geo isseoyo|tuh chah-geun guh ee-ssuh-yo|Do you have a smaller one?
+입어 봐도 돼요?|ibeo bwado dwaeyo|ee-buh pwah-doh tweh-yo|Can I try it on?
+탈의실 어디예요?|taruisil eodiyeyo|tah-ree-sheel uh-dee-yeh-yo|Where is the fitting room?
+사이즈|saijeu|sah-ee-jeu|size
+이걸로 할게요|igeollo halgeyo|ee-guhl-loh hahl-kkeh-yo|I'll take this one
+이거 살게요|igeo salgeyo|ee-guh sahl-kkeh-yo|I'll buy this
+카드로 할게요|kadeuro halgeyo|kah-deu-roh hahl-kkeh-yo|I'll pay by card
+현금으로 할게요|hyeongeumeuro halgeyo|hyuhn-geu-meu-roh hahl-kkeh-yo|I'll pay in cash
+봉투 필요하세요?|bongtu piryohaseyo|pohng-too pee-ryo-hah-seh-yo|Do you need a bag? (the cashier asks)
+봉투 주세요|bongtu juseyo|pohng-too choo-seh-yo|A bag, please
+봉투는 괜찮아요|bongtuneun gwaenchanayo|pohng-too-neun kwehn-chah-nah-yo|No bag, thanks
+교환할 수 있어요?|gyohwanhal su isseoyo|kyo-hwah-nahl ssoo ee-ssuh-yo|Can I exchange it?
+환불해 주세요|hwanbulhae juseyo|hwahn-boo-reh choo-seh-yo|I'd like a refund
+영수증|yeongsujeung|yuhng-soo-jeung|receipt
+몇 시까지 해요?|myeot sikkaji haeyo|myuht ssee-kkah-jee heh-yo|What time do you close?
+돈|don|tohn|money
+현금|hyeongeum|hyuhn-geum|cash
+카드|kadeu|kah-deu|card
+거스름돈|geoseureumdon|kuh-seu-reum-ttohn|change (money back)
+가게|gage|kah-geh|shop / store
+시장|sijang|shee-jahng|market
+마트|mateu|mah-teu|supermarket
+편의점|pyeonuijeom|pyuh-nee-juhm|convenience store
+백화점|baekhwajeom|peh-kwah-juhm|department store
+다이소|daiso|tah-ee-soh|Daiso (cheap everyday goods store)
+옷|ot|oht|clothes
+신발|sinbal|sheen-bahl|shoes
+바지|baji|pah-jee|pants
+치마|chima|chee-mah|skirt
+티셔츠|tisyeocheu|tee-shuh-cheu|T-shirt
+모자|moja|moh-jah|hat / cap
+가방|gabang|kah-bahng|bag
+양말|yangmal|yahng-mahl|socks
+충전기|chungjeongi|choong-juhn-gee|charger
+유심 카드|yusim kadeu|yoo-sheem kah-deu|SIM card
+`);
+
+C("directions","Directions & Places","길 찾기와 장소",`
+…이 어디예요?|…i eodiyeyo|…ee uh-dee-yeh-yo|Where is …?
+…에 어떻게 가요?|…e eotteoke gayo|…eh uh-ttuh-keh kah-yo|How do I get to …?
+여기가 어디예요?|yeogiga eodiyeyo|yuh-gee-gah uh-dee-yeh-yo|Where am I? / Where is this?
+길을 잃었어요|gireul ireosseoyo|kee-reul ee-ruh-ssuh-yo|I'm lost
+여기에서 멀어요?|yeogieseo meoreoyo|yuh-gee-eh-suh muh-ruh-yo|Is it far from here?
+가까워요?|gakkawoyo|kah-kkah-wuh-yo|Is it close?
+걸어서 갈 수 있어요?|georeoseo gal su isseoyo|kuh-ruh-suh kahl ssoo ee-ssuh-yo|Can I walk there?
+걸어서 오 분 걸려요|georeoseo o bun geollyeoyo|kuh-ruh-suh oh boon kuhl-lyuh-yo|It's a five-minute walk
+이 근처에 편의점 있어요?|i geuncheoe pyeonuijeom isseoyo|ee keun-chuh-eh pyuh-nee-juhm ee-ssuh-yo|Is there a convenience store near here?
+지도에서 보여 주세요|jidoeseo boyeo juseyo|chee-doh-eh-suh poh-yuh choo-seh-yo|Please show me on the map
+똑바로 가세요|ttokbaro gaseyo|ttohk-ppah-roh kah-seh-yo|Go straight ahead
+쭉 가세요|jjuk gaseyo|jjook kah-seh-yo|Keep going straight
+오른쪽으로 가세요|oreunjjogeuro gaseyo|oh-reun-jjoh-geu-roh kah-seh-yo|Go right
+왼쪽으로 가세요|oenjjogeuro gaseyo|wehn-jjoh-geu-roh kah-seh-yo|Go left
+오른쪽|oreunjjok|oh-reun-jjohk|right
+왼쪽|oenjjok|wehn-jjohk|left
+앞|ap|ahp|front / in front of
+뒤|dwi|twee|behind / back
+옆|yeop|yuhp|next to / beside
+위|wi|wee|above / on top
+아래|arae|ah-reh|below / under
+안쪽|anjjok|ahn-jjohk|inside
+밖|bak|pahk|outside
+건너편|geonneopyeon|kuhn-nuh-pyuhn|across the street / opposite side
+사이|sai|sah-ee|between
+근처|geuncheo|keun-chuh|nearby / the area around
+동쪽|dongjjok|tohng-jjohk|east
+서쪽|seojjok|suh-jjohk|west
+남쪽|namjjok|nahm-jjohk|south
+북쪽|bukjjok|pook-jjohk|north
+길|gil|keel|road / street / way
+골목|golmok|kohl-mohk|alley
+사거리|sageori|sah-guh-ree|intersection
+신호등|sinhodeung|sheen-hoh-deung|traffic light
+횡단보도|hoengdanbodo|hweng-dahn-boh-doh|crosswalk
+건물|geonmul|kuhn-mool|building
+층|cheung|cheung|floor (of a building)
+몇 층이에요?|myeot cheungieyo|myuht cheung-ee-eh-yo|Which floor is it?
+지하|jiha|chee-hah|basement / underground
+엘리베이터|ellibeiteo|ehl-lee-beh-ee-tuh|elevator
+계단|gyedan|kyeh-dahn|stairs
+입구|ipgu|eep-kkoo|entrance
+출구|chulgu|chool-goo|exit
+주소|juso|choo-soh|address
+지도|jido|chee-doh|map
+은행|eunhaeng|eun-hehng|bank
+우체국|ucheguk|oo-cheh-gook|post office
+경찰서|gyeongchalseo|kyuhng-chahl-ssuh|police station
+학교|hakgyo|hahk-kkyo|school
+교회|gyohoe|kyo-hweh|church
+절|jeol|chuhl|Buddhist temple
+공원|gongwon|kohng-wuhn|park
+대사관|daesagwan|teh-sah-gwahn|embassy
+캄보디아 대사관|kambodia daesagwan|kahm-boh-dee-ah teh-sah-gwahn|Cambodian embassy
+출입국 관리 사무소|churipguk gwalli samuso|choo-reep-kkook kwahl-lee sah-moo-soh|immigration office
+`);
+
+C("transport","Transport","교통",`
+버스|beoseu|puh-seu|bus
+지하철|jihacheol|chee-hah-chuhl|subway
+택시|taeksi|tehk-ssee|taxi
+기차|gicha|kee-chah|train
+비행기|bihaenggi|pee-hehng-gee|airplane
+자동차|jadongcha|chah-dohng-chah|car
+자전거|jajeongeo|chah-juhn-guh|bicycle
+오토바이|otobai|oh-toh-bah-ee|motorbike
+정류장|jeongnyujang|chuhng-nyoo-jahng|bus stop
+역|yeok|yuhk|station
+지하철역|jihacheollyeok|chee-hah-chuhl-lyuhk|subway station
+공항|gonghang|kohng-hahng|airport
+터미널|teomineol|tuh-mee-nuhl|bus terminal
+주차장|juchajang|choo-chah-jahng|parking lot
+표|pyo|pyo|ticket
+비행기표|bihaenggipyo|pee-hehng-gee-pyo|plane ticket
+교통 카드|gyotong kadeu|kyo-tohng kah-deu|transit card (T-money)
+충전해 주세요|chungjeonhae juseyo|choong-juh-neh choo-seh-yo|Please top up (my card)
+…호선|…hoseon|…hoh-suhn|subway line … (e.g. 2호선 = Line 2)
+환승|hwanseung|hwahn-seung|transfer
+어디에서 갈아타요?|eodieseo garatayo|uh-dee-eh-suh kah-rah-tah-yo|Where do I transfer?
+몇 번 버스 타요?|myeot beon beoseu tayo|myuht ppuhn puh-seu tah-yo|Which bus number do I take?
+이 버스 서울역에 가요?|i beoseu seoullyeoge gayo|ee puh-seu suh-ool-lyuh-geh kah-yo|Does this bus go to Seoul Station?
+다음 역은 어디예요?|daeum yeogeun eodiyeyo|tah-eum yuh-geun uh-dee-yeh-yo|What's the next station?
+몇 번 출구예요?|myeot beon chulguyeyo|myuht ppuhn chool-goo-yeh-yo|Which exit number?
+여기서 내려요|yeogiseo naeryeoyo|yuh-gee-suh neh-ryuh-yo|I get off here
+내릴게요|naerilgeyo|neh-reel-kkeh-yo|I'm getting off (let me through)
+버스로 가요|beoseuro gayo|puh-seu-roh kah-yo|I go by bus
+지하철을 타고 가요|jihacheoreul tago gayo|chee-hah-chuh-reul tah-goh kah-yo|I go by subway
+…으로 가 주세요|…euro ga juseyo|…eu-roh kah choo-seh-yo|Please take me to … (taxi)
+이 주소로 가 주세요|i jusoro ga juseyo|ee choo-soh-roh kah choo-seh-yo|Please go to this address
+여기서 세워 주세요|yeogiseo sewo juseyo|yuh-gee-suh seh-wuh choo-seh-yo|Please stop here
+트렁크 열어 주세요|teureongkeu yeoreo juseyo|teu-ruhng-keu yuh-ruh choo-seh-yo|Please open the trunk
+공항까지 얼마예요?|gonghangkkaji eolmayeyo|kohng-hahng-kkah-jee uhl-mah-yeh-yo|How much is it to the airport?
+기사님|gisanim|kee-sah-neem|driver (polite way to address a driver)
+운전기사|unjeongisa|oon-juhn-gee-sah|driver
+부산 가는 표 한 장 주세요|busan ganeun pyo han jang juseyo|poo-sahn kah-neun pyo hahn jahng choo-seh-yo|One ticket to Busan, please
+편도|pyeondo|pyuhn-doh|one way
+왕복|wangbok|wahng-bohk|round trip
+몇 시에 출발해요?|myeot sie chulbalhaeyo|myuht ssee-eh chool-bah-reh-yo|What time does it leave?
+몇 시에 도착해요?|myeot sie dochakaeyo|myuht ssee-eh toh-chah-keh-yo|What time does it arrive?
+출발|chulbal|chool-bahl|departure
+도착|dochak|toh-chahk|arrival
+첫차|cheotcha|chuht-chah|the first bus or train (of the day)
+막차|makcha|mahk-chah|the last bus or train (of the night)
+자리|jari|chah-ree|seat
+노약자석|noyakjaseok|noh-yahk-jjah-suhk|priority seat (for elderly and disabled people)
+여권|yeogwon|yuh-kkwuhn|passport
+운전면허증|unjeonmyeonheojeung|oon-juhn-myuhn-huh-jjeung|driver's license
+헬멧|helmet|hehl-meht|helmet
+길이 막혀요|giri makyeoyo|kee-ree mah-kyuh-yo|There's a traffic jam
+늦을 것 같아요|neujeul geot gatayo|neu-jeul kkuht kah-tah-yo|I think I'll be late
+`);
+
+C("home","At Home","집",`
+집|jip|cheep|house / home
+방|bang|pahng|room
+거실|geosil|kuh-sheel|living room
+부엌|bueok|poo-uhk|kitchen
+화장실|hwajangsil|hwah-jahng-sheel|bathroom / toilet
+현관|hyeongwan|hyuhn-gwahn|entryway (where you take off your shoes)
+침대|chimdae|cheem-deh|bed
+이불|ibul|ee-bool|blanket / duvet
+베개|begae|peh-geh|pillow
+문|mun|moon|door
+창문|changmun|chahng-moon|window
+열쇠|yeolsoe|yuhl-sweh|key
+비밀번호|bimilbeonho|pee-meel-buhn-hoh|password / door code
+책상|chaeksang|chehk-ssahng|desk
+의자|uija|ui-jah|chair
+식탁|siktak|sheek-tahk|dining table
+냉장고|naengjanggo|nehng-jahng-goh|refrigerator
+세탁기|setakgi|seh-tahk-kkee|washing machine
+에어컨|eeokeon|eh-uh-kuhn|air conditioner
+선풍기|seonpunggi|suhn-poong-gee|electric fan
+텔레비전|tellebijeon|tehl-leh-bee-juhn|television
+전자레인지|jeonjareinji|chuhn-jah-reh-een-jee|microwave
+가스레인지|gaseureinji|kah-seu-reh-een-jee|gas stove
+밥솥|bapsot|pahp-ssoht|rice cooker
+보일러|boilleo|poh-eel-luh|boiler (for floor heating and hot water)
+불|bul|pool|light (also: fire)
+불 좀 켜 주세요|bul jom kyeo juseyo|pool chohm kyuh choo-seh-yo|Please turn on the light
+에어컨 좀 꺼 주세요|eeokeon jom kkeo juseyo|eh-uh-kuhn chohm kkuh choo-seh-yo|Please turn off the air conditioner
+수건|sugeon|soo-guhn|towel
+비누|binu|pee-noo|soap
+샴푸|syampu|shahm-poo|shampoo
+칫솔|chitsol|cheet-ssohl|toothbrush
+치약|chiyak|chee-yahk|toothpaste
+쓰레기|sseuregi|sseu-reh-gee|trash
+쓰레기봉투|sseuregibongtu|sseu-reh-gee-bohng-too|garbage bag (official bags you must buy)
+음식물 쓰레기|eumsingmul sseuregi|eum-sheeng-mool sseu-reh-gee|food waste
+아파트|apateu|ah-pah-teu|apartment
+원룸|wollum|wuhl-loom|studio apartment (one-room)
+기숙사|gisuksa|kee-sook-ssah|dormitory
+월세|wolse|wuhl-sseh|monthly rent
+전세|jeonse|chuhn-seh|jeonse (lease with one large deposit instead of monthly rent)
+보증금|bojeunggeum|poh-jeung-geum|deposit
+관리비|gwallibi|kwahl-lee-bee|building maintenance fee
+집주인|jipjuin|cheep-jjoo-een|landlord
+와이파이 비밀번호가 뭐예요?|waipai bimilbeonhoga mwoyeyo|wah-ee-pah-ee pee-meel-buhn-hoh-gah mwuh-yeh-yo|What's the Wi-Fi password?
+뜨거운 물이 안 나와요|tteugeoun muri an nawayo|tteu-guh-oon moo-ree ahn nah-wah-yo|There's no hot water
+고장 났어요|gojang nasseoyo|koh-jahng nah-ssuh-yo|It's broken
+변기가 막혔어요|byeongiga makyeosseoyo|pyuhn-gee-gah mah-kyuh-ssuh-yo|The toilet is clogged
+들어오세요|deureooseyo|teu-ruh-oh-seh-yo|Please come in
+신발을 벗으세요|sinbareul beoseuseyo|sheen-bah-reul puh-seu-seh-yo|Please take off your shoes
+편하게 앉으세요|pyeonhage anjeuseyo|pyuh-nah-geh ahn-jeu-seh-yo|Please sit down and make yourself comfortable
+우리 집에 놀러 오세요|uri jibe nolleo oseyo|oo-ree chee-beh nohl-luh oh-seh-yo|Come visit my home
+`);
+
+C("colors","Colors","색깔",`
+색|saek|sehk|color
+색깔|saekkal|sehk-kkahl|color (everyday word)
+무슨 색이에요?|museun saegieyo|moo-seun seh-gee-eh-yo|What color is it?
+무슨 색 좋아해요?|museun saek joahaeyo|moo-seun sehk choh-ah-heh-yo|What color do you like?
+빨간색|ppalgansaek|ppahl-gahn-sehk|red
+주황색|juhwangsaek|choo-hwahng-sehk|orange
+노란색|noransaek|noh-rahn-sehk|yellow
+초록색|choroksaek|choh-rohk-ssehk|green
+연두색|yeondusaek|yuhn-doo-sehk|light green
+파란색|paransaek|pah-rahn-sehk|blue
+하늘색|haneulsaek|hah-neul-ssehk|sky blue
+남색|namsaek|nahm-sehk|navy blue
+보라색|borasaek|poh-rah-sehk|purple
+분홍색|bunhongsaek|poon-hohng-sehk|pink
+핑크색|pingkeusaek|peeng-keu-sehk|pink (common loanword)
+갈색|galsaek|kahl-ssehk|brown
+검은색|geomeunsaek|kuh-meun-sehk|black
+까만색|kkamansaek|kkah-mahn-sehk|black (everyday word)
+흰색|huinsaek|heen-sehk|white
+하얀색|hayansaek|hah-yahn-sehk|white (everyday word)
+회색|hoesaek|hweh-sehk|gray
+금색|geumsaek|keum-sehk|gold
+은색|eunsaek|eun-sehk|silver
+베이지색|beijisaek|peh-ee-jee-sehk|beige
+빨개요|ppalgaeyo|ppahl-geh-yo|It's red
+파래요|paraeyo|pah-reh-yo|It's blue
+노래요|noraeyo|noh-reh-yo|It's yellow
+하얘요|hayaeyo|hah-yeh-yo|It's white
+까매요|kkamaeyo|kkah-meh-yo|It's black
+진한 색|jinhan saek|chee-nahn sehk|dark color
+연한 색|yeonhan saek|yuh-nahn sehk|light color
+빨간 거 주세요|ppalgan geo juseyo|ppahl-gahn guh choo-seh-yo|The red one, please
+파란 옷|paran ot|pah-rahn oht|blue clothes
+`);
+
+C("weather","Weather & Seasons","날씨와 계절",`
+날씨|nalssi|nahl-ssee|weather
+오늘 날씨 어때요?|oneul nalssi eottaeyo|oh-neul nahl-ssee uh-tteh-yo|How's the weather today?
+날씨가 좋아요|nalssiga joayo|nahl-ssee-gah choh-ah-yo|The weather is nice
+날씨가 나빠요|nalssiga nappayo|nahl-ssee-gah nah-ppah-yo|The weather is bad
+더워요|deowoyo|tuh-wuh-yo|It's hot
+추워요|chuwoyo|choo-wuh-yo|It's cold
+따뜻해요|ttatteutaeyo|ttah-tteu-teh-yo|It's warm
+시원해요|siwonhaeyo|shee-wuh-neh-yo|It's cool (nice and fresh)
+쌀쌀해요|ssalssalhaeyo|ssahl-ssah-reh-yo|It's chilly
+습해요|seupaeyo|seu-peh-yo|It's humid
+건조해요|geonjohaeyo|kuhn-joh-heh-yo|It's dry
+맑아요|malgayo|mahl-gah-yo|It's clear / sunny
+흐려요|heuryeoyo|heu-ryuh-yo|It's cloudy
+비|bi|pee|rain
+비가 와요|biga wayo|pee-gah wah-yo|It's raining
+비가 올 것 같아요|biga ol geot gatayo|pee-gah ohl kkuht kah-tah-yo|It looks like rain
+눈이 와요|nuni wayo|noo-nee wah-yo|It's snowing
+바람이 불어요|barami bureoyo|pah-rah-mee poo-ruh-yo|It's windy
+구름|gureum|koo-reum|cloud
+해|hae|heh|sun
+하늘|haneul|hah-neul|sky
+우산|usan|oo-sahn|umbrella
+우산 있어요?|usan isseoyo|oo-sahn ee-ssuh-yo|Do you have an umbrella?
+우산 가져가세요|usan gajyeogaseyo|oo-sahn kah-juh-gah-seh-yo|Take an umbrella with you
+태풍|taepung|teh-poong|typhoon
+장마|jangma|chahng-mah|rainy season (early summer)
+미세먼지|misemeonji|mee-seh-muhn-jee|fine dust (air pollution)
+미세먼지가 심해요|misemeonjiga simhaeyo|mee-seh-muhn-jee-gah sheem-heh-yo|The fine dust is bad today
+마스크|maseukeu|mah-seu-keu|face mask
+일기 예보|ilgi yebo|eel-gee yeh-boh|weather forecast
+기온|gion|kee-ohn|temperature
+영하|yeongha|yuhng-hah|below zero
+봄|bom|pohm|spring
+여름|yeoreum|yuh-reum|summer
+가을|gaeul|kah-eul|autumn
+겨울|gyeoul|kyuh-ool|winter
+사계절|sagyejeol|sah-gyeh-juhl|the four seasons
+캄보디아는 일 년 내내 더워요|kambodianeun il nyeon naenae deowoyo|kahm-boh-dee-ah-neun eel lyuhn neh-neh tuh-wuh-yo|It's hot all year round in Cambodia
+한국 겨울은 너무 추워요|hanguk gyeoureun neomu chuwoyo|hahn-gook kkyuh-oo-reun nuh-moo choo-wuh-yo|Korean winters are very cold
+`);
+
+C("work","Work","일과 직장",`
+회사|hoesa|hweh-sah|company
+직장|jikjang|cheek-jjahng|workplace / job
+공장|gongjang|kohng-jahng|factory
+사무실|samusil|sah-moo-sheel|office
+사장님|sajangnim|sah-jahng-neem|boss / owner
+팀장님|timjangnim|teem-jahng-neem|team leader
+동료|dongnyo|tohng-nyo|coworker
+직원|jigwon|chee-gwuhn|employee / staff
+아르바이트|areubaiteu|ah-reu-bah-ee-teu|part-time job
+월급|wolgeup|wuhl-geup|monthly salary
+월급날|wolgeumnal|wuhl-geum-nahl|payday
+시급|sigeup|shee-geup|hourly wage
+출근해요|chulgeunhaeyo|chool-geu-neh-yo|I go to work (start work)
+퇴근해요|toegeunhaeyo|tweh-geu-neh-yo|I get off work
+몇 시에 퇴근해요?|myeot sie toegeunhaeyo|myuht ssee-eh tweh-geu-neh-yo|What time do you get off work?
+야근|yageun|yah-geun|working late at night
+잔업|janeop|chah-nuhp|overtime work
+쉬는 시간|swineun sigan|shwee-neun shee-gahn|break time
+휴가|hyuga|hyoo-gah|vacation / leave
+내일 쉬어도 돼요?|naeil swieodo dwaeyo|neh-eel shwee-uh-doh tweh-yo|May I take tomorrow off?
+회의|hoeui|hweh-ee|meeting
+일이 많아요|iri manayo|ee-ree mah-nah-yo|I have a lot of work
+이거 어떻게 해요?|igeo eotteoke haeyo|ee-guh uh-ttuh-keh heh-yo|How do I do this?
+다 했어요|da haesseoyo|tah heh-ssuh-yo|I'm finished / I did it all
+알려 주세요|allyeo juseyo|ahl-lyuh choo-seh-yo|Please let me know / Please show me how
+조심하세요|josimhaseyo|choh-sheem-hah-seh-yo|Be careful
+안전모|anjeonmo|ahn-juhn-moh|safety helmet
+장갑|janggap|chahng-gahp|gloves
+열심히 하겠습니다|yeolsimhi hagetseumnida|yuhl-sheem-hee hah-geht-sseum-nee-dah|I will work hard. (formal)
+먼저 퇴근하겠습니다|meonjeo toegeunhagetseumnida|muhn-juh tweh-geu-nah-geht-sseum-nee-dah|I'll be leaving now. (formal, said when leaving work before others)
+경험이 있어요|gyeongheomi isseoyo|kyuhng-huh-mee ee-ssuh-yo|I have experience
+면접|myeonjeop|myuhn-juhp|job interview
+이력서|iryeokseo|ee-ryuhk-ssuh|résumé
+계약서|gyeyakseo|kyeh-yahk-ssuh|contract
+비자|bija|pee-jah|visa
+외국인 등록증|oegugin deungnokjeung|weh-goo-geen teung-nohk-jjeung|alien registration card (ID card for foreigners)
+통장|tongjang|tohng-jahng|bankbook / bank account
+월급을 못 받았어요|wolgeubeul mot badasseoyo|wuhl-geu-beul moht ppah-dah-ssuh-yo|I didn't get paid
+산업 재해|saneop jaehae|sah-nuhp cheh-heh|workplace injury (work accident)
+`);
+
+C("emergency","Emergencies","응급 상황",`
+도와주세요|dowajuseyo|toh-wah-joo-seh-yo|Help!
+살려 주세요|sallyeo juseyo|sahl-lyuh choo-seh-yo|Save me! / Help!
+불이야|buriya|poo-ree-yah|Fire!
+도둑이야|dodugiya|toh-doo-gee-yah|Thief!
+조심해|josimhae|choh-sheem-heh|Watch out! (casual shout)
+비켜 주세요|bikyeo juseyo|pee-kyuh choo-seh-yo|Please move out of the way
+급해요|geupaeyo|keu-peh-yo|It's urgent
+빨리요|ppalliyo|ppahl-lee-yo|Quickly, please!
+위험해요|wiheomhaeyo|wee-huhm-heh-yo|It's dangerous
+하지 마세요|haji maseyo|hah-jee mah-seh-yo|Don't do that! / Stop!
+만지지 마세요|manjiji maseyo|mahn-jee-jee mah-seh-yo|Don't touch me
+경찰|gyeongchal|kyuhng-chahl|police
+경찰 불러 주세요|gyeongchal bulleo juseyo|kyuhng-chahl pool-luh choo-seh-yo|Call the police
+구급차|gugeupcha|koo-geup-chah|ambulance
+구급차 불러 주세요|gugeupcha bulleo juseyo|koo-geup-chah pool-luh choo-seh-yo|Call an ambulance
+의사를 불러 주세요|uisareul bulleo juseyo|ui-sah-reul pool-luh choo-seh-yo|Call a doctor
+일일구|irilgu|ee-reel-goo|119 (fire and ambulance)
+일일이|irili|ee-ree-ree|112 (police)
+사고|sago|sah-goh|accident
+교통사고가 났어요|gyotongsagoga nasseoyo|kyo-tohng-sah-goh-gah nah-ssuh-yo|There's been a traffic accident
+다친 사람이 있어요|dachin sarami isseoyo|tah-cheen sah-rah-mee ee-ssuh-yo|Someone is hurt
+움직일 수 없어요|umjigil su eopseoyo|oom-jee-geel ssoo uhp-ssuh-yo|I can't move
+숨을 못 쉬어요|sumeul mot swieoyo|soo-meul moht sswee-uh-yo|I can't breathe
+가스 냄새가 나요|gaseu naemsaega nayo|kah-seu nehm-seh-gah nah-yo|I smell gas
+지진|jijin|chee-jeen|earthquake
+대피하세요|daepihaseyo|teh-pee-hah-seh-yo|Evacuate!
+비상구|bisanggu|pee-sahng-goo|emergency exit
+지갑을 잃어버렸어요|jigabeul ireobeoryeosseoyo|chee-gah-beul ee-ruh-buh-ryuh-ssuh-yo|I lost my wallet
+휴대폰을 잃어버렸어요|hyudaeponeul ireobeoryeosseoyo|hyoo-deh-poh-neul ee-ruh-buh-ryuh-ssuh-yo|I lost my phone
+여권을 잃어버렸어요|yeogwoneul ireobeoryeosseoyo|yuh-kkwuh-neul ee-ruh-buh-ryuh-ssuh-yo|I lost my passport
+도둑맞았어요|dodungmajasseoyo|toh-doong-mah-jah-ssuh-yo|I've been robbed
+통역사가 필요해요|tongyeoksaga piryohaeyo|tohng-yuhk-ssah-gah pee-ryo-heh-yo|I need an interpreter
+제 말 좀 들어 주세요|je mal jom deureo juseyo|cheh mahl chohm teu-ruh choo-seh-yo|Please listen to me
+캄보디아 대사관에 연락해 주세요|kambodia daesagwane yeollakae juseyo|kahm-boh-dee-ah teh-sah-gwah-neh yuhl-lah-keh choo-seh-yo|Please contact the Cambodian embassy
+외국인 상담 센터|oegugin sangdam senteo|weh-goo-geen sahng-dahm sehn-tuh|foreigner help center (phone 1345)
+`);
+
+(function(){
+const ORDER=["greet","intro","understand","questions","little","numbers","time","daily","feelings","verbs","adjectives","family","health","food","restaurant","shopping","directions","transport","home","colors","weather","work","emergency"];
+CATS.sort((a,b)=>ORDER.indexOf(a.id)-ORDER.indexOf(b.id));
+CATS.forEach(c=>c.items.forEach((it,i)=>{it.key=c.id+":"+i;it.cat=c;}));
+const ALL=CATS.flatMap(c=>c.items);
+
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").normalize("NFC").replace(/[¿¡]/g," ").toLowerCase();
+
+let learned=new Set();
+try{learned=new Set(JSON.parse(localStorage.getItem(L.store+"-learned")||"[]"));}catch(e){}
+function save(){try{localStorage.setItem(L.store+"-learned",JSON.stringify([...learned]));}catch(e){}}
+
+const state={cat:"greet",q:"",mode:"browse",slow:false,dir:"en"};
+try{const c=localStorage.getItem(L.store+"-cat");if(c&&(c==="all"||CATS.some(x=>x.id===c)))state.cat=c;}catch(e){}
+
+/* ---------- speech ---------- */
+const canSpeak="speechSynthesis" in window;
+let voice=null;
+function pickVoice(){
+  if(!canSpeak)return;
+  const vs=speechSynthesis.getVoices();
+  voice=vs.find(v=>L.pref.test(v.lang))||vs.find(v=>L.any.test(v.lang))||null;
+  const n=$("#voicenote");
+  if(vs.length&&!voice){n.hidden=false;n.textContent="No "+L.name+" voice was found on this device, so audio may sound wrong. Add a "+L.name+" voice in your system’s speech settings.";}
+  else n.hidden=true;
+}
+if(canSpeak){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+else{const n=$("#voicenote");n.hidden=false;n.textContent="This browser can’t play audio. Use the sound-it-out guide under each phrase.";}
+let playingBtn=null;
+function say(text,btn){
+  if(!canSpeak)return;
+  speechSynthesis.cancel();
+  if(playingBtn)playingBtn.classList.remove("playing");
+  const t=text.replace(/…/g,"").replace(/\s*\/\s*/g,", ");
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=voice?voice.lang:L.speech; if(voice)u.voice=voice;
+  u.rate=state.slow?0.6:0.9;
+  if(btn){btn.classList.add("playing");playingBtn=btn;u.onend=u.onerror=()=>btn.classList.remove("playing");}
+  speechSynthesis.speak(u);
+}
+
+/* ---------- rendering ---------- */
+const SPK='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+const CHK='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>';
+function hl(str,q){
+  const s=esc(str); if(!q)return s;
+  const n=norm(str); const i=n.indexOf(q); if(i<0)return s;
+  return esc(str.slice(0,i))+"<mark>"+esc(str.slice(i,i+q.length))+"</mark>"+esc(str.slice(i+q.length));
+}
+function pron(p){return esc(p).replace(/\b([A-ZÑ]{2,})\b/g,"<b>$1</b>").replace(/(^|\s)([A-Z])(?=\s|$)/g,"$1<b>$2</b>");}
+function enText(e,q){
+  const m=e.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
+  if(m)return hl(m[1],q)+'<span class="tag">'+esc(m[2])+"</span>";
+  return hl(e,q);
+}
+function row(it,q){
+  const d=learned.has(it.key);
+  return `<div class="row${d?" done":""}" data-k="${it.key}">
+  <button class="say" aria-label="Listen to ${esc(it.s)}">${SPK}</button>
+  <div><div class="sp" lang="${L.lang}">${hl(it.s,q)}</div>${it.r?`<div class="rom">${hl(it.r,q)}</div>`:""}<div class="pr">${pron(it.p)}</div></div>
+  <div class="en">${enText(it.e,q)}</div>
+  <button class="chk" aria-pressed="${d}" aria-label="Mark as learned">${CHK}</button></div>`;
+}
+function renderRail(){
+  const all=`<button data-c="all" aria-current="${state.cat==="all"}"><span>All topics</span><span class="ct">${ALL.length}</span></button>`;
+  $("#rail").innerHTML='<div class="railhead">Topics</div>'+all+CATS.map(c=>{
+    const n=c.items.filter(i=>learned.has(i.key)).length;
+    return `<button data-c="${c.id}" aria-current="${state.cat===c.id}"><span>${esc(c.name)}</span><span class="ct">${n}/${c.items.length}</span></button>`;
+  }).join("");
+}
+function renderStats(){
+  $("#total").textContent=ALL.length.toLocaleString();
+  $("#learnedN").textContent=learned.size.toLocaleString();
+  $("#meter").style.width=(100*learned.size/ALL.length).toFixed(1)+"%";
+}
+function section(c,items,q){
+  return `<section class="sect"><div class="secthead"><h2>${esc(c.name)}</h2><span class="es" lang="${L.lang}">${esc(c.es)}</span><span class="ct">${items.length} entries</span></div>${items.map(i=>row(i,q)).join("")}</section>`;
+}
+function renderBrowse(){
+  const q=norm(state.q.trim());
+  const cats=state.cat==="all"||q?CATS:CATS.filter(c=>c.id===state.cat);
+  let html="";
+  for(const c of cats){
+    const items=q?c.items.filter(i=>norm(i.s).includes(q)||norm(i.e).includes(q)||(i.r&&norm(i.r).includes(q))):c.items;
+    if(items.length)html+=section(c,items,q);
+  }
+  $("#main").innerHTML=html||`<p class="empty">Nothing matches “${esc(state.q)}”. Try a shorter word, or search in English.</p>`;
+}
+
+/* ---------- practice ---------- */
+let deck=[],pos=0,shown=false;
+function buildDeck(){
+  const pool=state.cat==="all"?ALL:CATS.find(c=>c.id===state.cat).items;
+  const fresh=pool.filter(i=>!learned.has(i.key)), old=pool.filter(i=>learned.has(i.key));
+  const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+  deck=shuf(fresh).concat(shuf(old)).slice(0,20); pos=0; shown=false;
+}
+function renderPractice(){
+  const name=state.cat==="all"?"All topics":CATS.find(c=>c.id===state.cat).name;
+  if(pos>=deck.length){
+    $("#main").innerHTML=`<div class="practice"><div class="card"><span class="lab">Round complete</span><div class="q">${esc(L.welldone)}</div><p>You went through ${deck.length} cards from ${esc(name)}.</p></div><div class="pbtns"><button class="btn pri" data-act="again">Start a new round</button></div></div>`;return;
+  }
+  const it=deck[pos];
+  const front=state.dir==="en"?`<div class="q">${esc(it.e)}</div>`:`<div class="q" lang="${L.lang}">${esc(it.s)}</div>`;
+  const back=state.dir==="en"
+    ?`<div class="sp" lang="${L.lang}">${esc(it.s)}</div>${it.r?`<div class="rom">${esc(it.r)}</div>`:""}<div class="pr">${pron(it.p)}</div>`
+    :`${it.r?`<div class="rom">${esc(it.r)}</div>`:""}<div class="pr">${pron(it.p)}</div><div class="en">${esc(it.e)}</div>`;
+  $("#main").innerHTML=`<div class="practice">
+  <div class="pinfo"><span>${esc(name)} · card ${pos+1} of ${deck.length}</span>
+   <div class="seg" role="group" aria-label="Card direction"><button data-dir="en" aria-pressed="${state.dir==="en"}">English → ${L.name}</button><button data-dir="es" aria-pressed="${state.dir==="es"}">${L.name} → English</button></div></div>
+  <div class="card"><span class="lab">${state.dir==="en"?"How do you say":"What does this mean"}</span>${front}
+   ${shown?`<div class="a">${back}<button class="say" data-say="${pos}" aria-label="Listen">${SPK}</button></div>`:""}</div>
+  <div class="pbtns">${shown
+   ?`<button class="btn" data-act="next">Not yet, keep practicing</button><button class="btn good" data-act="know">I know it</button>`
+   :`<button class="btn pri" data-act="show">Show answer</button>`}</div>
+  <p class="tip">Say your answer out loud before you reveal it. Cards you already know come last.</p></div>`;
+}
+
+function render(){
+  renderRail();renderStats();
+  $("#mBrowse").setAttribute("aria-pressed",state.mode==="browse");
+  $("#mPractice").setAttribute("aria-pressed",state.mode==="practice");
+  if(state.mode==="browse")renderBrowse();else renderPractice();
+}
+
+/* ---------- events ---------- */
+$("#rail").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-c]");if(!b)return;
+  state.cat=b.dataset.c;try{localStorage.setItem(L.store+"-cat",state.cat);}catch(_){}
+  if(state.q){state.q="";$("#q").value="";}
+  if(state.mode==="practice")buildDeck();
+  render();
+  if(window.innerWidth>820)window.scrollTo({top:$(".toolbar").offsetTop,behavior:"smooth"});
+});
+let t=null;
+$("#q").addEventListener("input",e=>{clearTimeout(t);t=setTimeout(()=>{state.q=e.target.value;if(state.mode!=="browse")state.mode="browse";render();},120);});
+$("#mBrowse").onclick=()=>{state.mode="browse";render();};
+$("#mPractice").onclick=()=>{state.mode="practice";buildDeck();render();};
+$("#sNormal").onclick=()=>{state.slow=false;$("#sNormal").setAttribute("aria-pressed",true);$("#sSlow").setAttribute("aria-pressed",false);};
+$("#sSlow").onclick=()=>{state.slow=true;$("#sSlow").setAttribute("aria-pressed",true);$("#sNormal").setAttribute("aria-pressed",false);};
+const byKey=k=>ALL.find(i=>i.key===k);
+$("#main").addEventListener("click",e=>{
+  const r=e.target.closest(".row");
+  if(r){
+    const it=byKey(r.dataset.k);
+    if(e.target.closest(".say"))say(it.s,e.target.closest(".say"));
+    else if(e.target.closest(".chk")){
+      const b=e.target.closest(".chk");
+      if(learned.has(it.key))learned.delete(it.key);else learned.add(it.key);
+      save();b.setAttribute("aria-pressed",learned.has(it.key));r.classList.toggle("done",learned.has(it.key));
+      renderRail();renderStats();
+    }
+    return;
+  }
+  const d=e.target.closest("[data-dir]");if(d){state.dir=d.dataset.dir;renderPractice();return;}
+  const s=e.target.closest("[data-say]");if(s){say(deck[pos].s,s);return;}
+  const a=e.target.closest("[data-act]");if(!a)return;
+  const act=a.dataset.act;
+  if(act==="show"){shown=true;renderPractice();if(state.dir==="en")say(deck[pos].s);}
+  else if(act==="next"){pos++;shown=false;renderPractice();}
+  else if(act==="know"){learned.add(deck[pos].key);save();pos++;shown=false;renderRail();renderStats();renderPractice();}
+  else if(act==="again"){buildDeck();renderPractice();}
+});
+render();
+})();
+
+</script>
+
+</body></html>

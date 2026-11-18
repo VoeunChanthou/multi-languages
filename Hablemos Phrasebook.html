@@ -1,0 +1,1648 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Hablemos Phrasebook</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: tiled header band, then a two-column study desk (category rail + phrase list) that stacks on phones. Azulejo cobalt on cool paper, marigold for progress. */
+:root{
+  --paper:#f4f6fb; --card:#ffffff; --ink:#141a2e; --muted:#5a6383; --line:#dde2ef;
+  --cobalt:#1d3fa3; --cobalt-soft:#e6ecfb; --marigold:#e9a514; --marigold-ink:#3b2a00;
+  --ok:#1f7a4d; --ok-soft:#e2f4ea;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0d1222; --card:#151c31; --ink:#e7ebf7; --muted:#9aa4c4; --line:#263051;
+  --cobalt:#93acff; --cobalt-soft:#1d2849; --marigold:#f2b940; --marigold-ink:#2b1f00;
+  --ok:#6fd39e; --ok-soft:#163626; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --paper:#0d1222; --card:#151c31; --ink:#e7ebf7; --muted:#9aa4c4; --line:#263051;
+  --cobalt:#93acff; --cobalt-soft:#1d2849; --marigold:#f2b940; --marigold-ink:#2b1f00;
+  --ok:#6fd39e; --ok-soft:#163626; color-scheme:dark;}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--marigold);outline-offset:2px;border-radius:6px}
+
+/* Header band with a tile motif */
+.band{background:var(--cobalt-soft);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.band::after{content:"";position:absolute;right:-40px;top:-40px;width:340px;height:340px;opacity:.55;pointer-events:none;
+  background:
+   radial-gradient(circle at 50% 50%, transparent 17px, var(--cobalt) 18px, var(--cobalt) 20px, transparent 21px) 0 0/56px 56px,
+   linear-gradient(45deg, transparent 46%, var(--cobalt) 47%, var(--cobalt) 53%, transparent 54%) 0 0/56px 56px;
+  -webkit-mask:radial-gradient(circle at 70% 30%, #000 30%, transparent 72%);mask:radial-gradient(circle at 70% 30%, #000 30%, transparent 72%)}
+.band .wrap{padding-block:36px 28px;position:relative;z-index:1}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cobalt);margin:0 0 6px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1;margin:0 0 12px;letter-spacing:-.02em;text-wrap:balance}
+h1 .inv{color:var(--cobalt)}
+.lede{max-width:62ch;margin:0;color:var(--muted);font-size:1.05rem}
+.stats{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px;align-items:center}
+.stat{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.stat b{font-family:var(--display);font-size:1.5rem;color:var(--ink);font-variant-numeric:tabular-nums;margin-right:6px}
+.meter{flex:1 1 220px;max-width:340px;height:10px;border-radius:99px;background:var(--card);border:1px solid var(--line);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--marigold);width:0;transition:width .4s}
+
+/* Pronunciation key */
+.key{margin:22px 0 0;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.key summary{cursor:pointer;padding:14px 18px;font-family:var(--display);font-weight:700;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.key summary::-webkit-details-marker{display:none}
+.key summary span{font-family:var(--body);font-weight:400;color:var(--muted);font-size:.9rem}
+.keybody{padding:0 18px 18px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px 22px}
+.k{display:grid;grid-template-columns:74px 1fr;gap:8px;align-items:baseline;font-size:.93rem;min-width:0}
+.k code{font-family:var(--mono);font-weight:600;color:var(--cobalt);font-size:.95rem}
+.keynote{grid-column:1/-1;font-size:.92rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px;margin:4px 0 0}
+.keynote b{color:var(--ink)}
+
+/* Toolbar */
+.toolbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.toolbar .wrap{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding-block:12px}
+.search{flex:1 1 240px;min-width:0;position:relative}
+.search input{width:100%;padding:11px 14px 11px 40px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--card)}
+.seg button{border:0;background:transparent;padding:9px 14px;font-weight:700;font-size:.92rem;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--cobalt);color:var(--card)}
+.voicenote{font-size:.82rem;color:var(--muted);width:100%;margin:0}
+
+/* Main grid */
+.desk{display:grid;grid-template-columns:250px minmax(0,1fr);gap:28px;padding-block:24px 60px}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);align-self:start;max-height:calc(100vh - 100px);overflow:auto;display:flex;flex-direction:column;gap:2px;padding-right:4px}
+.rail button{display:flex;justify-content:space-between;gap:8px;align-items:center;text-align:left;border:0;background:transparent;padding:8px 10px;border-radius:8px;font-size:.93rem;color:var(--ink)}
+.rail button:hover{background:var(--cobalt-soft)}
+.rail button[aria-current="true"]{background:var(--cobalt);color:var(--card)}
+.rail button[aria-current="true"] .ct{color:var(--card);opacity:.85}
+.ct{font-family:var(--mono);font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.railhead{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:4px 10px 8px}
+
+main{min-width:0}
+.sect{margin:0 0 30px}
+.secthead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:4px}
+.secthead h2{font-family:var(--display);font-weight:800;font-size:1.5rem;margin:0;letter-spacing:-.01em}
+.secthead .es{font-family:var(--display);font-weight:500;color:var(--cobalt);font-size:1.05rem}
+.secthead .ct{font-size:.8rem}
+
+.row{display:grid;grid-template-columns:40px minmax(0,1.25fr) minmax(0,1fr) 36px;gap:12px;align-items:center;padding:11px 4px;border-bottom:1px solid var(--line)}
+.row.done .sp{color:var(--muted)}
+.say,.chk{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;color:var(--cobalt);padding:0}
+.say:hover{background:var(--cobalt);color:var(--card);border-color:var(--cobalt)}
+.say.playing{background:var(--marigold);color:var(--marigold-ink);border-color:var(--marigold)}
+.chk{color:var(--muted)}
+.chk[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:var(--card)}
+.sp{font-weight:700;font-size:1.08rem;line-height:1.3;overflow-wrap:anywhere}
+.pr{font-family:var(--mono);font-size:.86rem;color:var(--muted);margin-top:2px;overflow-wrap:anywhere}
+.pr b{color:var(--cobalt);font-weight:600}
+.en{color:var(--ink);font-size:.97rem;overflow-wrap:anywhere}
+.en .tag{display:inline-block;font-family:var(--mono);font-size:.7rem;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 5px;margin-left:6px;vertical-align:1px}
+.empty{padding:40px 0;color:var(--muted);text-align:center}
+mark{background:var(--marigold);color:var(--marigold-ink);border-radius:3px;padding:0 1px}
+
+/* Practice */
+.practice{max-width:640px;margin:0 auto}
+.pinfo{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px;color:var(--muted);font-size:.92rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 26px;min-height:270px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;box-shadow:0 10px 30px -18px rgba(20,26,46,.35)}
+.card .lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.card .q{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,4.5vw,2.1rem);line-height:1.15;text-wrap:balance;overflow-wrap:anywhere}
+.card .a{display:flex;flex-direction:column;gap:6px;align-items:center;border-top:1px dashed var(--line);padding-top:14px;margin-top:6px;width:100%}
+.card .a .sp{font-size:1.35rem}
+.card .a .pr{font-size:1rem}
+.pbtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:11px 18px;font-weight:700}
+.btn.pri{background:var(--cobalt);border-color:var(--cobalt);color:var(--card)}
+.btn.good{background:var(--ok);border-color:var(--ok);color:var(--card)}
+.tip{margin-top:22px;font-size:.92rem;color:var(--muted);text-align:center}
+
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer .wrap{padding-block:22px 40px}
+
+@media (max-width:820px){
+  .desk{grid-template-columns:minmax(0,1fr);gap:14px;padding-top:14px}
+  .rail{position:static;max-height:none;flex-direction:row;overflow-x:auto;gap:6px;padding-bottom:6px;margin:0 -4px}
+  .railhead{display:none}
+  .rail button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);white-space:nowrap}
+  .row{grid-template-columns:40px minmax(0,1fr) 36px;row-gap:4px}
+  .row .en{grid-column:2/3;grid-row:2}
+  .row .chk{grid-row:1/3;grid-column:3}
+  .row .say{grid-row:1/3}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* Shared site navigation and footer */
+.site-nav{position:relative;z-index:6;background:var(--card);border-bottom:1px solid var(--line)}.site-nav-inner{max-width:1180px;margin:auto;padding:10px 16px;min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:18px}.site-brand{display:flex;align-items:center;gap:9px;color:var(--ink);font-family:var(--display);font-weight:800;text-decoration:none;white-space:nowrap}.site-mark{width:34px;height:34px;border-radius:10px;background:var(--cobalt);color:white;display:grid;place-items:center;font-family:var(--mono)}.site-links{display:flex;gap:6px;flex-wrap:wrap}.site-links a{padding:7px 10px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:.9rem}.site-links a:hover,.site-links a:focus-visible{background:var(--cobalt-soft);color:var(--cobalt)}.site-nav a:focus-visible{outline:3px solid var(--marigold);outline-offset:2px}.site-copyright{display:block;margin-top:8px;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+@media(max-width:620px){.site-nav-inner{align-items:flex-start;flex-direction:column;gap:8px}.site-links{width:100%;overflow-x:auto;flex-wrap:nowrap}.site-links a{white-space:nowrap} .band .wrap{padding-top:28px}}</style>
+
+<nav class="site-nav" aria-label="Main navigation"><div class="site-nav-inner"><a class="site-brand" href="index.html"><span class="site-mark" aria-hidden="true">言</span>Multi-Language</a><div class="site-links"><a href="index.html">Home</a><a href="Hablemos Phrasebook.html" lang="es">Español</a><a href="Parlons Phrasebook.html" lang="fr">Français</a><a href="Korean Everyday Phrasebook.html" lang="ko">한국어</a></div></div></nav><header class="band">
+  <div class="wrap">
+    <p class="eyebrow">Spanish for beginners · español para principiantes</p>
+    <h1>Hablemos. <span class="inv">Let's talk.</span></h1>
+    <p class="lede">Over a thousand everyday words, phrases and sentences, each with a simple sound-it-out guide. Tap the speaker to hear it, say it out loud, then tick it off when it sticks.</p>
+    <div class="stats">
+      <span class="stat"><b id="total">0</b>entries</span>
+      <span class="stat"><b id="learnedN">0</b>learned</span>
+      <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+    </div>
+    <details class="key" open>
+      <summary>How to read the pronunciation <span>Spanish is spelled the way it sounds</span></summary>
+      <div class="keybody">
+        <div class="k"><code>CAPS</code><span>Say this syllable louder: <b>GRAH</b>-see-ahs</span></div>
+        <div class="k"><code>ah</code><span>a, as in “father”</span></div>
+        <div class="k"><code>eh</code><span>e, as in “bed”</span></div>
+        <div class="k"><code>ee</code><span>i, as in “see”</span></div>
+        <div class="k"><code>oh</code><span>o, as in “go” (short, pure)</span></div>
+        <div class="k"><code>oo</code><span>u, as in “food”</span></div>
+        <div class="k"><code>h</code><span>j and ge/gi: a breathy h, as in “hat”</span></div>
+        <div class="k"><code>y</code><span>ll and y: as in “yes”</span></div>
+        <div class="k"><code>ny</code><span>ñ: as in “canyon”</span></div>
+        <div class="k"><code>s</code><span>z, ce, ci: as in “sun” (Spain: “th”)</span></div>
+        <div class="k"><code>r</code><span>single r: a quick tap, like the tt in “butter”</span></div>
+        <div class="k"><code>rr</code><span>rr and r at the start: a rolled r</span></div>
+        <div class="k"><code>k</code><span>qu, and c before a/o/u</span></div>
+        <div class="k"><code>v</code><span>v: soft, close to b</span></div>
+        <div class="k"><code>—</code><span>h is always silent: hola = <b>OH</b>-lah</span></div>
+        <div class="k"><code>eye</code><span>ay / hay: rhymes with “my”</span></div>
+        <p class="keynote"><b>Tip:</b> Spanish vowels never change. Keep them short and clear. When you see two forms like <b>cansado / cansada</b>, a man says the first and a woman says the second. Pronunciation here follows Latin American Spanish, which is understood everywhere.</p>
+      </div>
+    </details>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <label class="search" for="q">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search Spanish or English, e.g. “water” or “gracias”" autocomplete="off">
+    </label>
+    <div class="seg" role="group" aria-label="Mode">
+      <button id="mBrowse" aria-pressed="true">Browse</button>
+      <button id="mPractice" aria-pressed="false">Practice</button>
+    </div>
+    <div class="seg" role="group" aria-label="Speaking speed">
+      <button id="sNormal" aria-pressed="true">Normal</button>
+      <button id="sSlow" aria-pressed="false">Slow</button>
+    </div>
+    <p class="voicenote" id="voicenote" hidden></p>
+  </div>
+</div>
+
+<div class="wrap desk">
+  <nav class="rail" id="rail" aria-label="Topics"></nav>
+  <main id="main"></main>
+</div>
+
+<footer><div class="wrap">Study plan: learn one topic a day, starting with Greetings. Say every phrase out loud three times. Your ticks are saved in this browser only.<span class="site-copyright">© 2026 · by chanthou</span></div></footer>
+<script>
+const CATS=[];function C(id,name,es,txt){CATS.push({id,name,es,items:txt.trim().split("\n").filter(Boolean).map(l=>{const [s,p,e]=l.split("|");return {s:s.trim(),p:(p||"").trim(),e:(e||"").trim()};})});}
+C("greet","Greetings & Courtesy","Saludos",`
+Hola|OH-lah|Hello
+Buenos días|BWEH-nohs DEE-ahs|Good morning
+Buenas tardes|BWEH-nahs TAR-dehs|Good afternoon
+Buenas noches|BWEH-nahs NOH-chehs|Good evening / Good night
+¿Cómo estás?|KOH-moh ehs-TAHS|How are you? (informal)
+¿Cómo está usted?|KOH-moh ehs-TAH oos-TEHD|How are you? (formal)
+¿Qué tal?|keh TAHL|How's it going?
+Bien, gracias.|bee-EHN GRAH-see-ahs|Fine, thank you.
+Muy bien.|mwee bee-EHN|Very well.
+Más o menos.|MAHS oh MEH-nohs|So-so.
+Regular.|reh-goo-LAR|Okay / not great.
+¿Y tú?|ee TOO|And you? (informal)
+¿Y usted?|ee oos-TEHD|And you? (formal)
+Adiós|ah-dee-OHS|Goodbye
+Hasta luego|AHS-tah LWEH-goh|See you later
+Hasta mañana|AHS-tah mah-NYAH-nah|See you tomorrow
+Hasta pronto|AHS-tah PROHN-toh|See you soon
+Nos vemos|nohs VEH-mohs|See you
+Chao|CHOW|Bye
+Por favor|por fah-VOR|Please
+Gracias|GRAH-see-ahs|Thank you
+Muchas gracias|MOO-chahs GRAH-see-ahs|Thank you very much
+De nada|deh NAH-dah|You're welcome
+Con gusto|kohn GOOS-toh|With pleasure
+Perdón|pehr-DOHN|Sorry / Pardon
+Disculpe|dees-KOOL-peh|Excuse me (to get attention)
+Con permiso|kohn pehr-MEE-soh|Excuse me (to pass by)
+Lo siento|loh see-EHN-toh|I'm sorry
+Lo siento mucho|loh see-EHN-toh MOO-choh|I'm very sorry
+No pasa nada|noh PAH-sah NAH-dah|It's okay / No worries
+No hay problema|noh eye proh-BLEH-mah|No problem
+Bienvenido|bee-ehn-veh-NEE-doh|Welcome (to a man)
+Bienvenida|bee-ehn-veh-NEE-dah|Welcome (to a woman)
+Mucho gusto|MOO-choh GOOS-toh|Nice to meet you
+Encantado|ehn-kahn-TAH-doh|Pleased to meet you (said by a man)
+Encantada|ehn-kahn-TAH-dah|Pleased to meet you (said by a woman)
+Igualmente|ee-gwahl-MEHN-teh|Likewise
+Sí|SEE|Yes
+No|NOH|No
+Vale|VAH-leh|Okay (Spain)
+De acuerdo|deh ah-KWEHR-doh|Agreed / All right
+Claro|KLAH-roh|Of course
+¡Salud!|sah-LOOD|Bless you! / Cheers!
+¡Buen provecho!|bwehn proh-VEH-choh|Enjoy your meal!
+¡Felicidades!|feh-lee-see-DAH-dehs|Congratulations!
+¡Feliz cumpleaños!|feh-LEES koom-pleh-AH-nyohs|Happy birthday!
+¡Buen viaje!|bwehn vee-AH-heh|Have a good trip!
+¡Que tengas un buen día!|keh TEHN-gahs oon bwehn DEE-ah|Have a nice day!
+¡Buena suerte!|BWEH-nah SWEHR-teh|Good luck!
+Cuídate|KWEE-dah-teh|Take care
+Saludos a tu familia|sah-LOO-dohs ah too fah-MEE-lee-ah|Say hi to your family
+`);
+
+C("intro","Introductions & Small Talk","Presentaciones",`
+¿Cómo te llamas?|KOH-moh teh YAH-mahs|What's your name?
+Me llamo …|meh YAH-moh|My name is …
+Mi nombre es …|mee NOHM-breh ehs|My name is …
+Soy …|SOY|I am …
+¿De dónde eres?|deh DOHN-deh EH-rehs|Where are you from?
+Soy de Camboya.|soy deh kahm-BOH-yah|I'm from Cambodia.
+Soy camboyano / camboyana.|soy kahm-boh-YAH-noh / -nah|I'm Cambodian. (man / woman)
+Vivo en …|VEE-voh ehn|I live in …
+¿Dónde vives?|DOHN-deh VEE-vehs|Where do you live?
+¿Cuántos años tienes?|KWAHN-tohs AH-nyohs tee-EH-nehs|How old are you?
+Tengo treinta años.|TEHN-goh TRAYN-tah AH-nyohs|I'm thirty years old.
+¿A qué te dedicas?|ah KEH teh deh-DEE-kahs|What do you do (for work)?
+Soy profesor / profesora.|soy proh-feh-SOR / proh-feh-SOH-rah|I'm a teacher. (man / woman)
+Trabajo en una oficina.|trah-BAH-hoh ehn OO-nah oh-fee-SEE-nah|I work in an office.
+Soy estudiante.|soy ehs-too-dee-AHN-teh|I'm a student.
+¿Hablas inglés?|AH-blahs een-GLEHS|Do you speak English?
+Hablo un poco de español.|AH-bloh oon POH-koh deh ehs-pah-NYOHL|I speak a little Spanish.
+Estoy aprendiendo español.|ehs-TOY ah-prehn-dee-EHN-doh ehs-pah-NYOHL|I'm learning Spanish.
+No hablo bien español.|noh AH-bloh bee-EHN ehs-pah-NYOHL|I don't speak Spanish well.
+Hablo inglés y jemer.|AH-bloh een-GLEHS ee heh-MEHR|I speak English and Khmer.
+¿Estás casado / casada?|ehs-TAHS kah-SAH-doh / -dah|Are you married? (to a man / woman)
+Estoy casado / casada.|ehs-TOY kah-SAH-doh / -dah|I'm married. (man / woman)
+Soy soltero / soltera.|soy sohl-TEH-roh / -rah|I'm single. (man / woman)
+¿Tienes hijos?|tee-EH-nehs EE-hohs|Do you have children?
+Tengo dos hijos.|TEHN-goh dohs EE-hohs|I have two children.
+¿Tienes hermanos?|tee-EH-nehs ehr-MAH-nohs|Do you have brothers and sisters?
+Este es mi amigo.|EHS-teh ehs mee ah-MEE-goh|This is my friend. (male)
+Esta es mi amiga.|EHS-tah ehs mee ah-MEE-gah|This is my friend. (female)
+Te presento a …|teh preh-SEHN-toh ah|Let me introduce you to …
+¿Qué te gusta hacer?|keh teh GOOS-tah ah-SEHR|What do you like to do?
+Me gusta leer.|meh GOOS-tah leh-EHR|I like to read.
+Me gusta viajar.|meh GOOS-tah vee-ah-HAR|I like to travel.
+Me gusta la música.|meh GOOS-tah lah MOO-see-kah|I like music.
+¿Cuál es tu número de teléfono?|kwahl ehs too NOO-meh-roh deh teh-LEH-foh-noh|What's your phone number?
+¿Cuál es tu correo electrónico?|kwahl ehs too koh-RREH-oh eh-lehk-TROH-nee-koh|What's your email?
+¿Tienes WhatsApp?|tee-EH-nehs WAHTS-ahp|Do you have WhatsApp?
+Es un placer.|ehs oon plah-SEHR|It's a pleasure.
+¿Qué hay de nuevo?|keh eye deh NWEH-voh|What's new?
+Nada especial.|NAH-dah ehs-peh-see-AHL|Nothing special.
+¿Qué haces?|keh AH-sehs|What are you doing?
+¡Cuánto tiempo!|KWAHN-toh tee-EHM-poh|Long time no see!
+¡Qué bueno verte!|keh BWEH-noh VEHR-teh|Great to see you!
+¿Cómo te va?|KOH-moh teh VAH|How's it going for you?
+¿Cómo está tu familia?|KOH-moh ehs-TAH too fah-MEE-lee-ah|How is your family?
+Todo bien.|TOH-doh bee-EHN|All good.
+Estoy cansado / cansada.|ehs-TOY kahn-SAH-doh / -dah|I'm tired. (man / woman)
+¿Es tu primera vez aquí?|ehs too pree-MEH-rah vehs ah-KEE|Is it your first time here?
+Estoy aquí de vacaciones.|ehs-TOY ah-KEE deh vah-kah-see-OH-nehs|I'm here on vacation.
+Estoy aquí por trabajo.|ehs-TOY ah-KEE por trah-BAH-hoh|I'm here for work.
+Me encanta este país.|meh ehn-KAHN-tah EHS-teh pah-EES|I love this country.
+¿Te gusta?|teh GOOS-tah|Do you like it?
+Sí, me gusta mucho.|SEE meh GOOS-tah MOO-choh|Yes, I like it a lot.
+Fue un placer conocerte.|fweh oon plah-SEHR koh-noh-SEHR-teh|It was a pleasure to meet you.
+Somos amigos.|SOH-mohs ah-MEE-gohs|We are friends.
+`);
+
+C("understand","Understanding & Asking for Help","Comprender",`
+No entiendo.|noh ehn-tee-EHN-doh|I don't understand.
+Entiendo.|ehn-tee-EHN-doh|I understand.
+¿Entiendes?|ehn-tee-EHN-dehs|Do you understand?
+¿Puede repetir, por favor?|PWEH-deh reh-peh-TEER por fah-VOR|Can you repeat, please?
+Más despacio, por favor.|MAHS dehs-PAH-see-oh por fah-VOR|More slowly, please.
+¿Qué significa …?|keh seeg-nee-FEE-kah|What does … mean?
+¿Cómo se dice … en español?|KOH-moh seh DEE-seh … ehn ehs-pah-NYOHL|How do you say … in Spanish?
+¿Cómo se escribe?|KOH-moh seh ehs-KREE-beh|How do you spell it?
+¿Cómo se pronuncia?|KOH-moh seh proh-NOON-see-ah|How do you pronounce it?
+¿Puede escribirlo?|PWEH-deh ehs-kree-BEER-loh|Can you write it down?
+¿Habla inglés?|AH-blah een-GLEHS|Do you speak English? (formal)
+¿Hay alguien que hable inglés?|eye AHL-gyehn keh AH-bleh een-GLEHS|Is there someone who speaks English?
+No sé.|noh SEH|I don't know.
+Ya sé.|yah SEH|I know.
+No lo sé.|noh loh SEH|I don't know (it).
+Creo que sí.|KREH-oh keh SEE|I think so.
+Creo que no.|KREH-oh keh NOH|I don't think so.
+Tal vez.|tahl VEHS|Maybe.
+Quizás.|kee-SAHS|Perhaps.
+Un momento, por favor.|oon moh-MEHN-toh por fah-VOR|One moment, please.
+Espera.|ehs-PEH-rah|Wait.
+Necesito ayuda.|neh-seh-SEE-toh ah-YOO-dah|I need help.
+¿Me puede ayudar?|meh PWEH-deh ah-yoo-DAR|Can you help me?
+¿Puedo hacer una pregunta?|PWEH-doh ah-SEHR OO-nah preh-GOON-tah|Can I ask a question?
+Tengo una pregunta.|TEHN-goh OO-nah preh-GOON-tah|I have a question.
+¿Es correcto?|ehs koh-RREHK-toh|Is it correct?
+¿Cuál es la diferencia?|kwahl ehs lah dee-feh-REHN-see-ah|What's the difference?
+Otra vez, por favor.|OH-trah vehs por fah-VOR|Again, please.
+Dime.|DEE-meh|Tell me.
+¿Me explicas?|meh ehks-PLEE-kahs|Can you explain it to me?
+Ya veo.|yah VEH-oh|I see.
+¡Exacto!|ehk-SAHK-toh|Exactly!
+Está bien.|ehs-TAH bee-EHN|That's fine.
+No importa.|noh eem-POR-tah|It doesn't matter.
+Lo olvidé.|loh ohl-vee-DEH|I forgot.
+`);
+
+C("questions","Question Words","Preguntas",`
+¿Qué?|KEH|What?
+¿Quién?|kee-EHN|Who?
+¿Quiénes?|kee-EH-nehs|Who? (plural)
+¿Dónde?|DOHN-deh|Where?
+¿Adónde?|ah-DOHN-deh|Where to?
+¿De dónde?|deh DOHN-deh|From where?
+¿Cuándo?|KWAHN-doh|When?
+¿Por qué?|por KEH|Why?
+Porque|POR-keh|Because
+¿Cómo?|KOH-moh|How? / Pardon?
+¿Cuál?|KWAHL|Which?
+¿Cuánto?|KWAHN-toh|How much?
+¿Cuántos?|KWAHN-tohs|How many?
+¿Cuánto cuesta?|KWAHN-toh KWEHS-tah|How much does it cost?
+¿Qué hora es?|keh OH-rah ehs|What time is it?
+¿Qué es esto?|keh ehs EHS-toh|What is this?
+¿Qué pasa?|keh PAH-sah|What's happening?
+¿Qué pasó?|keh pah-SOH|What happened?
+¿Dónde está …?|DOHN-deh ehs-TAH|Where is …?
+¿Hay …?|EYE|Is there …? / Are there …?
+¿Tiene …?|tee-EH-neh|Do you have …? (formal)
+¿Puedo …?|PWEH-doh|Can I …?
+¿Se puede …?|seh PWEH-deh|Is it allowed to …?
+¿Quién es?|kee-EHN ehs|Who is it?
+¿Para qué?|PAH-rah KEH|What for?
+¿Con quién?|kohn kee-EHN|With whom?
+¿Cuánto tiempo?|KWAHN-toh tee-EHM-poh|How long?
+¿A qué hora?|ah keh OH-rah|At what time?
+¿Qué quieres?|keh kee-EH-rehs|What do you want?
+¿Qué necesitas?|keh neh-seh-SEE-tahs|What do you need?
+`);
+
+C("numbers","Numbers","Números",`
+cero|SEH-roh|0
+uno|OO-noh|1
+dos|DOHS|2
+tres|TREHS|3
+cuatro|KWAH-troh|4
+cinco|SEEN-koh|5
+seis|SAYS|6
+siete|see-EH-teh|7
+ocho|OH-choh|8
+nueve|NWEH-veh|9
+diez|dee-EHS|10
+once|OHN-seh|11
+doce|DOH-seh|12
+trece|TREH-seh|13
+catorce|kah-TOR-seh|14
+quince|KEEN-seh|15
+dieciséis|dee-eh-see-SAYS|16
+diecisiete|dee-eh-see-see-EH-teh|17
+dieciocho|dee-eh-see-OH-choh|18
+diecinueve|dee-eh-see-NWEH-veh|19
+veinte|VAYN-teh|20
+veintiuno|vayn-tee-OO-noh|21
+veintidós|vayn-tee-DOHS|22
+veintitrés|vayn-tee-TREHS|23
+veinticinco|vayn-tee-SEEN-koh|25
+treinta|TRAYN-tah|30
+treinta y uno|TRAYN-tah ee OO-noh|31
+cuarenta|kwah-REHN-tah|40
+cincuenta|seen-KWEHN-tah|50
+sesenta|seh-SEHN-tah|60
+setenta|seh-TEHN-tah|70
+ochenta|oh-CHEHN-tah|80
+noventa|noh-VEHN-tah|90
+cien|see-EHN|100
+ciento uno|see-EHN-toh OO-noh|101
+doscientos|dohs-see-EHN-tohs|200
+trescientos|trehs-see-EHN-tohs|300
+cuatrocientos|kwah-troh-see-EHN-tohs|400
+quinientos|kee-nee-EHN-tohs|500
+seiscientos|says-see-EHN-tohs|600
+setecientos|seh-teh-see-EHN-tohs|700
+ochocientos|oh-choh-see-EHN-tohs|800
+novecientos|noh-veh-see-EHN-tohs|900
+mil|MEEL|1,000
+dos mil|dohs MEEL|2,000
+diez mil|dee-EHS MEEL|10,000
+cien mil|see-EHN MEEL|100,000
+un millón|oon mee-YOHN|1,000,000
+primero|pree-MEH-roh|first
+segundo|seh-GOON-doh|second
+tercero|tehr-SEH-roh|third
+cuarto|KWAR-toh|fourth
+quinto|KEEN-toh|fifth
+sexto|SEHKS-toh|sixth
+séptimo|SEHP-tee-moh|seventh
+octavo|ohk-TAH-voh|eighth
+noveno|noh-VEH-noh|ninth
+décimo|DEH-see-moh|tenth
+último|OOL-tee-moh|last
+la mitad|lah mee-TAHD|half
+un cuarto|oon KWAR-toh|a quarter
+el doble|ehl DOH-bleh|double
+una vez|OO-nah VEHS|once
+dos veces|dohs VEH-sehs|twice
+el número|ehl NOO-meh-roh|number
+más|MAHS|plus / more
+menos|MEH-nohs|minus / less
+por ciento|por see-EHN-toh|percent
+una docena|OO-nah doh-SEH-nah|a dozen
+Mi número es …|mee NOO-meh-roh ehs|My number is …
+`);
+
+C("time","Time, Days & Months","El tiempo",`
+lunes|LOO-nehs|Monday
+martes|MAR-tehs|Tuesday
+miércoles|mee-EHR-koh-lehs|Wednesday
+jueves|HWEH-vehs|Thursday
+viernes|vee-EHR-nehs|Friday
+sábado|SAH-bah-doh|Saturday
+domingo|doh-MEEN-goh|Sunday
+enero|eh-NEH-roh|January
+febrero|feh-BREH-roh|February
+marzo|MAR-soh|March
+abril|ah-BREEL|April
+mayo|MAH-yoh|May
+junio|HOO-nee-oh|June
+julio|HOO-lee-oh|July
+agosto|ah-GOHS-toh|August
+septiembre|sehp-tee-EHM-breh|September
+octubre|ohk-TOO-breh|October
+noviembre|noh-vee-EHM-breh|November
+diciembre|dee-see-EHM-breh|December
+hoy|OY|today
+mañana|mah-NYAH-nah|tomorrow
+ayer|ah-YEHR|yesterday
+pasado mañana|pah-SAH-doh mah-NYAH-nah|the day after tomorrow
+anteayer|ahn-teh-ah-YEHR|the day before yesterday
+ahora|ah-OH-rah|now
+ahora mismo|ah-OH-rah MEES-moh|right now
+luego|LWEH-goh|later
+después|dehs-PWEHS|after / afterwards
+antes|AHN-tehs|before
+pronto|PROHN-toh|soon
+temprano|tehm-PRAH-noh|early
+tarde|TAR-deh|late
+siempre|see-EHM-preh|always
+nunca|NOON-kah|never
+a veces|ah VEH-sehs|sometimes
+todos los días|TOH-dohs lohs DEE-ahs|every day
+el día|ehl DEE-ah|the day
+la semana|lah seh-MAH-nah|the week
+el fin de semana|ehl feen deh seh-MAH-nah|the weekend
+el mes|ehl MEHS|the month
+el año|ehl AH-nyoh|the year
+la hora|lah OH-rah|the hour
+el minuto|ehl mee-NOO-toh|the minute
+el segundo|ehl seh-GOON-doh|the second
+la mañana|lah mah-NYAH-nah|the morning
+la tarde|lah TAR-deh|the afternoon
+la noche|lah NOH-cheh|the night
+el mediodía|ehl meh-dee-oh-DEE-ah|noon
+la medianoche|lah meh-dee-ah-NOH-cheh|midnight
+la semana que viene|lah seh-MAH-nah keh vee-EH-neh|next week
+la semana pasada|lah seh-MAH-nah pah-SAH-dah|last week
+el año pasado|ehl AH-nyoh pah-SAH-doh|last year
+el próximo año|ehl PROHK-see-moh AH-nyoh|next year
+Es la una.|ehs lah OO-nah|It's one o'clock.
+Son las dos.|sohn lahs DOHS|It's two o'clock.
+Son las tres y media.|sohn lahs TREHS ee MEH-dee-ah|It's half past three.
+Son las cuatro y cuarto.|sohn lahs KWAH-troh ee KWAR-toh|It's quarter past four.
+Son las cinco menos cuarto.|sohn lahs SEEN-koh MEH-nohs KWAR-toh|It's quarter to five.
+a las ocho|ah lahs OH-choh|at eight o'clock
+de la mañana|deh lah mah-NYAH-nah|in the morning (a.m.)
+de la tarde|deh lah TAR-deh|in the afternoon (p.m.)
+de la noche|deh lah NOH-cheh|at night (p.m.)
+¿Qué día es hoy?|keh DEE-ah ehs OY|What day is today?
+Hoy es lunes.|OY ehs LOO-nehs|Today is Monday.
+¿Cuál es la fecha de hoy?|kwahl ehs lah FEH-chah deh OY|What's today's date?
+la primavera|lah pree-mah-VEH-rah|spring
+el verano|ehl veh-RAH-noh|summer
+el otoño|ehl oh-TOH-nyoh|autumn
+el invierno|ehl een-vee-EHR-noh|winter
+el cumpleaños|ehl koom-pleh-AH-nyohs|birthday
+las vacaciones|lahs vah-kah-see-OH-nehs|vacation / holidays
+Tengo prisa.|TEHN-goh PREE-sah|I'm in a hurry.
+Llego tarde.|YEH-goh TAR-deh|I'm late.
+a tiempo|ah tee-EHM-poh|on time
+`);
+C("family","Family & People","La familia",`
+la familia|lah fah-MEE-lee-ah|family
+el padre|ehl PAH-dreh|father
+la madre|lah MAH-dreh|mother
+papá|pah-PAH|dad
+mamá|mah-MAH|mom
+los padres|lohs PAH-drehs|parents
+el hijo|ehl EE-hoh|son
+la hija|lah EE-hah|daughter
+los hijos|lohs EE-hohs|children (sons & daughters)
+el hermano|ehl ehr-MAH-noh|brother
+la hermana|lah ehr-MAH-nah|sister
+el abuelo|ehl ah-BWEH-loh|grandfather
+la abuela|lah ah-BWEH-lah|grandmother
+el nieto|ehl nee-EH-toh|grandson
+la nieta|lah nee-EH-tah|granddaughter
+el tío|ehl TEE-oh|uncle
+la tía|lah TEE-ah|aunt
+el primo|ehl PREE-moh|cousin (male)
+la prima|lah PREE-mah|cousin (female)
+el sobrino|ehl soh-BREE-noh|nephew
+la sobrina|lah soh-BREE-nah|niece
+el esposo|ehl ehs-POH-soh|husband
+la esposa|lah ehs-POH-sah|wife
+el novio|ehl NOH-vee-oh|boyfriend / groom
+la novia|lah NOH-vee-ah|girlfriend / bride
+el suegro|ehl SWEH-groh|father-in-law
+la suegra|lah SWEH-grah|mother-in-law
+el bebé|ehl beh-BEH|baby
+el niño|ehl NEE-nyoh|boy / child
+la niña|lah NEE-nyah|girl / child
+el hombre|ehl OHM-breh|man
+la mujer|lah moo-HEHR|woman / wife
+la persona|lah pehr-SOH-nah|person
+la gente|lah HEHN-teh|people
+el amigo|ehl ah-MEE-goh|friend (male)
+la amiga|lah ah-MEE-gah|friend (female)
+el vecino|ehl veh-SEE-noh|neighbor
+el señor|ehl seh-NYOR|Mr. / sir / gentleman
+la señora|lah seh-NYOH-rah|Mrs. / madam / lady
+la señorita|lah seh-nyoh-REE-tah|Miss / young lady
+el chico|ehl CHEE-koh|boy / guy
+la chica|lah CHEE-kah|girl
+joven|HOH-vehn|young
+mayor|mah-YOR|older / elderly
+el compañero|ehl kohm-pah-NYEH-roh|colleague / classmate
+el jefe|ehl HEH-feh|boss
+Mi familia es grande.|mee fah-MEE-lee-ah ehs GRAHN-deh|My family is big.
+Te quiero.|teh kee-EH-roh|I love you. (family, friends, partner)
+Te amo.|teh AH-moh|I love you. (deep, romantic)
+Te extraño.|teh ehks-TRAH-nyoh|I miss you.
+`);
+
+C("health","Body & Health","El cuerpo y la salud",`
+el cuerpo|ehl KWEHR-poh|body
+la cabeza|lah kah-BEH-sah|head
+el pelo|ehl PEH-loh|hair
+la cara|lah KAH-rah|face
+los ojos|lohs OH-hohs|eyes
+la nariz|lah nah-REES|nose
+la boca|lah BOH-kah|mouth
+los dientes|lohs dee-EHN-tehs|teeth
+la oreja|lah oh-REH-hah|ear
+el cuello|ehl KWEH-yoh|neck
+la garganta|lah gar-GAHN-tah|throat
+el hombro|ehl OHM-broh|shoulder
+el brazo|ehl BRAH-soh|arm
+la mano|lah MAH-noh|hand
+el dedo|ehl DEH-doh|finger
+el pecho|ehl PEH-choh|chest
+la espalda|lah ehs-PAHL-dah|back
+el estómago|ehl ehs-TOH-mah-goh|stomach
+la pierna|lah pee-EHR-nah|leg
+la rodilla|lah roh-DEE-yah|knee
+el pie|ehl pee-EH|foot
+el corazón|ehl koh-rah-SOHN|heart
+la piel|lah pee-EHL|skin
+la sangre|lah SAHN-greh|blood
+Me duele la cabeza.|meh DWEH-leh lah kah-BEH-sah|I have a headache.
+Me duele el estómago.|meh DWEH-leh ehl ehs-TOH-mah-goh|I have a stomachache.
+Me duele aquí.|meh DWEH-leh ah-KEE|It hurts here.
+Estoy enfermo / enferma.|ehs-TOY ehn-FEHR-moh / -mah|I'm sick. (man / woman)
+Tengo fiebre.|TEHN-goh fee-EH-breh|I have a fever.
+Tengo tos.|TEHN-goh TOHS|I have a cough.
+Tengo gripe.|TEHN-goh GREE-peh|I have the flu.
+Estoy resfriado / resfriada.|ehs-TOY rehs-free-AH-doh / -dah|I have a cold.
+Tengo náuseas.|TEHN-goh NOW-seh-ahs|I feel nauseous.
+Estoy mareado / mareada.|ehs-TOY mah-reh-AH-doh / -dah|I feel dizzy.
+Soy alérgico / alérgica a …|soy ah-LEHR-hee-koh / -kah ah|I'm allergic to …
+Necesito un médico.|neh-seh-SEE-toh oon MEH-dee-koh|I need a doctor.
+el médico / la médica|ehl MEH-dee-koh / lah MEH-dee-kah|doctor
+el hospital|ehl ohs-pee-TAHL|hospital
+la farmacia|lah far-MAH-see-ah|pharmacy
+la medicina|lah meh-dee-SEE-nah|medicine
+la pastilla|lah pahs-TEE-yah|pill
+la receta|lah reh-SEH-tah|prescription / recipe
+el dentista|ehl dehn-TEES-tah|dentist
+la cita|lah SEE-tah|appointment
+el dolor|ehl doh-LOR|pain
+la herida|lah eh-REE-dah|wound
+¿Dónde está la farmacia más cercana?|DOHN-deh ehs-TAH lah far-MAH-see-ah mahs sehr-KAH-nah|Where's the nearest pharmacy?
+Tome esto dos veces al día.|TOH-meh EHS-toh dohs VEH-sehs ahl DEE-ah|Take this twice a day.
+¿Tiene algo para el dolor?|tee-EH-neh AHL-goh PAH-rah ehl doh-LOR|Do you have something for pain?
+Me siento mejor.|meh see-EHN-toh meh-HOR|I feel better.
+Me siento mal.|meh see-EHN-toh MAHL|I feel unwell.
+Estoy embarazada.|ehs-TOY ehm-bah-rah-SAH-dah|I'm pregnant.
+el seguro médico|ehl seh-GOO-roh MEH-dee-koh|health insurance
+descansar|dehs-kahn-SAR|to rest
+¡Que te mejores!|keh teh meh-HOH-rehs|Get well soon!
+`);
+
+C("food","Food & Drink","Comida y bebida",`
+la comida|lah koh-MEE-dah|food / meal
+el desayuno|ehl deh-sah-YOO-noh|breakfast
+el almuerzo|ehl ahl-MWEHR-soh|lunch
+la cena|lah SEH-nah|dinner
+el agua|ehl AH-gwah|water
+el agua con gas|ehl AH-gwah kohn GAHS|sparkling water
+el café|ehl kah-FEH|coffee
+el café con leche|ehl kah-FEH kohn LEH-cheh|coffee with milk
+el té|ehl TEH|tea
+la leche|lah LEH-cheh|milk
+el jugo / el zumo|ehl HOO-goh / ehl SOO-moh|juice (Latin America / Spain)
+la cerveza|lah sehr-VEH-sah|beer
+el vino tinto|ehl VEE-noh TEEN-toh|red wine
+el vino blanco|ehl VEE-noh BLAHN-koh|white wine
+el refresco|ehl reh-FREHS-koh|soft drink
+el hielo|ehl YEH-loh|ice
+el pan|ehl PAHN|bread
+el arroz|ehl ah-RROHS|rice
+la pasta|lah PAHS-tah|pasta
+los fideos|lohs fee-DEH-ohs|noodles
+la sopa|lah SOH-pah|soup
+la ensalada|lah ehn-sah-LAH-dah|salad
+la carne|lah KAR-neh|meat
+el pollo|ehl POH-yoh|chicken
+la carne de res|lah KAR-neh deh RREHS|beef
+el cerdo|ehl SEHR-doh|pork
+el pescado|ehl pehs-KAH-doh|fish (as food)
+los mariscos|lohs mah-REES-kohs|seafood
+los camarones|lohs kah-mah-ROH-nehs|shrimp
+el huevo|ehl WEH-voh|egg
+el queso|ehl KEH-soh|cheese
+el jamón|ehl hah-MOHN|ham
+la mantequilla|lah mahn-teh-KEE-yah|butter
+el aceite|ehl ah-SAY-teh|oil
+la sal|lah SAHL|salt
+la pimienta|lah pee-mee-EHN-tah|pepper
+el azúcar|ehl ah-SOO-kar|sugar
+el ajo|ehl AH-hoh|garlic
+la cebolla|lah seh-BOH-yah|onion
+el tomate|ehl toh-MAH-teh|tomato
+la papa / la patata|lah PAH-pah / lah pah-TAH-tah|potato (Latin America / Spain)
+la zanahoria|lah sah-nah-OH-ree-ah|carrot
+las verduras|lahs vehr-DOO-rahs|vegetables
+la lechuga|lah leh-CHOO-gah|lettuce
+el pepino|ehl peh-PEE-noh|cucumber
+el maíz|ehl mah-EES|corn
+los frijoles|lohs free-HOH-lehs|beans
+la fruta|lah FROO-tah|fruit
+la manzana|lah mahn-SAH-nah|apple
+el plátano|ehl PLAH-tah-noh|banana
+la naranja|lah nah-RAHN-hah|orange
+el limón|ehl lee-MOHN|lemon / lime
+la fresa|lah FREH-sah|strawberry
+las uvas|lahs OO-vahs|grapes
+la piña|lah PEE-nyah|pineapple
+el mango|ehl MAHN-goh|mango
+la sandía|lah sahn-DEE-ah|watermelon
+el coco|ehl KOH-koh|coconut
+el aguacate|ehl ah-gwah-KAH-teh|avocado
+el postre|ehl POHS-treh|dessert
+el pastel|ehl pahs-TEHL|cake
+el helado|ehl eh-LAH-doh|ice cream
+el chocolate|ehl choh-koh-LAH-teh|chocolate
+la galleta|lah gah-YEH-tah|cookie / cracker
+picante|pee-KAHN-teh|spicy
+dulce|DOOL-seh|sweet
+salado|sah-LAH-doh|salty
+amargo|ah-MAR-goh|bitter
+ácido|AH-see-doh|sour
+delicioso|deh-lee-see-OH-soh|delicious
+caliente|kah-lee-EHN-teh|hot (temperature)
+frío|FREE-oh|cold
+Tengo hambre.|TEHN-goh AHM-breh|I'm hungry.
+Tengo sed.|TEHN-goh SEHD|I'm thirsty.
+Estoy lleno / llena.|ehs-TOY YEH-noh / -nah|I'm full. (man / woman)
+Soy vegetariano / vegetariana.|soy veh-heh-tah-ree-AH-noh / -nah|I'm vegetarian. (man / woman)
+No como carne.|noh KOH-moh KAR-neh|I don't eat meat.
+No me gusta la comida picante.|noh meh GOOS-tah lah koh-MEE-dah pee-KAHN-teh|I don't like spicy food.
+¡Qué rico!|keh RREE-koh|How tasty!
+¿Quieres algo de beber?|kee-EH-rehs AHL-goh deh beh-BEHR|Do you want something to drink?
+desayunar|deh-sah-yoo-NAR|to have breakfast
+almorzar|ahl-mor-SAR|to have lunch
+cenar|seh-NAR|to have dinner
+cocinar|koh-see-NAR|to cook
+`);
+
+C("restaurant","At the Restaurant & Café","En el restaurante",`
+Una mesa para dos, por favor.|OO-nah MEH-sah PAH-rah DOHS por fah-VOR|A table for two, please.
+¿Tiene una mesa libre?|tee-EH-neh OO-nah MEH-sah LEE-breh|Do you have a free table?
+Tengo una reserva.|TEHN-goh OO-nah reh-SEHR-vah|I have a reservation.
+La carta, por favor.|lah KAR-tah por fah-VOR|The menu, please.
+¿Qué me recomienda?|keh meh reh-koh-mee-EHN-dah|What do you recommend?
+¿Cuál es el plato del día?|kwahl ehs ehl PLAH-toh dehl DEE-ah|What's the dish of the day?
+Quisiera …|kee-see-EH-rah|I would like …
+Quiero …|kee-EH-roh|I want …
+Para mí, …|PAH-rah MEE|For me, …
+Voy a pedir …|voy ah peh-DEER|I'm going to order …
+Me trae …, por favor.|meh TRAH-eh … por fah-VOR|Could you bring me …, please.
+Un vaso de agua, por favor.|oon VAH-soh deh AH-gwah por fah-VOR|A glass of water, please.
+¿Tiene comida vegetariana?|tee-EH-neh koh-MEE-dah veh-heh-tah-ree-AH-nah|Do you have vegetarian food?
+¿Qué lleva este plato?|keh YEH-vah EHS-teh PLAH-toh|What's in this dish?
+Sin hielo, por favor.|seen YEH-loh por fah-VOR|No ice, please.
+Sin azúcar.|seen ah-SOO-kar|Without sugar.
+No muy picante, por favor.|noh mwee pee-KAHN-teh por fah-VOR|Not too spicy, please.
+Para llevar.|PAH-rah yeh-VAR|To take away.
+Para comer aquí.|PAH-rah koh-MEHR ah-KEE|To eat here.
+¿Algo más?|AHL-goh MAHS|Anything else?
+Nada más, gracias.|NAH-dah MAHS GRAH-see-ahs|Nothing else, thanks.
+Está delicioso.|ehs-TAH deh-lee-see-OH-soh|It's delicious.
+La cuenta, por favor.|lah KWEHN-tah por fah-VOR|The bill, please.
+¿Puedo pagar con tarjeta?|PWEH-doh pah-GAR kohn tar-HEH-tah|Can I pay by card?
+¿Está incluida la propina?|ehs-TAH een-kloo-EE-dah lah proh-PEE-nah|Is the tip included?
+Quédese con el cambio.|KEH-deh-seh kohn ehl KAHM-bee-oh|Keep the change.
+el camarero / el mesero|ehl kah-mah-REH-roh / ehl meh-SEH-roh|waiter (Spain / Latin America)
+la mesa|lah MEH-sah|table
+la silla|lah SEE-yah|chair
+el menú|ehl meh-NOO|menu
+el plato|ehl PLAH-toh|plate / dish
+el vaso|ehl VAH-soh|glass (for drinking)
+la taza|lah TAH-sah|cup
+la botella|lah boh-TEH-yah|bottle
+el tenedor|ehl teh-neh-DOR|fork
+el cuchillo|ehl koo-CHEE-yoh|knife
+la cuchara|lah koo-CHAH-rah|spoon
+la servilleta|lah sehr-vee-YEH-tah|napkin
+los palillos|lohs pah-LEE-yohs|chopsticks / toothpicks
+la propina|lah proh-PEE-nah|tip
+el baño|ehl BAH-nyoh|bathroom / toilet
+¿Dónde está el baño?|DOHN-deh ehs-TAH ehl BAH-nyoh|Where is the bathroom?
+Otra cerveza, por favor.|OH-trah sehr-VEH-sah por fah-VOR|Another beer, please.
+Esto no es lo que pedí.|EHS-toh noh ehs loh keh peh-DEE|This isn't what I ordered.
+La comida está fría.|lah koh-MEE-dah ehs-TAH FREE-ah|The food is cold.
+`);
+C("shopping","Shopping & Money","De compras",`
+¿Cuánto cuesta esto?|KWAHN-toh KWEHS-tah EHS-toh|How much does this cost?
+¿Cuánto es?|KWAHN-toh EHS|How much is it?
+Es muy caro.|ehs mwee KAH-roh|It's very expensive.
+Es barato.|ehs bah-RAH-toh|It's cheap.
+¿Tiene algo más barato?|tee-EH-neh AHL-goh mahs bah-RAH-toh|Do you have something cheaper?
+¿Me hace un descuento?|meh AH-seh oon dehs-KWEHN-toh|Can you give me a discount?
+Solo estoy mirando.|SOH-loh ehs-TOY mee-RAHN-doh|I'm just looking.
+Me lo llevo.|meh loh YEH-voh|I'll take it.
+¿Puedo probármelo?|PWEH-doh proh-BAR-meh-loh|Can I try it on?
+¿Dónde están los probadores?|DOHN-deh ehs-TAHN lohs proh-bah-DOH-rehs|Where are the fitting rooms?
+¿Tiene otra talla?|tee-EH-neh OH-trah TAH-yah|Do you have another size?
+¿Tiene esto en otro color?|tee-EH-neh EHS-toh ehn OH-troh koh-LOR|Do you have this in another color?
+Es demasiado grande.|ehs deh-mah-see-AH-doh GRAHN-deh|It's too big.
+Es demasiado pequeño.|ehs deh-mah-see-AH-doh peh-KEH-nyoh|It's too small.
+¿Aceptan tarjetas?|ah-SEHP-tahn tar-HEH-tahs|Do you accept cards?
+Pago en efectivo.|PAH-goh ehn eh-fehk-TEE-voh|I'll pay in cash.
+¿Me da un recibo?|meh DAH oon reh-SEE-boh|Can I have a receipt?
+¿Me da una bolsa?|meh DAH OO-nah BOHL-sah|Can I have a bag?
+¿A qué hora abren?|ah keh OH-rah AH-brehn|What time do you open?
+¿A qué hora cierran?|ah keh OH-rah see-EH-rrahn|What time do you close?
+Está abierto.|ehs-TAH ah-bee-EHR-toh|It's open.
+Está cerrado.|ehs-TAH seh-RRAH-doh|It's closed.
+el dinero|ehl dee-NEH-roh|money
+el efectivo|ehl eh-fehk-TEE-voh|cash
+la tarjeta de crédito|lah tar-HEH-tah deh KREH-dee-toh|credit card
+el cambio|ehl KAHM-bee-oh|change / exchange
+el precio|ehl PREH-see-oh|price
+la tienda|lah tee-EHN-dah|shop / store
+el mercado|ehl mehr-KAH-doh|market
+el supermercado|ehl soo-pehr-mehr-KAH-doh|supermarket
+el centro comercial|ehl SEHN-troh koh-mehr-see-AHL|shopping mall
+la caja|lah KAH-hah|checkout / box
+la oferta|lah oh-FEHR-tah|special offer
+las rebajas|lahs reh-BAH-hahs|sales
+el cajero automático|ehl kah-HEH-roh ow-toh-MAH-tee-koh|ATM
+el banco|ehl BAHN-koh|bank
+el dólar|ehl DOH-lar|dollar
+el euro|ehl EH-oo-roh|euro
+el peso|ehl PEH-soh|peso
+comprar|kohm-PRAR|to buy
+vender|vehn-DEHR|to sell
+pagar|pah-GAR|to pay
+gastar|gahs-TAR|to spend
+ahorrar|ah-oh-RRAR|to save (money)
+¿Dónde puedo cambiar dinero?|DOHN-deh PWEH-doh kahm-bee-AR dee-NEH-roh|Where can I exchange money?
+Busco …|BOOS-koh|I'm looking for …
+Quiero devolver esto.|kee-EH-roh deh-vohl-VEHR EHS-toh|I want to return this.
+Es un regalo.|ehs oon rreh-GAH-loh|It's a gift.
+gratis|GRAH-tees|free (no cost)
+`);
+
+C("directions","Directions & Places","Direcciones y lugares",`
+¿Cómo llego a …?|KOH-moh YEH-goh ah|How do I get to …?
+¿Está lejos?|ehs-TAH LEH-hohs|Is it far?
+¿Está cerca?|ehs-TAH SEHR-kah|Is it near?
+Está aquí.|ehs-TAH ah-KEE|It's here.
+Está allí.|ehs-TAH ah-YEE|It's over there.
+a la derecha|ah lah deh-REH-chah|to the right
+a la izquierda|ah lah ees-kee-EHR-dah|to the left
+todo recto|TOH-doh RREHK-toh|straight ahead
+Gire a la derecha.|HEE-reh ah lah deh-REH-chah|Turn right.
+Gire a la izquierda.|HEE-reh ah lah ees-kee-EHR-dah|Turn left.
+Siga recto.|SEE-gah RREHK-toh|Keep going straight.
+en la esquina|ehn lah ehs-KEE-nah|on the corner
+al lado de|ahl LAH-doh deh|next to
+enfrente de|ehn-FREHN-teh deh|across from / opposite
+detrás de|deh-TRAHS deh|behind
+delante de|deh-LAHN-teh deh|in front of
+entre|EHN-treh|between
+cerca de|SEHR-kah deh|near
+lejos de|LEH-hohs deh|far from
+arriba|ah-RREE-bah|up / upstairs
+abajo|ah-BAH-hoh|down / downstairs
+dentro|DEHN-troh|inside
+fuera|FWEH-rah|outside
+el norte|ehl NOR-teh|north
+el sur|ehl SOOR|south
+el este|ehl EHS-teh|east
+el oeste|ehl oh-EHS-teh|west
+la calle|lah KAH-yeh|street
+la avenida|lah ah-veh-NEE-dah|avenue
+la cuadra|lah KWAH-drah|city block
+el semáforo|ehl seh-MAH-foh-roh|traffic light
+el puente|ehl PWEHN-teh|bridge
+la plaza|lah PLAH-sah|square
+el mapa|ehl MAH-pah|map
+la dirección|lah dee-rehk-see-OHN|address / direction
+la ciudad|lah see-oo-DAHD|city
+el pueblo|ehl PWEH-bloh|town / village
+el centro|ehl SEHN-troh|downtown / center
+el barrio|ehl BAH-rree-oh|neighborhood
+el parque|ehl PAR-keh|park
+la iglesia|lah ee-GLEH-see-ah|church
+el templo|ehl TEHM-ploh|temple
+el museo|ehl moo-SEH-oh|museum
+la playa|lah PLAH-yah|beach
+la escuela|lah ehs-KWEH-lah|school
+la universidad|lah oo-nee-vehr-see-DAHD|university
+la oficina|lah oh-fee-SEE-nah|office
+la policía|lah poh-lee-SEE-ah|police
+la oficina de correos|lah oh-fee-SEE-nah deh koh-RREH-ohs|post office
+la embajada|lah ehm-bah-HAH-dah|embassy
+el restaurante|ehl rrehs-tow-RAHN-teh|restaurant
+el bar|ehl BAR|bar
+la panadería|lah pah-nah-deh-REE-ah|bakery
+la biblioteca|lah bee-blee-oh-TEH-kah|library
+la gasolinera|lah gah-soh-lee-NEH-rah|gas station
+el cine|ehl SEE-neh|cinema
+el gimnasio|ehl heem-NAH-see-oh|gym
+Estoy perdido / perdida.|ehs-TOY pehr-DEE-doh / -dah|I'm lost. (man / woman)
+¿Me lo puede mostrar en el mapa?|meh loh PWEH-deh mohs-TRAR ehn ehl MAH-pah|Can you show me on the map?
+¿Hay un banco cerca de aquí?|eye oon BAHN-koh SEHR-kah deh ah-KEE|Is there a bank near here?
+Está a cinco minutos a pie.|ehs-TAH ah SEEN-koh mee-NOO-tohs ah pee-EH|It's five minutes on foot.
+`);
+
+C("transport","Transport & Travel","Transporte y viajes",`
+el aeropuerto|ehl ah-eh-roh-PWEHR-toh|airport
+el avión|ehl ah-vee-OHN|airplane
+el vuelo|ehl VWEH-loh|flight
+el pasaporte|ehl pah-sah-POR-teh|passport
+la maleta|lah mah-LEH-tah|suitcase
+el equipaje|ehl eh-kee-PAH-heh|luggage
+el boleto / el billete|ehl boh-LEH-toh / ehl bee-YEH-teh|ticket (Latin America / Spain)
+la tarjeta de embarque|lah tar-HEH-tah deh ehm-BAR-keh|boarding pass
+la puerta de embarque|lah PWEHR-tah deh ehm-BAR-keh|boarding gate
+la salida|lah sah-LEE-dah|departure / exit
+la llegada|lah yeh-GAH-dah|arrival
+la aduana|lah ah-DWAH-nah|customs
+el tren|ehl TREHN|train
+la estación|lah ehs-tah-see-OHN|station
+el autobús|ehl ow-toh-BOOS|bus
+la parada de autobús|lah pah-RAH-dah deh ow-toh-BOOS|bus stop
+el metro|ehl MEH-troh|subway / metro
+el taxi|ehl TAHK-see|taxi
+el coche / el carro|ehl KOH-cheh / ehl KAH-rroh|car (Spain / Latin America)
+la bicicleta|lah bee-see-KLEH-tah|bicycle
+la moto|lah MOH-toh|motorbike
+el barco|ehl BAR-koh|boat / ship
+a pie|ah pee-EH|on foot
+el andén|ehl ahn-DEHN|platform
+el horario|ehl oh-RAH-ree-oh|schedule / timetable
+de ida|deh EE-dah|one-way
+de ida y vuelta|deh EE-dah ee VWEHL-tah|round-trip
+Un boleto a …, por favor.|oon boh-LEH-toh ah … por fah-VOR|A ticket to …, please.
+¿A qué hora sale el tren?|ah keh OH-rah SAH-leh ehl TREHN|What time does the train leave?
+¿A qué hora llega?|ah keh OH-rah YEH-gah|What time does it arrive?
+¿De qué andén sale?|deh keh ahn-DEHN SAH-leh|Which platform does it leave from?
+¿Este autobús va a …?|EHS-teh ow-toh-BOOS vah ah|Does this bus go to …?
+¿Dónde compro el boleto?|DOHN-deh KOHM-proh ehl boh-LEH-toh|Where do I buy the ticket?
+¿Cuánto cuesta el boleto?|KWAHN-toh KWEHS-tah ehl boh-LEH-toh|How much is the ticket?
+A esta dirección, por favor.|ah EHS-tah dee-rehk-see-OHN por fah-VOR|To this address, please.
+¿Cuánto cuesta ir al centro?|KWAHN-toh KWEHS-tah eer ahl SEHN-troh|How much is it to go downtown?
+Pare aquí, por favor.|PAH-reh ah-KEE por fah-VOR|Stop here, please.
+Lléveme al aeropuerto.|YEH-veh-meh ahl ah-eh-roh-PWEHR-toh|Take me to the airport.
+El vuelo está retrasado.|ehl VWEH-loh ehs-TAH rreh-trah-SAH-doh|The flight is delayed.
+El vuelo está cancelado.|ehl VWEH-loh ehs-TAH kahn-seh-LAH-doh|The flight is cancelled.
+He perdido mi maleta.|eh pehr-DEE-doh mee mah-LEH-tah|I've lost my suitcase.
+Tengo algo que declarar.|TEHN-goh AHL-goh keh deh-klah-RAR|I have something to declare.
+No tengo nada que declarar.|noh TEHN-goh NAH-dah keh deh-klah-RAR|I have nothing to declare.
+Estoy de viaje.|ehs-TOY deh vee-AH-heh|I'm traveling.
+Voy a …|VOY ah|I'm going to …
+el viaje|ehl vee-AH-heh|trip
+el turista|ehl too-REES-tah|tourist
+la reserva|lah rreh-SEHR-vah|reservation / booking
+el asiento|ehl ah-see-EHN-toh|seat
+la ventanilla|lah vehn-tah-NEE-yah|window seat / ticket window
+el pasillo|ehl pah-SEE-yoh|aisle / hallway
+alquilar un coche|ahl-kee-LAR oon KOH-cheh|to rent a car
+el conductor|ehl kohn-dook-TOR|driver
+la gasolina|lah gah-soh-LEE-nah|gasoline
+la carretera|lah kah-rreh-TEH-rah|road / highway
+viajar|vee-ah-HAR|to travel
+`);
+
+C("home","Hotel & Home","El hotel y la casa",`
+el hotel|ehl oh-TEHL|hotel
+la habitación|lah ah-bee-tah-see-OHN|room
+Tengo una reserva a nombre de …|TEHN-goh OO-nah rreh-SEHR-vah ah NOHM-breh deh|I have a reservation under the name …
+¿Tiene habitaciones libres?|tee-EH-neh ah-bee-tah-see-OH-nehs LEE-brehs|Do you have rooms available?
+una habitación individual|OO-nah ah-bee-tah-see-OHN een-dee-vee-DWAHL|a single room
+una habitación doble|OO-nah ah-bee-tah-see-OHN DOH-bleh|a double room
+¿Cuánto cuesta por noche?|KWAHN-toh KWEHS-tah por NOH-cheh|How much per night?
+¿Está incluido el desayuno?|ehs-TAH een-kloo-EE-doh ehl deh-sah-YOO-noh|Is breakfast included?
+¿A qué hora hay que dejar la habitación?|ah keh OH-rah eye keh deh-HAR lah ah-bee-tah-see-OHN|What time is checkout?
+la llave|lah YAH-veh|key
+¿Cuál es la contraseña del wifi?|kwahl ehs lah kohn-trah-SEH-nyah dehl WEE-fee|What's the wifi password?
+No hay agua caliente.|noh eye AH-gwah kah-lee-EHN-teh|There's no hot water.
+El aire acondicionado no funciona.|ehl EYE-reh ah-kohn-dee-see-oh-NAH-doh noh foon-see-OH-nah|The air conditioning doesn't work.
+¿Puede limpiar la habitación?|PWEH-deh leem-pee-AR lah ah-bee-tah-see-OHN|Can you clean the room?
+Necesito más toallas.|neh-seh-SEE-toh mahs toh-AH-yahs|I need more towels.
+la recepción|lah rreh-sehp-see-OHN|reception
+el ascensor|ehl ah-sehn-SOR|elevator
+la escalera|lah ehs-kah-LEH-rah|stairs
+el piso|ehl PEE-soh|floor / apartment
+la casa|lah KAH-sah|house / home
+el apartamento|ehl ah-par-tah-MEHN-toh|apartment
+la puerta|lah PWEHR-tah|door
+la ventana|lah vehn-TAH-nah|window
+la cocina|lah koh-SEE-nah|kitchen
+el dormitorio|ehl dor-mee-TOH-ree-oh|bedroom
+la sala|lah SAH-lah|living room
+la cama|lah KAH-mah|bed
+la almohada|lah ahl-moh-AH-dah|pillow
+la manta|lah MAHN-tah|blanket
+la toalla|lah toh-AH-yah|towel
+la ducha|lah DOO-chah|shower
+el jabón|ehl hah-BOHN|soap
+el papel higiénico|ehl pah-PEHL ee-hee-EH-nee-koh|toilet paper
+el espejo|ehl ehs-PEH-hoh|mirror
+el sofá|ehl soh-FAH|sofa
+la nevera|lah neh-VEH-rah|refrigerator
+la luz|lah LOOS|light
+la lámpara|lah LAHM-pah-rah|lamp
+el enchufe|ehl ehn-CHOO-feh|power outlet
+el cargador|ehl kar-gah-DOR|charger
+la basura|lah bah-SOO-rah|trash
+el teléfono|ehl teh-LEH-foh-noh|phone
+el celular / el móvil|ehl seh-loo-LAR / ehl MOH-veel|mobile phone (Latin America / Spain)
+la computadora|lah kohm-poo-tah-DOH-rah|computer
+la televisión|lah teh-leh-vee-see-OHN|television
+el jardín|ehl har-DEEN|garden
+el perro|ehl PEH-rroh|dog
+el gato|ehl GAH-toh|cat
+Voy a casa.|voy ah KAH-sah|I'm going home.
+Estoy en casa.|ehs-TOY ehn KAH-sah|I'm at home.
+Bienvenido a mi casa.|bee-ehn-veh-NEE-doh ah mee KAH-sah|Welcome to my home.
+Siéntate, por favor.|see-EHN-tah-teh por fah-VOR|Sit down, please.
+Estás en tu casa.|ehs-TAHS ehn too KAH-sah|Make yourself at home.
+encender la luz|ehn-sehn-DEHR lah LOOS|to turn on the light
+apagar la luz|ah-pah-GAR lah LOOS|to turn off the light
+`);
+C("verbs","Common Verbs","Verbos",`
+ser|SEHR|to be (who/what) · soy = I am
+estar|ehs-TAR|to be (where/how) · estoy = I am
+tener|teh-NEHR|to have · tengo = I have
+hacer|ah-SEHR|to do / make · hago = I do
+ir|EER|to go · voy = I go
+venir|veh-NEER|to come · vengo = I come
+querer|keh-REHR|to want / love · quiero = I want
+poder|poh-DEHR|to be able to · puedo = I can
+necesitar|neh-seh-see-TAR|to need · necesito = I need
+decir|deh-SEER|to say / tell · digo = I say
+hablar|ah-BLAR|to speak · hablo = I speak
+saber|sah-BEHR|to know (facts) · sé = I know
+conocer|koh-noh-SEHR|to know (people, places) · conozco = I know
+ver|VEHR|to see · veo = I see
+mirar|mee-RAR|to look / watch · miro = I look
+oír|oh-EER|to hear · oigo = I hear
+escuchar|ehs-koo-CHAR|to listen · escucho = I listen
+dar|DAR|to give · doy = I give
+tomar|toh-MAR|to take / drink · tomo = I take
+llevar|yeh-VAR|to carry / wear · llevo = I carry
+traer|trah-EHR|to bring · traigo = I bring
+comer|koh-MEHR|to eat · como = I eat
+beber|beh-BEHR|to drink · bebo = I drink
+dormir|dor-MEER|to sleep · duermo = I sleep
+vivir|vee-VEER|to live · vivo = I live
+trabajar|trah-bah-HAR|to work · trabajo = I work
+estudiar|ehs-too-dee-AR|to study · estudio = I study
+aprender|ah-prehn-DEHR|to learn · aprendo = I learn
+enseñar|ehn-seh-NYAR|to teach / show · enseño = I teach
+leer|leh-EHR|to read · leo = I read
+escribir|ehs-kree-BEER|to write · escribo = I write
+entender|ehn-tehn-DEHR|to understand · entiendo = I understand
+pensar|pehn-SAR|to think · pienso = I think
+creer|kreh-EHR|to believe · creo = I believe
+gustar|goos-TAR|to like · me gusta = I like
+buscar|boos-KAR|to look for · busco = I look for
+encontrar|ehn-kohn-TRAR|to find · encuentro = I find
+abrir|ah-BREER|to open · abro = I open
+cerrar|seh-RRAR|to close · cierro = I close
+empezar|ehm-peh-SAR|to begin · empiezo = I begin
+terminar|tehr-mee-NAR|to finish · termino = I finish
+salir|sah-LEER|to leave / go out · salgo = I leave
+entrar|ehn-TRAR|to enter · entro = I enter
+llegar|yeh-GAR|to arrive · llego = I arrive
+volver|vohl-VEHR|to come back · vuelvo = I come back
+esperar|ehs-peh-RAR|to wait / hope · espero = I wait
+llamar|yah-MAR|to call · llamo = I call
+preguntar|preh-goon-TAR|to ask · pregunto = I ask
+responder|rrehs-pohn-DEHR|to answer · respondo = I answer
+ayudar|ah-yoo-DAR|to help · ayudo = I help
+usar|oo-SAR|to use · uso = I use
+poner|poh-NEHR|to put · pongo = I put
+dejar|deh-HAR|to leave (something) / let · dejo = I leave
+pasar|pah-SAR|to pass / happen · paso = I pass
+caminar|kah-mee-NAR|to walk · camino = I walk
+correr|koh-RREHR|to run · corro = I run
+manejar|mah-neh-HAR|to drive · manejo = I drive
+jugar|hoo-GAR|to play (games, sports) · juego = I play
+tocar|toh-KAR|to touch / play (music) · toco = I touch
+cantar|kahn-TAR|to sing · canto = I sing
+bailar|bye-LAR|to dance · bailo = I dance
+nadar|nah-DAR|to swim · nado = I swim
+lavar|lah-VAR|to wash · lavo = I wash
+limpiar|leem-pee-AR|to clean · limpio = I clean
+cambiar|kahm-bee-AR|to change · cambio = I change
+recordar|rreh-kor-DAR|to remember · recuerdo = I remember
+olvidar|ohl-vee-DAR|to forget · olvido = I forget
+sentir|sehn-TEER|to feel · siento = I feel
+amar|ah-MAR|to love · amo = I love
+perder|pehr-DEHR|to lose · pierdo = I lose
+ganar|gah-NAR|to win / earn · gano = I win
+enviar|ehn-vee-AR|to send · envío = I send
+recibir|rreh-see-BEER|to receive · recibo = I receive
+mostrar|mohs-TRAR|to show · muestro = I show
+explicar|ehks-plee-KAR|to explain · explico = I explain
+contar|kohn-TAR|to count / tell · cuento = I count
+pedir|peh-DEER|to ask for / order · pido = I ask for
+seguir|seh-GEER|to follow / continue · sigo = I follow
+subir|soo-BEER|to go up / get on · subo = I go up
+bajar|bah-HAR|to go down / get off · bajo = I go down
+sentarse|sehn-TAR-seh|to sit down · me siento = I sit down
+levantarse|leh-vahn-TAR-seh|to get up · me levanto = I get up
+ducharse|doo-CHAR-seh|to shower · me ducho = I shower
+vestirse|vehs-TEER-seh|to get dressed · me visto = I get dressed
+acostarse|ah-kohs-TAR-seh|to go to bed · me acuesto = I go to bed
+despertarse|dehs-pehr-TAR-seh|to wake up · me despierto = I wake up
+costar|kohs-TAR|to cost · cuesta = it costs
+parecer|pah-reh-SEHR|to seem · parece = it seems
+deber|deh-BEHR|must / should · debo = I must
+intentar|een-tehn-TAR|to try · intento = I try
+`);
+
+C("adjectives","Describing Things","Adjetivos",`
+bueno / buena|BWEH-noh / -nah|good
+malo / mala|MAH-loh / -lah|bad
+grande|GRAHN-deh|big
+pequeño / pequeña|peh-KEH-nyoh / -nyah|small
+alto / alta|AHL-toh / -tah|tall / high
+bajo / baja|BAH-hoh / -hah|short / low
+largo / larga|LAR-goh / -gah|long
+corto / corta|KOR-toh / -tah|short (length)
+nuevo / nueva|NWEH-voh / -vah|new
+viejo / vieja|vee-EH-hoh / -hah|old
+bonito / bonita|boh-NEE-toh / -tah|pretty / nice
+hermoso / hermosa|ehr-MOH-soh / -sah|beautiful
+guapo / guapa|GWAH-poh / -pah|handsome / good-looking
+feo / fea|FEH-oh / -ah|ugly
+fácil|FAH-seel|easy
+difícil|dee-FEE-seel|difficult
+rápido / rápida|RRAH-pee-doh / -dah|fast
+lento / lenta|LEHN-toh / -tah|slow
+caro / cara|KAH-roh / -rah|expensive
+barato / barata|bah-RAH-toh / -tah|cheap
+limpio / limpia|LEEM-pee-oh / -ah|clean
+sucio / sucia|SOO-see-oh / -ah|dirty
+lleno / llena|YEH-noh / -nah|full
+vacío / vacía|vah-SEE-oh / -ah|empty
+abierto / abierta|ah-bee-EHR-toh / -tah|open
+cerrado / cerrada|seh-RRAH-doh / -dah|closed
+mucho / mucha|MOO-choh / -chah|a lot / much
+poco / poca|POH-koh / -kah|a little / few
+muchos / muchas|MOO-chohs / -chahs|many
+todo / toda|TOH-doh / -dah|all / whole
+otro / otra|OH-troh / -trah|other / another
+mismo / misma|MEES-moh / -mah|same
+diferente|dee-feh-REHN-teh|different
+importante|eem-por-TAHN-teh|important
+interesante|een-teh-reh-SAHN-teh|interesting
+aburrido / aburrida|ah-boo-RREE-doh / -dah|boring / bored
+divertido / divertida|dee-vehr-TEE-doh / -dah|fun
+fuerte|FWEHR-teh|strong
+débil|DEH-beel|weak
+gordo / gorda|GOR-doh / -dah|fat
+delgado / delgada|dehl-GAH-doh / -dah|thin
+rico / rica|RREE-koh / -kah|rich / tasty
+pobre|POH-breh|poor
+feliz|feh-LEES|happy
+triste|TREES-teh|sad
+amable|ah-MAH-bleh|kind
+simpático / simpática|seem-PAH-tee-koh / -kah|nice / friendly
+inteligente|een-teh-lee-HEHN-teh|intelligent
+tonto / tonta|TOHN-toh / -tah|silly
+listo / lista|LEES-toh / -tah|ready / clever
+ocupado / ocupada|oh-koo-PAH-doh / -dah|busy
+libre|LEE-breh|free (available)
+seguro / segura|seh-GOO-roh / -rah|safe / sure
+peligroso / peligrosa|peh-lee-GROH-soh / -sah|dangerous
+tranquilo / tranquila|trahn-KEE-loh / -lah|calm / quiet
+ruidoso / ruidosa|rrwee-DOH-soh / -sah|noisy
+correcto / correcta|koh-RREHK-toh / -tah|correct
+incorrecto / incorrecta|een-koh-RREHK-toh / -tah|wrong
+verdadero / verdadera|vehr-dah-DEH-roh / -rah|true
+falso / falsa|FAHL-soh / -sah|false
+posible|poh-SEE-bleh|possible
+imposible|eem-poh-SEE-bleh|impossible
+cómodo / cómoda|KOH-moh-doh / -dah|comfortable
+mejor|meh-HOR|better / best
+peor|peh-OR|worse / worst
+famoso / famosa|fah-MOH-soh / -sah|famous
+perfecto / perfecta|pehr-FEHK-toh / -tah|perfect
+increíble|een-kreh-EE-bleh|incredible
+genial|heh-nee-AHL|great / awesome
+terrible|teh-RREE-bleh|terrible
+fresco / fresca|FREHS-koh / -kah|fresh / cool
+seco / seca|SEH-koh / -kah|dry
+mojado / mojada|moh-HAH-doh / -dah|wet
+`);
+
+C("colors","Colors & Clothes","Colores y ropa",`
+el color|ehl koh-LOR|color
+rojo|RROH-hoh|red
+azul|ah-SOOL|blue
+verde|VEHR-deh|green
+amarillo|ah-mah-REE-yoh|yellow
+naranja|nah-RAHN-hah|orange
+morado|moh-RAH-doh|purple
+rosado|rroh-SAH-doh|pink
+negro|NEH-groh|black
+blanco|BLAHN-koh|white
+gris|GREES|gray
+marrón|mah-RROHN|brown
+dorado|doh-RAH-doh|gold(en)
+plateado|plah-teh-AH-doh|silver
+claro|KLAH-roh|light (color)
+oscuro|ohs-KOO-roh|dark
+¿De qué color es?|deh keh koh-LOR ehs|What color is it?
+Mi color favorito es el azul.|mee koh-LOR fah-voh-REE-toh ehs ehl ah-SOOL|My favorite color is blue.
+la ropa|lah RROH-pah|clothes
+la camisa|lah kah-MEE-sah|shirt
+la camiseta|lah kah-mee-SEH-tah|T-shirt
+los pantalones|lohs pahn-tah-LOH-nehs|pants / trousers
+los pantalones cortos|lohs pahn-tah-LOH-nehs KOR-tohs|shorts
+la falda|lah FAHL-dah|skirt
+el vestido|ehl vehs-TEE-doh|dress
+la chaqueta|lah chah-KEH-tah|jacket
+el abrigo|ehl ah-BREE-goh|coat
+el suéter|ehl SWEH-tehr|sweater
+los zapatos|lohs sah-PAH-tohs|shoes
+las sandalias|lahs sahn-DAH-lee-ahs|sandals
+los calcetines|lohs kahl-seh-TEE-nehs|socks
+el sombrero|ehl sohm-BREH-roh|hat
+la gorra|lah GOH-rrah|cap
+las gafas|lahs GAH-fahs|glasses
+el reloj|ehl rreh-LOH|watch / clock
+el bolso|ehl BOHL-soh|handbag
+la mochila|lah moh-CHEE-lah|backpack
+la cartera|lah kar-TEH-rah|wallet
+el paraguas|ehl pah-RAH-gwahs|umbrella
+la talla|lah TAH-yah|size (clothes)
+`);
+
+C("weather","Weather & Nature","El clima y la naturaleza",`
+¿Qué tiempo hace?|keh tee-EHM-poh AH-seh|What's the weather like?
+Hace calor.|AH-seh kah-LOR|It's hot.
+Hace frío.|AH-seh FREE-oh|It's cold.
+Hace sol.|AH-seh SOHL|It's sunny.
+Hace viento.|AH-seh vee-EHN-toh|It's windy.
+Hace buen tiempo.|AH-seh bwehn tee-EHM-poh|The weather is nice.
+Hace mal tiempo.|AH-seh mahl tee-EHM-poh|The weather is bad.
+Está nublado.|ehs-TAH noo-BLAH-doh|It's cloudy.
+Está lloviendo.|ehs-TAH yoh-vee-EHN-doh|It's raining.
+Está nevando.|ehs-TAH neh-VAHN-doh|It's snowing.
+Va a llover.|vah ah yoh-VEHR|It's going to rain.
+Tengo calor.|TEHN-goh kah-LOR|I'm hot.
+Tengo frío.|TEHN-goh FREE-oh|I'm cold.
+el tiempo|ehl tee-EHM-poh|weather / time
+el sol|ehl SOHL|sun
+la luna|lah LOO-nah|moon
+la estrella|lah ehs-TREH-yah|star
+el cielo|ehl see-EH-loh|sky
+la nube|lah NOO-beh|cloud
+la lluvia|lah YOO-vee-ah|rain
+la nieve|lah nee-EH-veh|snow
+el viento|ehl vee-EHN-toh|wind
+la tormenta|lah tor-MEHN-tah|storm
+la temperatura|lah tehm-peh-rah-TOO-rah|temperature
+los grados|lohs GRAH-dohs|degrees
+el mar|ehl MAR|sea
+el río|ehl RREE-oh|river
+el lago|ehl LAH-goh|lake
+la montaña|lah mohn-TAH-nyah|mountain
+el árbol|ehl AR-bohl|tree
+la flor|lah FLOR|flower
+el bosque|ehl BOHS-keh|forest
+la isla|lah EES-lah|island
+el campo|ehl KAHM-poh|countryside / field
+el animal|ehl ah-nee-MAHL|animal
+el pájaro|ehl PAH-hah-roh|bird
+`);
+
+C("feelings","Feelings & Reactions","Sentimientos",`
+Estoy feliz.|ehs-TOY feh-LEES|I'm happy.
+Estoy contento / contenta.|ehs-TOY kohn-TEHN-toh / -tah|I'm glad. (man / woman)
+Estoy triste.|ehs-TOY TREES-teh|I'm sad.
+Estoy enojado / enojada.|ehs-TOY eh-noh-HAH-doh / -dah|I'm angry. (man / woman)
+Estoy nervioso / nerviosa.|ehs-TOY nehr-vee-OH-soh / -sah|I'm nervous. (man / woman)
+Estoy preocupado / preocupada.|ehs-TOY preh-oh-koo-PAH-doh / -dah|I'm worried. (man / woman)
+Estoy aburrido / aburrida.|ehs-TOY ah-boo-RREE-doh / -dah|I'm bored. (man / woman)
+Estoy emocionado / emocionada.|ehs-TOY eh-moh-see-oh-NAH-doh / -dah|I'm excited. (man / woman)
+Estoy sorprendido / sorprendida.|ehs-TOY sor-prehn-DEE-doh / -dah|I'm surprised. (man / woman)
+Estoy listo / lista.|ehs-TOY LEES-toh / -tah|I'm ready. (man / woman)
+Tengo miedo.|TEHN-goh mee-EH-doh|I'm scared.
+Tengo sueño.|TEHN-goh SWEH-nyoh|I'm sleepy.
+Tengo razón.|TEHN-goh rrah-SOHN|I'm right.
+Me gusta.|meh GOOS-tah|I like it.
+No me gusta.|noh meh GOOS-tah|I don't like it.
+Me encanta.|meh ehn-KAHN-tah|I love it.
+Odio …|OH-dee-oh|I hate …
+Prefiero …|preh-fee-EH-roh|I prefer …
+Creo que …|KREH-oh keh|I think that …
+En mi opinión, …|ehn mee oh-pee-nee-OHN|In my opinion, …
+Estoy de acuerdo.|ehs-TOY deh ah-KWEHR-doh|I agree.
+No estoy de acuerdo.|noh ehs-TOY deh ah-KWEHR-doh|I disagree.
+Tienes razón.|tee-EH-nehs rrah-SOHN|You're right.
+¡Qué bien!|keh bee-EHN|How nice! / Great!
+¡Qué pena!|keh PEH-nah|What a pity!
+¡Qué lástima!|keh LAHS-tee-mah|What a shame!
+¡Qué bonito!|keh boh-NEE-toh|How beautiful!
+¡Qué sorpresa!|keh sor-PREH-sah|What a surprise!
+¡Qué miedo!|keh mee-EH-doh|How scary!
+¡Qué asco!|keh AHS-koh|How gross!
+¡Qué suerte!|keh SWEHR-teh|How lucky!
+¡Qué lindo!|keh LEEN-doh|How lovely!
+¡Qué divertido!|keh dee-vehr-TEE-doh|How fun!
+¡Genial!|heh-nee-AHL|Great!
+¡Increíble!|een-kreh-EE-bleh|Incredible!
+¡Por supuesto!|por soo-PWEHS-toh|Of course!
+¡Ojalá!|oh-hah-LAH|I hope so!
+¡Dios mío!|dee-OHS MEE-oh|Oh my God!
+¡Ay!|EYE|Ouch! / Oh!
+¡Vamos!|VAH-mohs|Let's go! / Come on!
+¡Cuidado!|kwee-DAH-doh|Careful!
+No me importa.|noh meh eem-POR-tah|I don't care.
+Me da igual.|meh dah ee-GWAHL|It's all the same to me.
+`);
+
+C("work","Work & School","Trabajo y escuela",`
+el trabajo|ehl trah-BAH-hoh|work / job
+la empresa|lah ehm-PREH-sah|company
+la reunión|lah rreh-oo-nee-OHN|meeting
+el correo|ehl koh-RREH-oh|mail / email
+el documento|ehl doh-koo-MEHN-toh|document
+el proyecto|ehl proh-YEHK-toh|project
+el cliente|ehl klee-EHN-teh|client / customer
+el sueldo|ehl SWEHL-doh|salary
+la clase|lah KLAH-seh|class
+el profesor / la profesora|ehl proh-feh-SOR / lah proh-feh-SOH-rah|teacher
+el estudiante|ehl ehs-too-dee-AHN-teh|student
+el libro|ehl LEE-broh|book
+el cuaderno|ehl kwah-DEHR-noh|notebook
+el bolígrafo|ehl boh-LEE-grah-foh|pen
+el lápiz|ehl LAH-pees|pencil
+el papel|ehl pah-PEHL|paper
+la tarea|lah tah-REH-ah|homework / task
+el examen|ehl ehk-SAH-mehn|exam
+la pregunta|lah preh-GOON-tah|question
+la respuesta|lah rrehs-PWEHS-tah|answer
+la palabra|lah pah-LAH-brah|word
+la frase|lah FRAH-seh|sentence / phrase
+el idioma|ehl ee-dee-OH-mah|language
+Tengo una reunión a las diez.|TEHN-goh OO-nah rreh-oo-nee-OHN ah lahs dee-EHS|I have a meeting at ten.
+Estoy ocupado ahora.|ehs-TOY oh-koo-PAH-doh ah-OH-rah|I'm busy right now.
+¿Puedes enviarme el documento?|PWEH-dehs ehn-vee-AR-meh ehl doh-koo-MEHN-toh|Can you send me the document?
+Te mando un correo.|teh MAHN-doh oon koh-RREH-oh|I'll send you an email.
+¿Cuándo es la fecha límite?|KWAHN-doh ehs lah FEH-chah LEE-mee-teh|When is the deadline?
+Ya terminé.|yah tehr-mee-NEH|I've already finished.
+Trabajo de lunes a viernes.|trah-BAH-hoh deh LOO-nehs ah vee-EHR-nehs|I work Monday to Friday.
+Voy a la oficina.|voy ah lah oh-fee-SEE-nah|I'm going to the office.
+¿Tienes un momento?|tee-EH-nehs oon moh-MEHN-toh|Do you have a moment?
+Buen trabajo.|bwehn trah-BAH-hoh|Good job.
+Gracias por tu ayuda.|GRAH-see-ahs por too ah-YOO-dah|Thanks for your help.
+`);
+
+C("emergency","Emergencies","Emergencias",`
+¡Ayuda!|ah-YOO-dah|Help!
+¡Socorro!|soh-KOH-rroh|Help! (urgent)
+¡Fuego!|FWEH-goh|Fire!
+¡Ladrón!|lah-DROHN|Thief!
+¡Llame a la policía!|YAH-meh ah lah poh-lee-SEE-ah|Call the police!
+¡Llame a una ambulancia!|YAH-meh ah OO-nah ahm-boo-LAHN-see-ah|Call an ambulance!
+Es una emergencia.|ehs OO-nah eh-mehr-HEHN-see-ah|It's an emergency.
+Hubo un accidente.|OO-boh oon ahk-see-DEHN-teh|There was an accident.
+Me robaron.|meh rroh-BAH-rohn|I've been robbed.
+He perdido mi pasaporte.|eh pehr-DEE-doh mee pah-sah-POR-teh|I've lost my passport.
+He perdido mi teléfono.|eh pehr-DEE-doh mee teh-LEH-foh-noh|I've lost my phone.
+Necesito ir al hospital.|neh-seh-SEE-toh eer ahl ohs-pee-TAHL|I need to go to the hospital.
+¿Dónde está el hospital?|DOHN-deh ehs-TAH ehl ohs-pee-TAHL|Where is the hospital?
+¿Dónde está la comisaría?|DOHN-deh ehs-TAH lah koh-mee-sah-REE-ah|Where is the police station?
+Llame a un médico.|YAH-meh ah oon MEH-dee-koh|Call a doctor.
+Estoy herido / herida.|ehs-TOY eh-REE-doh / -dah|I'm injured. (man / woman)
+No puedo respirar.|noh PWEH-doh rrehs-pee-RAR|I can't breathe.
+Déjeme en paz.|DEH-heh-meh ehn PAHS|Leave me alone.
+¡Váyase!|VAH-yah-seh|Go away!
+¡Pare!|PAH-reh|Stop!
+¡Rápido!|RRAH-pee-doh|Quick!
+Necesito llamar a mi embajada.|neh-seh-SEE-toh yah-MAR ah mee ehm-bah-HAH-dah|I need to call my embassy.
+¿Puedo usar su teléfono?|PWEH-doh oo-SAR soo teh-LEH-foh-noh|Can I use your phone?
+Tengo un problema.|TEHN-goh oon proh-BLEH-mah|I have a problem.
+Mi hijo está perdido.|mee EE-hoh ehs-TAH pehr-DEE-doh|My child is lost.
+la ambulancia|lah ahm-boo-LAHN-see-ah|ambulance
+los bomberos|lohs bohm-BEH-rohs|firefighters
+el peligro|ehl peh-LEE-groh|danger
+la salida de emergencia|lah sah-LEE-dah deh eh-mehr-HEHN-see-ah|emergency exit
+Tenga cuidado.|TEHN-gah kwee-DAH-doh|Be careful.
+`);
+
+C("little","Little Words That Glue Sentences","Palabras pequeñas",`
+yo|YOH|I
+tú|TOO|you (informal)
+usted|oos-TEHD|you (formal)
+él|EHL|he
+ella|EH-yah|she
+nosotros / nosotras|noh-SOH-trohs / -trahs|we (men or mixed / women)
+ustedes|oos-TEH-dehs|you (plural)
+vosotros|voh-SOH-trohs|you all (Spain, informal)
+ellos / ellas|EH-yohs / EH-yahs|they (men or mixed / women)
+mi / mis|MEE / MEES|my
+tu / tus|TOO / TOOS|your (informal)
+su / sus|SOO / SOOS|his / her / their / your (formal)
+nuestro / nuestra|NWEHS-troh / -trah|our
+este / esta|EHS-teh / EHS-tah|this
+ese / esa|EH-seh / EH-sah|that
+esto|EHS-toh|this (thing)
+eso|EH-soh|that (thing)
+aquí|ah-KEE|here
+allí|ah-YEE|there
+y|EE|and
+o|OH|or
+pero|PEH-roh|but
+también|tahm-bee-EHN|also / too
+tampoco|tahm-POH-koh|neither / not either
+con|KOHN|with
+sin|SEEN|without
+para|PAH-rah|for / in order to
+por|POR|for / by / through
+de|DEH|of / from
+en|EHN|in / on / at
+a|AH|to / at
+desde|DEHS-deh|from / since
+hasta|AHS-tah|until / up to
+sobre|SOH-breh|on / about
+muy|MWEE|very
+bastante|bahs-TAHN-teh|quite / enough
+demasiado|deh-mah-see-AH-doh|too (much)
+ya|YAH|already / now
+todavía|toh-dah-VEE-ah|still / yet
+solo|SOH-loh|only / alone
+algo|AHL-goh|something
+nada|NAH-dah|nothing
+alguien|AHL-gyehn|someone
+nadie|NAH-dyeh|nobody
+todo|TOH-doh|everything
+todos|TOH-dohs|everyone
+cada|KAH-dah|each / every
+si|SEE|if
+entonces|ehn-TOHN-sehs|then / so
+así|ah-SEE|like this / this way
+como|KOH-moh|like / as
+casi|KAH-see|almost
+bien|bee-EHN|well / fine
+mal|MAHL|badly
+por ejemplo|por eh-HEHM-ploh|for example
+además|ah-deh-MAHS|besides / also
+sin embargo|seen ehm-BAR-goh|however
+`);
+
+C("daily","Everyday Sentences","Frases de cada día",`
+Me levanto a las siete.|meh leh-VAHN-toh ah lahs see-EH-teh|I get up at seven.
+Voy al trabajo en autobús.|voy ahl trah-BAH-hoh ehn ow-toh-BOOS|I go to work by bus.
+¿Qué vas a hacer hoy?|keh vahs ah ah-SEHR OY|What are you going to do today?
+Voy a ir al mercado.|voy ah eer ahl mehr-KAH-doh|I'm going to go to the market.
+¿Quieres venir conmigo?|kee-EH-rehs veh-NEER kohn-MEE-goh|Do you want to come with me?
+¿Vamos a tomar un café?|VAH-mohs ah toh-MAR oon kah-FEH|Shall we get a coffee?
+¿Estás libre mañana?|ehs-TAHS LEE-breh mah-NYAH-nah|Are you free tomorrow?
+¿Nos vemos a las cinco?|nohs VEH-mohs ah lahs SEEN-koh|Shall we meet at five?
+¿Dónde nos vemos?|DOHN-deh nohs VEH-mohs|Where shall we meet?
+Te llamo más tarde.|teh YAH-moh mahs TAR-deh|I'll call you later.
+Te escribo luego.|teh ehs-KREE-boh LWEH-goh|I'll text you later.
+Ya voy.|yah VOY|I'm coming.
+Ya llegué.|yah yeh-GEH|I've arrived.
+Estoy en camino.|ehs-TOY ehn kah-MEE-noh|I'm on my way.
+Perdón, llego tarde.|pehr-DOHN YEH-goh TAR-deh|Sorry, I'm late.
+No tengo tiempo.|noh TEHN-goh tee-EHM-poh|I don't have time.
+Tengo que irme.|TEHN-goh keh EER-meh|I have to go.
+Me voy a dormir.|meh voy ah dor-MEER|I'm going to sleep.
+¡Que duermas bien!|keh DWEHR-mahs bee-EHN|Sleep well!
+¡Buen fin de semana!|bwehn feen deh seh-MAH-nah|Have a good weekend!
+¿Me puedes ayudar con esto?|meh PWEH-dehs ah-yoo-DAR kohn EHS-toh|Can you help me with this?
+¿Puedo pasar?|PWEH-doh pah-SAR|May I come in?
+¿Puedo sentarme aquí?|PWEH-doh sehn-TAR-meh ah-KEE|May I sit here?
+¿Está ocupado este asiento?|ehs-TAH oh-koo-PAH-doh EHS-teh ah-see-EHN-toh|Is this seat taken?
+¿Puedo tomar una foto?|PWEH-doh toh-MAR OO-nah FOH-toh|Can I take a photo?
+¿Nos puede tomar una foto?|nohs PWEH-deh toh-MAR OO-nah FOH-toh|Can you take a photo of us?
+¿Tienes cargador?|tee-EH-nehs kar-gah-DOR|Do you have a charger?
+Se me acabó la batería.|seh meh ah-kah-BOH lah bah-teh-REE-ah|My battery died.
+¿Hay wifi aquí?|eye WEE-fee ah-KEE|Is there wifi here?
+No funciona.|noh foon-see-OH-nah|It doesn't work.
+¿Qué te pasa?|keh teh PAH-sah|What's wrong?
+¿Estás bien?|ehs-TAHS bee-EHN|Are you okay?
+No te preocupes.|noh teh preh-oh-KOO-pehs|Don't worry.
+Tranquilo / Tranquila.|trahn-KEE-loh / -lah|Relax. / Take it easy. (to a man / woman)
+Ten paciencia.|tehn pah-see-EHN-see-ah|Be patient.
+Gracias por todo.|GRAH-see-ahs por TOH-doh|Thanks for everything.
+Te lo agradezco mucho.|teh loh ah-grah-DEHS-koh MOO-choh|I really appreciate it.
+Eres muy amable.|EH-rehs mwee ah-MAH-bleh|You're very kind.
+Hablamos luego.|ah-BLAH-mohs LWEH-goh|We'll talk later.
+Hasta la próxima.|AHS-tah lah PROHK-see-mah|Until next time.
+Necesito descansar un poco.|neh-seh-SEE-toh dehs-kahn-SAR oon POH-koh|I need to rest a little.
+Hoy hace mucho calor.|OY AH-seh MOO-choh kah-LOR|It's very hot today.
+Tengo mucho trabajo.|TEHN-goh MOO-choh trah-BAH-hoh|I have a lot of work.
+Me gusta aprender español.|meh GOOS-tah ah-prehn-DEHR ehs-pah-NYOHL|I like learning Spanish.
+`);
+(function(){
+const ORDER=["greet","intro","understand","questions","little","numbers","time","daily","feelings","verbs","adjectives","family","health","food","restaurant","shopping","directions","transport","home","colors","weather","work","emergency"];
+CATS.sort((a,b)=>ORDER.indexOf(a.id)-ORDER.indexOf(b.id));
+CATS.forEach(c=>c.items.forEach((it,i)=>{it.key=c.id+":"+i;it.cat=c;}));
+const ALL=CATS.flatMap(c=>c.items);
+
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+const norm=s=>s.normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[¿¡]/g,"").toLowerCase();
+
+let learned=new Set();
+try{learned=new Set(JSON.parse(localStorage.getItem("hablemos-learned")||"[]"));}catch(e){}
+function save(){try{localStorage.setItem("hablemos-learned",JSON.stringify([...learned]));}catch(e){}}
+
+const state={cat:"greet",q:"",mode:"browse",slow:false,dir:"en"};
+try{const c=localStorage.getItem("hablemos-cat");if(c&&(c==="all"||CATS.some(x=>x.id===c)))state.cat=c;}catch(e){}
+
+/* ---------- speech ---------- */
+const canSpeak="speechSynthesis" in window;
+let voice=null;
+function pickVoice(){
+  if(!canSpeak)return;
+  const vs=speechSynthesis.getVoices();
+  voice=vs.find(v=>/^es[-_](MX|US|419|CO|AR)/i.test(v.lang))||vs.find(v=>/^es/i.test(v.lang))||null;
+  const n=$("#voicenote");
+  if(vs.length&&!voice){n.hidden=false;n.textContent="No Spanish voice was found on this device, so audio may sound wrong. Add a Spanish voice in your system’s speech settings.";}
+  else n.hidden=true;
+}
+if(canSpeak){pickVoice();speechSynthesis.onvoiceschanged=pickVoice;}
+else{const n=$("#voicenote");n.hidden=false;n.textContent="This browser can’t play audio. Use the sound-it-out guide under each phrase.";}
+let playingBtn=null;
+function say(text,btn){
+  if(!canSpeak)return;
+  speechSynthesis.cancel();
+  if(playingBtn)playingBtn.classList.remove("playing");
+  const t=text.replace(/…/g,"").replace(/\s*\/\s*/g,", ");
+  const u=new SpeechSynthesisUtterance(t);
+  u.lang=voice?voice.lang:"es-MX"; if(voice)u.voice=voice;
+  u.rate=state.slow?0.6:0.9;
+  if(btn){btn.classList.add("playing");playingBtn=btn;u.onend=u.onerror=()=>btn.classList.remove("playing");}
+  speechSynthesis.speak(u);
+}
+
+/* ---------- rendering ---------- */
+const SPK='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+const CHK='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>';
+function hl(str,q){
+  const s=esc(str); if(!q)return s;
+  const n=norm(str); const i=n.indexOf(q); if(i<0)return s;
+  return esc(str.slice(0,i))+"<mark>"+esc(str.slice(i,i+q.length))+"</mark>"+esc(str.slice(i+q.length));
+}
+function pron(p){return esc(p).replace(/\b([A-ZÑ]{2,})\b/g,"<b>$1</b>").replace(/(^|\s)([A-Z])(?=\s|$)/g,"$1<b>$2</b>");}
+function enText(e,q){
+  const m=e.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
+  if(m)return hl(m[1],q)+'<span class="tag">'+esc(m[2])+"</span>";
+  return hl(e,q);
+}
+function row(it,q){
+  const d=learned.has(it.key);
+  return `<div class="row${d?" done":""}" data-k="${it.key}">
+  <button class="say" aria-label="Listen to ${esc(it.s)}">${SPK}</button>
+  <div><div class="sp" lang="es">${hl(it.s,q)}</div><div class="pr">${pron(it.p)}</div></div>
+  <div class="en">${enText(it.e,q)}</div>
+  <button class="chk" aria-pressed="${d}" aria-label="Mark as learned">${CHK}</button></div>`;
+}
+function renderRail(){
+  const all=`<button data-c="all" aria-current="${state.cat==="all"}"><span>All topics</span><span class="ct">${ALL.length}</span></button>`;
+  $("#rail").innerHTML='<div class="railhead">Topics</div>'+all+CATS.map(c=>{
+    const n=c.items.filter(i=>learned.has(i.key)).length;
+    return `<button data-c="${c.id}" aria-current="${state.cat===c.id}"><span>${esc(c.name)}</span><span class="ct">${n}/${c.items.length}</span></button>`;
+  }).join("");
+}
+function renderStats(){
+  $("#total").textContent=ALL.length.toLocaleString();
+  $("#learnedN").textContent=learned.size.toLocaleString();
+  $("#meter").style.width=(100*learned.size/ALL.length).toFixed(1)+"%";
+}
+function section(c,items,q){
+  return `<section class="sect"><div class="secthead"><h2>${esc(c.name)}</h2><span class="es" lang="es">${esc(c.es)}</span><span class="ct">${items.length} entries</span></div>${items.map(i=>row(i,q)).join("")}</section>`;
+}
+function renderBrowse(){
+  const q=norm(state.q.trim());
+  const cats=state.cat==="all"||q?CATS:CATS.filter(c=>c.id===state.cat);
+  let html="";
+  for(const c of cats){
+    const items=q?c.items.filter(i=>norm(i.s).includes(q)||norm(i.e).includes(q)):c.items;
+    if(items.length)html+=section(c,items,q);
+  }
+  $("#main").innerHTML=html||`<p class="empty">Nothing matches “${esc(state.q)}”. Try a shorter word, or search in English.</p>`;
+}
+
+/* ---------- practice ---------- */
+let deck=[],pos=0,shown=false;
+function buildDeck(){
+  const pool=state.cat==="all"?ALL:CATS.find(c=>c.id===state.cat).items;
+  const fresh=pool.filter(i=>!learned.has(i.key)), old=pool.filter(i=>learned.has(i.key));
+  const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+  deck=shuf(fresh).concat(shuf(old)).slice(0,20); pos=0; shown=false;
+}
+function renderPractice(){
+  const name=state.cat==="all"?"All topics":CATS.find(c=>c.id===state.cat).name;
+  if(pos>=deck.length){
+    $("#main").innerHTML=`<div class="practice"><div class="card"><span class="lab">Round complete</span><div class="q">¡Muy bien! Well done.</div><p>You went through ${deck.length} cards from ${esc(name)}.</p></div><div class="pbtns"><button class="btn pri" data-act="again">Start a new round</button></div></div>`;return;
+  }
+  const it=deck[pos];
+  const front=state.dir==="en"?`<div class="q">${esc(it.e)}</div>`:`<div class="q" lang="es">${esc(it.s)}</div>`;
+  const back=state.dir==="en"
+    ?`<div class="sp" lang="es">${esc(it.s)}</div><div class="pr">${pron(it.p)}</div>`
+    :`<div class="pr">${pron(it.p)}</div><div class="en">${esc(it.e)}</div>`;
+  $("#main").innerHTML=`<div class="practice">
+  <div class="pinfo"><span>${esc(name)} · card ${pos+1} of ${deck.length}</span>
+   <div class="seg" role="group" aria-label="Card direction"><button data-dir="en" aria-pressed="${state.dir==="en"}">English → Spanish</button><button data-dir="es" aria-pressed="${state.dir==="es"}">Spanish → English</button></div></div>
+  <div class="card"><span class="lab">${state.dir==="en"?"How do you say":"What does this mean"}</span>${front}
+   ${shown?`<div class="a">${back}<button class="say" data-say="${pos}" aria-label="Listen">${SPK}</button></div>`:""}</div>
+  <div class="pbtns">${shown
+   ?`<button class="btn" data-act="next">Not yet, keep practicing</button><button class="btn good" data-act="know">I know it</button>`
+   :`<button class="btn pri" data-act="show">Show answer</button>`}</div>
+  <p class="tip">Say your answer out loud before you reveal it. Cards you already know come last.</p></div>`;
+}
+
+function render(){
+  renderRail();renderStats();
+  $("#mBrowse").setAttribute("aria-pressed",state.mode==="browse");
+  $("#mPractice").setAttribute("aria-pressed",state.mode==="practice");
+  if(state.mode==="browse")renderBrowse();else renderPractice();
+}
+
+/* ---------- events ---------- */
+$("#rail").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-c]");if(!b)return;
+  state.cat=b.dataset.c;try{localStorage.setItem("hablemos-cat",state.cat);}catch(_){}
+  if(state.q){state.q="";$("#q").value="";}
+  if(state.mode==="practice")buildDeck();
+  render();
+  if(window.innerWidth>820)window.scrollTo({top:$(".toolbar").offsetTop,behavior:"smooth"});
+});
+let t=null;
+$("#q").addEventListener("input",e=>{clearTimeout(t);t=setTimeout(()=>{state.q=e.target.value;if(state.mode!=="browse")state.mode="browse";render();},120);});
+$("#mBrowse").onclick=()=>{state.mode="browse";render();};
+$("#mPractice").onclick=()=>{state.mode="practice";buildDeck();render();};
+$("#sNormal").onclick=()=>{state.slow=false;$("#sNormal").setAttribute("aria-pressed",true);$("#sSlow").setAttribute("aria-pressed",false);};
+$("#sSlow").onclick=()=>{state.slow=true;$("#sSlow").setAttribute("aria-pressed",true);$("#sNormal").setAttribute("aria-pressed",false);};
+const byKey=k=>ALL.find(i=>i.key===k);
+$("#main").addEventListener("click",e=>{
+  const r=e.target.closest(".row");
+  if(r){
+    const it=byKey(r.dataset.k);
+    if(e.target.closest(".say"))say(it.s,e.target.closest(".say"));
+    else if(e.target.closest(".chk")){
+      const b=e.target.closest(".chk");
+      if(learned.has(it.key))learned.delete(it.key);else learned.add(it.key);
+      save();b.setAttribute("aria-pressed",learned.has(it.key));r.classList.toggle("done",learned.has(it.key));
+      renderRail();renderStats();
+    }
+    return;
+  }
+  const d=e.target.closest("[data-dir]");if(d){state.dir=d.dataset.dir;renderPractice();return;}
+  const s=e.target.closest("[data-say]");if(s){say(deck[pos].s,s);return;}
+  const a=e.target.closest("[data-act]");if(!a)return;
+  const act=a.dataset.act;
+  if(act==="show"){shown=true;renderPractice();if(state.dir==="en")say(deck[pos].s);}
+  else if(act==="next"){pos++;shown=false;renderPractice();}
+  else if(act==="know"){learned.add(deck[pos].key);save();pos++;shown=false;renderRail();renderStats();renderPractice();}
+  else if(act==="again"){buildDeck();renderPractice();}
+});
+render();
+})();
+</script>
+
+</body></html>
